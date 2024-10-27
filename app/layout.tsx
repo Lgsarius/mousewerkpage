@@ -4,11 +4,13 @@ import localFont from "next/font/local";
 import '@/styles/globals.css'
 import '@glidejs/glide/dist/css/glide.core.min.css';
 import '@glidejs/glide/dist/css/glide.theme.min.css';
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
   title: 'Mousewerk | Web Development & Digital Solutions',
   description: 'Professional web development and digital solutions. We create exceptional web experiences that drive results, combining stunning design with powerful functionality.',
   keywords: 'web development, digital solutions, React, Next.js, web design, UI/UX design, web applications',
+  metadataBase: new URL('https://mousewerk.de'),
   openGraph: {
     title: 'Mousewerk | Web Development & Digital Solutions',
     description: 'Professional web development and digital solutions. We create exceptional web experiences that drive results.',
@@ -26,7 +29,7 @@ export const metadata: Metadata = {
     siteName: 'Mousewerk',
     images: [
       {
-        url: '/LOGO.png', // Make sure to add this image to your public folder
+        url: '/LOGO.png',
         width: 1200,
         height: 630,
         alt: 'Mousewerk - Web Development & Digital Solutions',
@@ -42,9 +45,15 @@ export const metadata: Metadata = {
     images: ['/LOGO.png'],
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' }
+    ],
     shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
   },
   manifest: '/site.webmanifest',
   robots: {
