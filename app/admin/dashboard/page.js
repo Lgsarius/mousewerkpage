@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { cookies } from 'next/headers';
 import BookingsList from './BookingsList';
 import styles from '../../../styles/dashboard.module.css';
