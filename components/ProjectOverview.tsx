@@ -47,7 +47,7 @@ const projects: Project[] = [
     id: 1,
     title: 'Lo-Fi.Study',
     subtitle: 'Focus & Productivity Platform',
-    description: 'A modern study companion that combines lo-fi music with powerful productivity tools. Built with React and Next.js, this platform offers a seamless experience for students and professionals seeking enhanced focus and productivity.',
+    description: 'An immersive study companion combining curated lo-fi music with advanced productivity tools. Built with modern web technologies, this platform delivers a distraction-free environment with customizable soundscapes, intelligent task management, and detailed progress analytics to optimize your study sessions.',
     images: ['/lofistudy2.png', '/lofistudy.png'],
     link: 'https://lo-fi.study',
     titleColor: '#ff7b00',
@@ -80,7 +80,7 @@ const projects: Project[] = [
     id: 2,
     title: 'Mousewerk.de',
     subtitle: 'Digital Agency Portfolio',
-    description: 'A modern, interactive portfolio showcasing our digital projects and capabilities. Built with Next.js 14 and featuring smooth animations, responsive design, and optimized performance.',
+    description: 'A cutting-edge digital agency portfolio showcasing our expertise in web development and design. Featuring fluid animations, responsive layouts, and optimized performance metrics, the site demonstrates our commitment to creating exceptional digital experiences. Built with Next.js 14 and modern front-end technologies.',
     images: ['/mousewerk.png', '/mousewerk1.png'],
     link: 'https://mousewerk.de',
     titleColor: '#96ABC2',
@@ -200,7 +200,14 @@ export default function ProjectOverview() {
               </div>
             </div>
             
-            <p className={styles.projectDescription}>{project.description}</p>
+            <p 
+              className={styles.projectDescription}
+              style={{ 
+                '--accent-color': project.titleColor 
+              } as React.CSSProperties}
+            >
+              {project.description}
+            </p>
             
             <div className={styles.featureGrid}>
               {project.features.map((feature, i) => (
