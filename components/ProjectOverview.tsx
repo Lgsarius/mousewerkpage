@@ -17,8 +17,9 @@ import {
   FiChevronRight
 } from 'react-icons/fi';
 import '@glidejs/glide/dist/css/glide.core.css';
-import Glide from '@glidejs/glide';  // Add this import if not already present
+import Glide from '@glidejs/glide';
 
+// Move interfaces to separate types file
 interface Feature {
   icon: React.ReactNode;
   text: string;
@@ -42,6 +43,7 @@ interface Project {
   techStack: TechStack;
 }
 
+// Move projects data to separate file
 const projects: Project[] = [
   {
     id: 1,
@@ -110,11 +112,11 @@ const projects: Project[] = [
   }
 ];
 
-export default function ProjectOverview() {
+const ProjectOverview: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState<Record<number, number>>({});
   const [activeProject, setActiveProject] = useState<number | null>(null);
-  const glideRefs = useRef<{ [key: string]: Glide }>({});
+  const glideRefs = useRef<Record<string, Glide>>({});
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -122,40 +124,114 @@ export default function ProjectOverview() {
   }, []);
 
   useEffect(() => {
-    if (isClient) {
+    if (!isClient) return;
+
+    const initializeGlide = () => {
       projects.forEach((project) => {
-        if (project.images.length > 1) {
-          const glide = new Glide(`#glide-${project.id}`, {
-            type: 'carousel',
-            perView: 1,
-            gap: 0,
-            autoplay: 5000,
-          });
+        if (project.images.length <= 1) return;
 
-          glide.on(['mount.after', 'run'], () => {
-            setCurrentImageIndex(prev => ({
-              ...prev,
-              [project.id]: glide.index
-            }));
-          });
+        const glide = new Glide(`#glide-${project.id}`, {
+          type: 'carousel',
+          perView: 1,
+          gap: 0,
+          autoplay: 5000,
+        });
 
-          glide.mount();
-          glideRefs.current[project.id] = glide;
+        glide.on(['mount.after', 'run'], () => {
+          setCurrentImageIndex(prev => ({
+            ...prev,
+            [project.id]: glide.index
+          }));
+        });
+
+        glide.mount();
+        glideRefs.current[project.id] = glide;
+      });
+    };
+
+    initializeGlide();
+
+    return () => {
+      Object.values(glideRefs.current).forEach((glide) => {
+        if (glide?.destroy) {
+          glide.destroy();
         }
       });
-
-      return () => {
-        Object.values(glideRefs.current).forEach((glide: Glide) => {
-          if (glide && typeof glide.destroy === 'function') {
-            glide.destroy();
-          }
-        });
-      };
-    }
+    };
   }, [isClient]);
 
   const handleProjectHover = (projectId: number | null) => {
     setActiveProject(projectId);
+  };
+
+  const renderProjectImage = (project: Project) => {
+    if (!isClient || project.images.length === 0) return null;
+
+    return (
+      <div id={`glide-${project.id}`} className="glide">
+        <div className="glide__track" data-glide-el="track">
+          <ul className="glide__slides">
+            {project.images.map((image, imageIndex) => (
+              <li key={imageIndex} className="glide__slide">
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={image}
+                    alt={`${project.title} screenshot ${imageIndex + 1}`}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    priority={imageIndex === 0}
+                    quality={95}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {renderGlideControls(project)}
+      </div>
+    );
+  };
+
+  const renderGlideControls = (project: Project) => {
+    if (project.images.length <= 1) return null;
+
+    return (
+      <>
+        <div className={styles.glideArrows} data-glide-el="controls">
+          <button 
+            className={`${styles.glideArrow} ${styles.glideArrowPrev}`} 
+            data-glide-dir="<"
+            aria-label="Previous image"
+          >
+            <FiChevronLeft />
+          </button>
+          <button 
+            className={`${styles.glideArrow} ${styles.glideArrowNext}`} 
+            data-glide-dir=">"
+            aria-label="Next image"
+          >
+            <FiChevronRight />
+          </button>
+        </div>
+        <div className={styles.glideBullets} data-glide-el="controls[nav]">
+          {project.images.map((_, bulletIndex) => (
+            <button
+              key={bulletIndex}
+              className={`${styles.glideBullet} ${
+                currentImageIndex[project.id] === bulletIndex ? styles.glideBulletActive : ''
+              }`}
+              data-glide-dir={`=${bulletIndex}`}
+              aria-label={`Go to slide ${bulletIndex + 1}`}
+              style={{ 
+                backgroundColor: currentImageIndex[project.id] === bulletIndex ? project.titleColor : undefined,
+                borderColor: project.titleColor
+              }}
+            />
+          ))}
+        </div>
+      </>
+    );
   };
 
   return (
@@ -271,65 +347,7 @@ export default function ProjectOverview() {
                 </div>
               </div>
               <div className={styles.browserContent}>
-                {isClient && project.images.length > 0 && (
-                  <div id={`glide-${project.id}`} className="glide">
-                    <div className="glide__track" data-glide-el="track">
-                      <ul className="glide__slides">
-                        {project.images.map((image, imageIndex) => (
-                          <li key={imageIndex} className="glide__slide">
-                            <div className={styles.imageContainer}>
-                              <Image
-                                src={image}
-                                alt={`${project.title} screenshot ${imageIndex + 1}`}
-                                fill
-                                style={{ objectFit: 'cover' }}
-                                priority={imageIndex === 0}
-                                quality={95}
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                              />
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    {project.images.length > 1 && (
-                      <>
-                        <div className={styles.glideArrows} data-glide-el="controls">
-                          <button 
-                            className={`${styles.glideArrow} ${styles.glideArrowPrev}`} 
-                            data-glide-dir="<"
-                            aria-label="Previous image"
-                          >
-                            <FiChevronLeft />
-                          </button>
-                          <button 
-                            className={`${styles.glideArrow} ${styles.glideArrowNext}`} 
-                            data-glide-dir=">"
-                            aria-label="Next image"
-                          >
-                            <FiChevronRight />
-                          </button>
-                        </div>
-                        <div className={styles.glideBullets} data-glide-el="controls[nav]">
-                          {project.images.map((_, bulletIndex) => (
-                            <button
-                              key={bulletIndex}
-                              className={`${styles.glideBullet} ${
-                                currentImageIndex[project.id] === bulletIndex ? styles.glideBulletActive : ''
-                              }`}
-                              data-glide-dir={`=${bulletIndex}`}
-                              aria-label={`Go to slide ${bulletIndex + 1}`}
-                              style={{ 
-                                backgroundColor: currentImageIndex[project.id] === bulletIndex ? project.titleColor : undefined,
-                                borderColor: project.titleColor
-                              }}
-                            />
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </div>
-                )}
+                {renderProjectImage(project)}
               </div>
             </div>
           </div>
@@ -337,4 +355,6 @@ export default function ProjectOverview() {
       ))}
     </section>
   );
-}
+};
+
+export default ProjectOverview;
