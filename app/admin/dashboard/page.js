@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 import { cookies } from 'next/headers';
 import BookingsList from './BookingsList';
