@@ -96,7 +96,7 @@ export default function BookUs() {
           </div>
         </div>
         <div className={styles.rightColumn}>
-          <h3 className={styles.formTitle}>Book Your Project</h3>
+          <h3 className={styles.formTitle}>Request Your Project</h3>
           <form onSubmit={handleSubmit} className={styles.bookUsForm}>
             <div className={styles.formGroup}>
               <input
@@ -191,7 +191,7 @@ export default function BookUs() {
               ></textarea>
             </div>
             <button type="submit" className={styles.submitButton}>
-              Book Your Consultation
+              Request Your Consultation
               <span className={styles.buttonIcon}>→</span>
             </button>
           </form>

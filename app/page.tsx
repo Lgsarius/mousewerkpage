@@ -5,6 +5,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProjectOverview from "@/components/ProjectOverview";
 import Link from 'next/link';
+import { BiCode, BiPalette } from 'react-icons/bi';
+import { IoRocketOutline } from 'react-icons/io5';
+import { BsArrowRight } from 'react-icons/bs';
+import Image from 'next/image';
 
 export default function Home() {
   useEffect(() => {
@@ -40,11 +44,47 @@ export default function Home() {
       <Header />
       <main className={styles.main}>
         <section className={styles.hero}>
-          <h1 className={styles.title}>Welcome to Mousewerk</h1>
-          <p className={styles.description}>Creating innovative web solutions that transform ideas into digital realities</p>
-          <Link href="#projects" className={styles.ctaButton}>
-            Explore Our Projects
-          </Link>
+          <div className={styles.heroContent}>
+            <div className={styles.iconWrapper}>
+              <Image 
+                src="/logo_trans.png"
+                alt="Mousewerk Logo"
+                width={120}
+                height={120}
+                className={styles.heroLogo}
+                priority
+              />
+            </div>
+            <h1 className={styles.title}>
+              Transform Your Digital Vision Into Reality
+            </h1>
+            <p className={styles.description}>
+              We craft exceptional web experiences that drive results. From stunning designs 
+              to powerful functionality, we&apos;re your partner in digital excellence.
+            </p>
+            <div className={styles.ctaContainer}>
+              <Link href="#projects" className={styles.ctaButton}>
+                View Our Work <BsArrowRight className={styles.buttonIcon} />
+              </Link>
+              <Link href="/request" className={`${styles.ctaButton} ${styles.ctaSecondary}`}>
+                Let&apos;s Talk <BsArrowRight className={styles.buttonIcon} />
+              </Link>
+            </div>
+            <ul className={styles.featureList}>
+              <li className={styles.featureItem}>
+                <BiCode className={styles.featureIcon} />
+                Custom Web Development
+              </li>
+              <li className={styles.featureItem}>
+                <BiPalette className={styles.featureIcon} />
+                Modern UI/UX Design
+              </li>
+              <li className={styles.featureItem}>
+                <IoRocketOutline className={styles.featureIcon} />
+                Performance Optimization
+              </li>
+            </ul>
+          </div>
         </section>
         <ProjectOverview />
       </main>

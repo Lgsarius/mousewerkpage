@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import styles from '../styles/Footer.module.css';
 import Image from 'next/image';
-import { FaTiktok, FaInstagram } from 'react-icons/fa';
+// import { FaTiktok, FaInstagram } from 'react-icons/fa';
 
 export default function Footer() {
     return (
@@ -20,8 +20,8 @@ export default function Footer() {
                     <h3>Navigation</h3>
                     <ul>
                         <li><Link href="https://lo-fi.study">Study App</Link></li>
-                        <li><Link href="/aboutus">About Us</Link></li>
-                        <li><Link href="/Contact">Contact</Link></li>
+                        <li><Link href="/about">About Us</Link></li>
+                        <li><Link href="/contact">Contact</Link></li>
                     </ul>
                 </div>
                 <div className={styles.navSection}>
@@ -31,7 +31,7 @@ export default function Footer() {
                         <li><Link href="/terms-of-service">Terms of Service</Link></li>
                     </ul>
                 </div>
-                <div className={styles.navSection}>
+                {/* <div className={styles.navSection}>
                     <h3>Follow Us</h3>
                     <div className={styles.socialIcons}>
                         <Link href="https://www.tiktok.com/@lofi.study.app?lang=en" target="_blank" rel="noopener noreferrer">
@@ -41,7 +41,7 @@ export default function Footer() {
                             <FaInstagram size={24} />
                         </Link>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className={styles.copyright}>
                 © 2024 Copyright Mousewerk.de. All rights reserved.

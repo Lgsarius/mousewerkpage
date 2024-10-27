@@ -27,10 +27,10 @@ export default function Header() {
         </Link>
         <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
         
-          <Link href="/Contact" className={styles.navLink}>Contact</Link>
-          <Link href="/FAQ" className={styles.navLink}>FAQ</Link>
-          <Link href="/book" className={`${styles.navLink} ${styles.signInButton}`}>
-          Book Us
+          <Link href="/contact" className={styles.navLink}>Contact</Link>
+          <Link href="/about" className={styles.navLink}>About Us</Link>
+          <Link href="/request" className={`${styles.navLink} ${styles.signInButton}`}>
+            Request
           </Link>
         </nav>
         <div className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`} onClick={toggleMenu}>
