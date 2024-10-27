@@ -1,0 +1,128 @@
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  color: #e2e8f0;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.policySection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.policyCard {
+  background-color: #2C3E50;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.policyCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.sectionContent {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+}
+
+.contactSection {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.contactEmail {
+  color: #4299e1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contactEmail:hover {
+  color: #63b3ed;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .policyCard {
+    padding: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .sectionContent {
+    font-size: 1rem;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .policyCard {
+    background-color: #1a2634;
+  }
+
+  .sectionContent {
+    color: #cbd5e0;
+  }
+}
+
+/* Print styles */
+@media print {
+  .container {
+    padding: 1rem;
+  }
+
+  .policyCard {
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+    break-inside: avoid;
+  }
+
+  .policyCard:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
