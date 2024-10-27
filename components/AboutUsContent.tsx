@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "@/styles/AboutUsContent.module.css";
 import { FaMoneyBillWave, FaHeadset, FaRocket, FaPuzzlePiece, FaLaptopCode, FaUsers } from "react-icons/fa";
+import Link from "next/link";
 
 export default function AboutUsContent() {
   const features = [
@@ -45,9 +46,11 @@ export default function AboutUsContent() {
           </div>
         </div>
 
-        <a href="/book" className={styles.ctaButton}>
-          Get in Touch
-        </a>
+        <div className={styles.ctaWrapper}>
+          <Link href="/request" className={styles.ctaButton}>
+            Get in Touch
+          </Link>
+        </div>
       </div>
     </div>
   );
