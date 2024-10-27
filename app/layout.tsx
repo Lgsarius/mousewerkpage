@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Mousewerk | Web Development & Digital Solutions',
     description: 'Professional web development and digital solutions. We create exceptional web experiences that drive results.',
-    url: 'https://mousewerk.dev',
+    url: 'https://mousewerk.de',
     siteName: 'Mousewerk',
     images: [
       {
