@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: 'Mousewerk',
     images: [
       {
-        url: '/og-image.jpg', // Make sure to add this image to your public folder
+        url: '/LOGO.png', // Make sure to add this image to your public folder
         width: 1200,
         height: 630,
         alt: 'Mousewerk - Web Development & Digital Solutions',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Mousewerk | Web Development & Digital Solutions',
     description: 'Professional web development and digital solutions. We create exceptional web experiences that drive results.',
-    images: ['/og-image.jpg'],
+    images: ['/LOGO.png'],
   },
   icons: {
     icon: '/favicon.ico',
