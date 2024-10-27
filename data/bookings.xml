@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bookings>
+  <booking>
+    <id>1</id>
+    <name>Maurice Kleindienst</name>
+    <email>kleindiema@icloud.com</email>
+    <company>MouseWerk</company>
+    <projectType>website</projectType>
+    <budget>1000-5000</budget>
+    <timeline>2323</timeline>
+    <description>2323</description>
+    <status>in-progress</status>
+    <notes>sdsdsd</notes>
+  </booking>
+  <booking>
+    <id>2</id>
+    <name>Markus Nienaber</name>
+    <email>kleindiema@gmail.com</email>
+    <company>Stock 2</company>
+    <projectType>ecommerce</projectType>
+    <budget>10000+</budget>
+    <timeline>2323</timeline>
+    <description>2323</description>
+    <status>completed</status>
+    <notes>dsdsdsds</notes>
+  </booking>
+</bookings>

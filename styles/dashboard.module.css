@@ -1,0 +1,200 @@
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #121212;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #e0e0e0;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.tableContainer {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tableWrapper {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #e0e0e0;
+}
+
+.table th, .table td {
+  padding: 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid #2c2c2c;
+}
+
+.table th {
+  position: sticky;
+  top: 0;
+  background-color: #2c2c2c;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover {
+  background-color: #252525;
+  transition: background-color 0.3s ease;
+}
+
+.table td {
+  font-size: 0.95rem;
+}
+
+.unauthorized {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #ff4757;
+  margin-top: 100px;
+  background-color: rgba(255, 71, 87, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+
+  .table th, .table td {
+    padding: 1rem;
+  }
+}
+
+.table th:first-child,
+.table td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: inherit;
+  z-index: 1;
+}
+
+/* Remove or comment out this block */
+/*
+.tableWrapper::after {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: #ff4757;
+  opacity: 0.5;
+  animation: fadeInOut 2s infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+*/
+
+.statusBadge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.statusPending {
+  background-color: #ffa502;
+  color: #ffffff;
+}
+
+.statusCompleted {
+  background-color: #2ed573;
+  color: #ffffff;
+}
+
+.statusCancelled {
+  background-color: #ff4757;
+  color: #ffffff;
+}
+
+.statusSelect {
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  border: 1px solid #3c3c3c;
+}
+
+.notesTextarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  border: 1px solid #3c3c3c;
+  resize: vertical;
+}
+
+.actionButton {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.actionButton:hover {
+  background-color: #2980b9;
+}
+
+/* Adjust table layout for new columns */
+.table th, .table td {
+  padding: 1rem 0.8rem;
+}
+
+.table th:nth-child(7),
+.table td:nth-child(7),
+.table th:nth-child(8),
+.table td:nth-child(8) {
+  min-width: 120px;
+}
+
+.table th:last-child,
+.table td:last-child {
+  min-width: 80px;
+}

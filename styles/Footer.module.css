@@ -1,0 +1,138 @@
+/* styles/Footer.module.css */
+
+.footer {
+    background-color: #121212;
+    color: #ffffff;
+    padding: 3rem 2rem;
+}
+
+.footerContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    flex: 1 1 100%;
+    margin-bottom: 2rem;
+}
+
+.logo p {
+    margin-top: 1rem;
+    color: #cccccc;
+}
+
+.navSection {
+    flex: 1 1 100%;
+    margin-bottom: 2rem;
+}
+
+.navSection h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #96ABC2;
+}
+
+.navSection ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navSection ul li {
+    margin-bottom: 0.5rem;
+}
+
+.navSection ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navSection ul li a:hover {
+    color: #ffffff;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.socialIcons a {
+    color: #cccccc;
+    transition: color 0.3s ease;
+}
+
+.socialIcons a:hover {
+    color: #ffffff;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    color: #cccccc;
+}
+
+.signUpButton {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #96ABC2;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.signUpButton:hover {
+    background-color: #4f6a88;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ... rest of the CSS for responsive design ... */
+
+@media (min-width: 768px) {
+    .logo, .navSection {
+        flex: 1 1 auto;
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .socialIcons {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer {
+        padding: 2rem 1rem;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .navSection {
+        text-align: center;
+    }
+
+    .navSection h3 {
+        margin-top: 1.5rem;
+    }
+
+    .copyright {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+}

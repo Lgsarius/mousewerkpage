@@ -1,0 +1,90 @@
+
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  text-align: center;
+}
+
+.title {
+  font-size: 4.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.description {
+  font-size: 1.5rem;
+  color: #cccccc;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #96ABC2;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: fadeInUp 1s ease-out 0.6s both;
+  cursor: pointer;
+}
+
+.ctaButton:hover {
+  background-color: #4f6a88;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .description {
+    font-size: 1.2rem;
+  }
+
+  .ctaButton {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,275 @@
+.bookUsSection {
+  background-color: #121212;
+  padding: 6rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookUsContainer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  background-color: #1e1e1e;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.leftColumn {
+  flex: 1;
+  padding: 4rem;
+  background-color: #2c3e50;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  margin-bottom: 2rem;
+}
+
+.logo img {
+  max-width: 150px;
+  height: auto;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.bookUsTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: #3498db;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bookUsDescription {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.featureIcon {
+  font-size: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featureText h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.featureText p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.rightColumn {
+  flex: 1;
+  padding: 4rem;
+  background-color: #1e1e1e;
+}
+
+.formTitle {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.bookUsForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formRow {
+  display: flex;
+  gap: 1rem;
+}
+
+.formRow .formGroup {
+  flex: 1;
+}
+
+.input,
+.select,
+.textarea {
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #333333;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #888888;
+}
+
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submitButton {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.submitButton:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.buttonIcon {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  .bookUsContainer {
+    flex-direction: column;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bookUsSection {
+    padding: 3rem 1rem;
+  }
+
+  .bookUsTitle {
+    font-size: 2rem;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    padding: 2rem;
+  }
+
+  .formRow {
+    flex-direction: column;
+  }
+}
+
+.logoContainer {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logoContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.logoImage {
+  max-width: 100%;
+  height: auto;
+}
+
+.companyName {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bookUsTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: #3498db;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bookUsDescription {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.logoWrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-right: 1rem;
+}
+
+.logoImage {
+  transition: transform 0.3s ease;
+}
+
+.logoContainer:hover .logoImage {
+  transform: scale(1.05);
+}
