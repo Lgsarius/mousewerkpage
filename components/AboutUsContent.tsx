@@ -30,7 +30,7 @@ export default function AboutUsContent() {
 
       <div className={styles.content}>
         <p className={styles.description}>
-          At Mousewerk, we're passionate about creating bespoke web solutions that perfectly fit our clients' visions. Our team of skilled developers and designers work tirelessly to bring your ideas to life.
+          At Mousewerk, we&apos;re passionate about creating bespoke web solutions that perfectly fit our clients&apos; visions. Our team of skilled developers and designers work tirelessly to bring your ideas to life.
         </p>
 
         <div className={styles.features}>
