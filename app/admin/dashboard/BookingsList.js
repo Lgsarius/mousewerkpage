@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import styles from './dashboard.module.css';
+import styles from '../../styles/dashboard.module.css';
 
 // Debounce function
 const debounce = (func, delay) => {

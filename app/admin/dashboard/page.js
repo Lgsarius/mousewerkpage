@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import BookingsList from './BookingsList';
-import styles from '@styles/dashboard.module.css';
+import styles from '../../styles/dashboard.module.css';
 
 export default async function AdminDashboard() {
   const cookieStore = await cookies();
