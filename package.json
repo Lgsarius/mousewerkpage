@@ -30,6 +30,9 @@
     "xml2js": "^0.6.2"
   },
   "engines": {
-    "node": "18.x"
+    "node": ">=18.0.0"
+  },
+  "npm-config": {
+    "legacy-peer-deps": true
   }
 }
