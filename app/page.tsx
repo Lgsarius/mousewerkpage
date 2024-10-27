@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { BiCode, BiPalette } from 'react-icons/bi';
 import { IoRocketOutline } from 'react-icons/io5';
 import { BsArrowRight } from 'react-icons/bs';
-import Image from 'next/image';
+// Remove Image import if not used
 
 export default function Home() {
   useEffect(() => {

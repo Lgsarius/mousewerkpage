@@ -126,6 +126,8 @@ const ProjectOverview: React.FC = () => {
   useEffect(() => {
     if (!isClient) return;
 
+    const glideInstances: Record<string, Glide> = {};
+
     const initializeGlide = () => {
       projects.forEach((project) => {
         if (project.images.length <= 1) return;
@@ -145,14 +147,16 @@ const ProjectOverview: React.FC = () => {
         });
 
         glide.mount();
+        glideInstances[project.id] = glide;
         glideRefs.current[project.id] = glide;
       });
     };
 
     initializeGlide();
 
+    // Use the local variable in cleanup
     return () => {
-      Object.values(glideRefs.current).forEach((glide) => {
+      Object.values(glideInstances).forEach((glide) => {
         if (glide?.destroy) {
           glide.destroy();
         }
