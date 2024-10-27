@@ -25,12 +25,14 @@ export default function BookingsList() {
     try {
       const response = await fetch('/api/admin/fetch-bookings');
       if (!response.ok) {
-        throw new Error('Failed to fetch bookings');
+        const errorText = await response.text();
+        throw new Error(`Failed to fetch bookings: ${response.status} ${response.statusText}. ${errorText}`);
       }
       const data = await response.json();
       setBookings(data);
       setLoading(false);
     } catch (err) {
+      console.error('Error fetching bookings:', err);
       setError(err.message);
       setLoading(false);
     }
