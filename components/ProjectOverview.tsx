@@ -109,6 +109,39 @@ const projects: Project[] = [
     techStack: {
       frontend: ['Next.js 14', 'React', 'TypeScript', 'CSS Modules'],
     }
+  },
+  {
+    id: 3,
+    title: 'Bavarian Restaurant Homepage',
+    subtitle: 'Traditional Bavarian Restaurant Homepage',
+    description: 'An authentic Bavarian restaurant website that combines traditional aesthetics with modern functionality. Features include an interactive menu, table reservations, and event booking system. The design emphasizes the restaurant\'s charm while providing a seamless modern user experience for both local and tourist customers.',
+    images: ['/restaurant.png', '/restaurant2.png'],
+    link: 'https://bavarian-restaurant.de',
+    titleColor: '#8B4513',
+    linkColor: '#8B4513',
+    tags: ['Next.js 14', 'React', 'Reservation System', 'Internationalization'],
+    features: [
+      {
+        icon: <FiLayout />,
+        text: 'Interactive Menu'
+      },
+      {
+        icon: <FiZap />,
+        text: 'Online Reservations'
+      },
+      {
+        icon: <FiSmartphone />,
+        text: 'Multi-language Support'
+      },
+      {
+        icon: <FiAward />,
+        text: 'Event Planning'
+      }
+    ],
+    techStack: {
+      frontend: ['Next.js 14', 'React', 'TypeScript', 'i18n'],
+      backend: ['CMS', 'PostgreSQL']
+    }
   }
 ];
 
