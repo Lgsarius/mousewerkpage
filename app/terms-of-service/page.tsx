@@ -55,7 +55,7 @@ export default function TermsOfService() {
             <h2 className={styles.sectionTitle}>3. Terms of Use</h2>
             <div className={styles.sectionContent}>
               <p><strong>3.1 Scope</strong></p>
-              <p>These terms govern the use of MouseWerk's software and services. By using our services, you agree to these terms.</p>
+              <p>These terms govern the use of MouseWerk&apos;s software and services. By using our services, you agree to these terms.</p>
               
               <p><strong>3.2 License Terms</strong></p>
               <p>Users receive a non-exclusive, non-transferable right to use the software in accordance with these terms.</p>
@@ -78,7 +78,7 @@ export default function TermsOfService() {
               <p>MouseWerk shall be liable without limitation for damages caused intentionally or by gross negligence, as well as for damages resulting from injury to life, body, or health.</p>
               
               <p><strong>4.2 Warranty</strong></p>
-              <p>The software is provided "as is". We make no warranties regarding the accuracy, availability, or fitness for a particular purpose.</p>
+              <p>The software is provided &quot;as is&quot;. We make no warranties regarding the accuracy, availability, or fitness for a particular purpose.</p>
             </div>
           </div>
 
