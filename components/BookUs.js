@@ -100,7 +100,7 @@ export default function BookUs() {
     >
       <div className={styles.bookUsContainer}>
         <div className={styles.leftColumn}>
-          <div className={styles.logoContainer}>
+          {/* <div className={styles.logoContainer}>
             <Image 
               src="/logo_trans.png" 
               alt="WebDesign Logo" 
@@ -109,7 +109,7 @@ export default function BookUs() {
               objectFit="contain"
               className={styles.logoImage}
             />
-          </div>
+          </div> */}
           <h2 className={styles.bookUsTitle}>Craft Your Digital Presence</h2>
           <p className={styles.bookUsDescription}>
             Transform your vision into a stunning reality. Our expert team is ready to create a website that not only looks great but drives results for your business.
@@ -134,6 +134,13 @@ export default function BookUs() {
               <div className={styles.featureText}>
                 <h3>Rapid Delivery</h3>
                 <p>Quick turnaround without compromising quality</p>
+              </div>
+            </div>
+            <div className={styles.feature}>
+              <div className={styles.featureIcon}>🔒</div>
+              <div className={styles.featureText}>
+                <h3>Security First</h3>
+                <p>Built with modern security best practices</p>
               </div>
             </div>
           </div>

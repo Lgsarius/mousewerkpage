@@ -69,9 +69,9 @@
 .logoContainer {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  padding: 2.5rem;
-  margin-bottom: 3.5rem;
+  border-radius: 12px;  /* Reduced from 24px */
+  padding: 0.75rem;     /* Reduced from 1.5rem */
+  margin-bottom: 1.25rem; /* Reduced from 2.5rem */
   position: relative;
   overflow: hidden;
 }
@@ -97,7 +97,7 @@
 }
 
 .logo img {
-  max-width: 150px;
+  max-width: 120px;  /* Reduced from 150px */
   height: auto;
 }
 
@@ -127,6 +127,7 @@
 
 .features {
   display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Display 2 features per row */
   gap: 1.8rem;
   position: relative;
 }
@@ -254,11 +255,28 @@
 }
 
 .select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-size: 1rem;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.select option {
+  background-color: #1a1a1a;
+  color: #fff;
 }
 
 .textarea {
@@ -380,8 +398,8 @@
 }
 
 .logoImage {
-  max-width: 100%;
-  height: auto;
+  max-width: 100px !important;  /* Reduced size */
+  height: auto !important;
 }
 
 .companyName {
@@ -653,3 +671,4 @@
   -webkit-overflow-scrolling: touch;
   will-change: transform;
 }
+
