@@ -9,6 +9,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  background-color: #1B1B1B;
 }
 
 .hero {
@@ -18,12 +19,39 @@
   justify-content: center;
   min-height: 100vh;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  background: linear-gradient(-45deg, #1a1a1a, #2d2d2d, #252525, #1f1f1f);
+  background-size: 400% 400%;
+  animation: gradientBg 20s ease infinite;
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-bottom: none;
+  margin-bottom: -1px; /* This helps eliminate any potential gap */
 }
 
+/* Increase the fade height and adjust the gradient */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 350px; /* Increased height for even more gradual fade */
+  background: linear-gradient(to bottom, 
+    rgba(27, 27, 27, 0) 0%,
+    rgba(27, 27, 27, 0.8) 70%,
+    #1B1B1B 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Update the existing grid overlay to sit under the fade */
+.hero::before {
+  z-index: 0;
+}
+
+/* Add subtle noise texture overlay */
 .hero::before {
   content: '';
   position: absolute;
@@ -31,26 +59,36 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(150, 171, 194, 0.1) 0%, transparent 50%);
+  background: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E"),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 200px 200px, 20px 20px, 20px 20px;
+  animation: gridFloat 15s linear infinite;
+  opacity: 0.4;
 }
 
 .heroContent {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
+/* Enhanced title styling */
 .title {
   font-size: 4.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #ffffff 0%, #96ABC2 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #96ABC2 50%, #7891ac 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1.5rem;
   animation: fadeInUp 1s ease-out;
+  text-shadow: 0 0 30px rgba(150, 171, 194, 0.1);
+  letter-spacing: -0.02em;
 }
 
+/* Enhanced description */
 .description {
   font-size: 1.5rem;
   color: #cccccc;
@@ -58,6 +96,7 @@
   margin: 0 auto 2.5rem;
   line-height: 1.6;
   animation: fadeInUp 1s ease-out 0.3s both;
+  letter-spacing: 0.2px;
 }
 
 .ctaContainer {
@@ -70,22 +109,57 @@
 
 .ctaButton {
   display: inline-block;
-  padding: 1rem 2.5rem;
-  background-color: #96ABC2;
+  padding: 1.2rem 2.8rem;
+  background: linear-gradient(45deg, #96ABC2, #7891ac);
   color: #1a1a1a;
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: 50px;
   font-weight: 600;
   font-size: 1.1rem;
-  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(150, 171, 194, 0.1);
   position: relative;
   overflow: hidden;
+  border: none;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.ctaButton:hover::before {
+  left: 100%;
 }
 
 .ctaSecondary {
-  background-color: transparent;
+  background: rgba(150, 171, 194, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(150, 171, 194, 0.2);
   color: #96ABC2;
-  border: 2px solid #96ABC2;
+}
+
+.ctaSecondary:hover {
+  background: rgba(150, 171, 194, 0.2);
+  border-color: rgba(150, 171, 194, 0.3);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(150, 171, 194, 0.1);
+}
+
+.ctaSecondary:hover::before {
+  display: none;
 }
 
 .ctaButton:hover {
@@ -95,22 +169,41 @@
   box-shadow: 0 4px 12px rgba(150, 171, 194, 0.2);
 }
 
-.ctaSecondary:hover {
-  background-color: #96ABC2;
-  color: #1a1a1a;
-}
-
 .featureList {
-  display: flex;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 2.5rem;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 4rem;
   animation: fadeInUp 1s ease-out 0.9s both;
 }
 
 .featureItem {
-  color: #cccccc;
-  font-size: 1.1rem;
+  background: rgba(150, 171, 194, 0.03);
+  padding: 1.2rem 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(150, 171, 194, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.featureItem:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(150, 171, 194, 0.05);
+  border-color: rgba(150, 171, 194, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.featureIcon {
+  font-size: 1.6rem;
+  margin-right: 1rem;
+  color: #96ABC2;
+  transition: all 0.3s ease;
+}
+
+.featureItem:hover .featureIcon {
+  transform: scale(1.1);
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -120,15 +213,18 @@
 
   .title {
     font-size: 2.5rem;
+    letter-spacing: -0.01em;
   }
 
   .description {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    padding: 0 1rem;
   }
 
   .featureList {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 0 1rem;
   }
 
   .ctaContainer {
@@ -136,6 +232,7 @@
   }
 
   .ctaButton {
+    padding: 1rem 2rem;
     width: 100%;
     text-align: center;
   }
@@ -229,5 +326,206 @@
 @media (max-width: 768px) {
   .heroLogo {
     height: 80px;
+  }
+}
+
+@keyframes gradientBg {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+@keyframes gridFloat {
+  0% { background-position: 0 0 }
+  100% { background-position: 30px 30px }
+}
+
+.heroContent > * {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: calc(var(--float-delay) * 1s);
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-10px) rotate(0.5deg); 
+  }
+}
+
+/* Add glow effect to hero content */
+.heroContent {
+  position: relative;
+}
+
+.heroContent::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(150, 171, 194, 0.03) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  animation: rotatePulse 15s linear infinite;
+}
+
+@keyframes rotatePulse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Adjust hero padding for mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding: 6rem 1.5rem;
+    min-height: 100svh; /* Use small viewport height for better mobile experience */
+  }
+
+  .heroContent {
+    max-width: 100%;
+  }
+
+  /* Adjust title size and spacing */
+  .title {
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+    padding: 0 0.5rem;
+    line-height: 1.2;
+  }
+
+  /* Adjust description */
+  .description {
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  /* Improve CTA container layout */
+  .ctaContainer {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  /* Adjust CTA buttons */
+  .ctaButton {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  /* Adjust feature list */
+  .featureList {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .featureItem {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  /* Adjust icon sizes */
+  .featureIcon {
+    font-size: 1.3rem;
+    min-width: 1.3rem; /* Prevent icon from shrinking */
+  }
+
+  .buttonIcon {
+    font-size: 1.1rem;
+  }
+
+  /* Adjust background effects */
+  .hero::before {
+    background-size: 100px 100px, 15px 15px, 15px 15px; /* Smaller grid pattern */
+  }
+
+  .hero::after {
+    height: 200px; /* Shorter fade on mobile */
+  }
+}
+
+/* Add iPhone-specific adjustments */
+@media (max-width: 390px) {
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 4rem 1rem;
+  }
+}
+
+/* Handle landscape mode */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .featureList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Prevent content shift when keyboard appears on mobile */
+@media (max-width: 768px) and (max-height: 600px) {
+  .hero {
+    min-height: auto;
+    padding: 3rem 1.5rem;
+  }
+}
+
+/* Add touch-specific improvements */
+@media (hover: none) {
+  .ctaButton:active {
+    transform: scale(0.98);
+  }
+
+  .featureItem {
+    /* Remove hover effects that don't work well on touch devices */
+    transform: none !important;
+    transition: background-color 0.3s ease;
+  }
+
+  .featureItem:active {
+    background: rgba(150, 171, 194, 0.1);
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .heroContent::after,
+  .hero::before,
+  .ctaButton,
+  .featureItem,
+  .title,
+  .description {
+    animation: none;
+    transition: none;
   }
 }

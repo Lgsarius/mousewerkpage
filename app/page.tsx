@@ -12,6 +12,12 @@ import Image from 'next/image';
 
 export default function Home() {
   useEffect(() => {
+    // Add float delay to hero content elements
+    const heroElements = document.querySelectorAll(`.${styles.heroContent} > *`);
+    heroElements.forEach((el, index) => {
+      (el as HTMLElement).style.setProperty('--float-delay', String(index * 0.2));
+    });
+
     const smoothScroll = (e: Event) => {
       e.preventDefault();
       const target = e.target as HTMLAnchorElement;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '../styles/BookUs.module.css';
 
@@ -13,6 +13,36 @@ export default function BookUs() {
     description: ''
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState('100vh');
+
+  useEffect(() => {
+    // Handle mobile detection
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Handle viewport height for mobile browsers
+    const handleResize = () => {
+      setViewportHeight(`${window.innerHeight}px`);
+    };
+
+    // Initial checks
+    checkMobile();
+    handleResize();
+
+    // Event listeners
+    window.addEventListener('resize', checkMobile);
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -23,6 +53,13 @@ export default function BookUs() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (isMobile) {
+      // Blur active element to hide keyboard
+      document.activeElement?.blur();
+    }
+
+    setIsLoading(true);
     try {
       const response = await fetch('/api/submit-booking', {
         method: 'POST',
@@ -50,11 +87,17 @@ export default function BookUs() {
     } catch (error) {
       console.error('Error:', error);
       alert('There was an error submitting your booking. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <section id="book-us" className={styles.bookUsSection}>
+    <section 
+      id="book-us" 
+      className={styles.bookUsSection} 
+      style={{ minHeight: viewportHeight }}
+    >
       <div className={styles.bookUsContainer}>
         <div className={styles.leftColumn}>
           <div className={styles.logoContainer}>
@@ -190,9 +233,13 @@ export default function BookUs() {
                 placeholder="Tell us about your project..."
               ></textarea>
             </div>
-            <button type="submit" className={styles.submitButton}>
-              Request Your Consultation
-              <span className={styles.buttonIcon}>→</span>
+            <button 
+              type="submit" 
+              className={`${styles.submitButton} ${isLoading ? styles.loading : ''}`}
+              disabled={isLoading}
+            >
+              {isLoading ? 'Submitting...' : 'Request Your Consultation'}
+              {!isLoading && <span className={styles.buttonIcon}>→</span>}
             </button>
           </form>
         </div>
