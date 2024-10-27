@@ -45,16 +45,7 @@ export default function Home() {
       <main className={styles.main}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>
-            <div className={styles.iconWrapper}>
-              <Image 
-                src="/logo_trans.png"
-                alt="Mousewerk Logo"
-                width={120}
-                height={120}
-                className={styles.heroLogo}
-                priority
-              />
-            </div>
+           
             <h1 className={styles.title}>
               Transform Your Digital Vision Into Reality
             </h1>
