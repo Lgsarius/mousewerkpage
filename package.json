@@ -34,5 +34,8 @@
   },
   "npm-config": {
     "legacy-peer-deps": true
+  },
+  "devDependencies": {
+    "@types/glidejs__glide": "^3.6.5"
   }
 }
