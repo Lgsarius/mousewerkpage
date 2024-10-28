@@ -1,3 +1,5 @@
+// Pfad zur Datei: /app/layout.tsx
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
@@ -18,13 +20,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Mousewerk | Web Development & Digital Solutions',
-  description: 'Professional web development and digital solutions. We create exceptional web experiences that drive results, combining stunning design with powerful functionality.',
-  keywords: 'web development, digital solutions, React, Next.js, web design, UI/UX design, web applications',
+  title: 'Mousewerk | Webentwicklung & Digitale Lösungen',
+  description: 'Professionelle Webentwicklung und digitale Lösungen. Wir schaffen herausragende Web-Erlebnisse, die Resultate liefern – vom ansprechenden Design bis zur leistungsstarken Funktionalität.',
+  keywords: 'Webentwicklung, digitale Lösungen, React, Next.js, Webdesign, UI/UX Design, Webanwendungen, Webagentur, Website-Erstellung',
   metadataBase: new URL('https://mousewerk.de'),
   openGraph: {
-    title: 'Mousewerk | Web Development & Digital Solutions',
-    description: 'Professional web development and digital solutions. We create exceptional web experiences that drive results.',
+    title: 'Mousewerk | Webentwicklung & Digitale Lösungen',
+    description: 'Professionelle Webentwicklung und digitale Lösungen. Wir schaffen Web-Erlebnisse, die begeistern und Ergebnisse liefern.',
     url: 'https://mousewerk.de',
     siteName: 'Mousewerk',
     images: [
@@ -32,16 +34,16 @@ export const metadata: Metadata = {
         url: '/LOGO.png',
         width: 1200,
         height: 630,
-        alt: 'Mousewerk - Web Development & Digital Solutions',
+        alt: 'Mousewerk - Webentwicklung & Digitale Lösungen',
       },
     ],
-    locale: 'en_US',
+    locale: 'de_DE',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mousewerk | Web Development & Digital Solutions',
-    description: 'Professional web development and digital solutions. We create exceptional web experiences that drive results.',
+    title: 'Mousewerk | Webentwicklung & Digitale Lösungen',
+    description: 'Professionelle Webentwicklung und digitale Lösungen. Wir schaffen Web-Erlebnisse, die begeistern und Ergebnisse liefern.',
     images: ['/LOGO.png'],
   },
   icons: {
@@ -68,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>{children}</body>
     </html>
   )
