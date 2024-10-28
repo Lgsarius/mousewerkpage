@@ -1,13 +1,15 @@
+// Pfad zur Datei: /components/ProjectOverview.tsx
+
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '@/styles/ProjectOverview.module.css';
 import { BiLinkExternal } from 'react-icons/bi';
-import { 
-  FiHeadphones, 
-  FiClock, 
-  FiList, 
+import {
+  FiHeadphones,
+  FiClock,
+  FiList,
   FiBarChart2,
   FiZap,
   FiSmartphone,
@@ -19,7 +21,7 @@ import {
 import '@glidejs/glide/dist/css/glide.core.css';
 import Glide from '@glidejs/glide';
 
-// Move interfaces to separate types file
+// Interfaces in eine separate Datei verschieben
 interface Feature {
   icon: React.ReactNode;
   text: string;
@@ -35,7 +37,7 @@ interface Project {
   subtitle: string;
   description: string;
   images: string[];
-  link?: string;  // Make link optional with '?'
+  link?: string;  // Link optional mit '?'
   titleColor: string;
   linkColor: string;
   tags: string[];
@@ -43,13 +45,13 @@ interface Project {
   techStack: TechStack;
 }
 
-// Move projects data to separate file
+// Projektdaten in eine separate Datei verschieben
 const projects: Project[] = [
   {
     id: 1,
     title: 'Lo-Fi.Study',
-    subtitle: 'Focus & Productivity Platform',
-    description: 'An immersive study companion combining curated lo-fi music with advanced productivity tools. Built with modern web technologies, this platform delivers a distraction-free environment with customizable soundscapes, intelligent task management, and detailed progress analytics to optimize your study sessions.',
+    subtitle: 'Fokus- & Produktivitätsplattform',
+    description: 'Ein immersiver Lernbegleiter, der kuratierte Lo-Fi-Musik mit fortschrittlichen Produktivitätstools kombiniert. Entwickelt mit modernen Webtechnologien bietet diese Plattform eine ablenkungsfreie Umgebung mit anpassbaren Klanglandschaften, intelligentem Aufgabenmanagement und detaillierten Fortschrittsanalysen zur Optimierung Ihrer Lernsitzungen.',
     images: ['/lofistudy2.png', '/lofistudy.png'],
     link: 'https://lo-fi.study',
     titleColor: '#ff7b00',
@@ -58,31 +60,31 @@ const projects: Project[] = [
     features: [
       {
         icon: <FiHeadphones />,
-        text: 'Curated Lo-Fi Music'
+        text: 'Kuratierte Lo-Fi Musik'
       },
       {
         icon: <FiClock />,
-        text: 'Pomodoro Timer'
+        text: 'Pomodoro-Timer'
       },
       {
         icon: <FiList />,
-        text: 'Task Management'
+        text: 'Aufgabenverwaltung'
       },
       {
         icon: <FiBarChart2 />,
-        text: 'Progress Analytics'
+        text: 'Fortschrittsanalyse'
       }
     ],
     techStack: {
-      frontend: ['React', 'Next.js', 'TypeScript', 'TailwindCSS'],
+      frontend: ['React', 'Next.js 14', 'TypeScript', 'TailwindCSS'],
       backend: ['Firebase', 'Cloud Functions']
     }
   },
   {
     id: 2,
     title: 'Mousewerk.de',
-    subtitle: 'Digital Agency Portfolio',
-    description: 'A cutting-edge digital agency portfolio showcasing our expertise in web development and design. Featuring fluid animations, responsive layouts, and optimized performance metrics, the site demonstrates our commitment to creating exceptional digital experiences. Built with Next.js 14 and modern front-end technologies.',
+    subtitle: 'Digitalagentur Portfolio',
+    description: 'Ein hochmodernes Portfolio einer Digitalagentur, das unsere Expertise in Webentwicklung und Design präsentiert. Mit flüssigen Animationen, responsiven Layouts und optimierten Leistungsmetriken demonstriert die Website unser Engagement für außergewöhnliche digitale Erlebnisse.',
     images: ['/mousewerk.png', '/mousewerk1.png'],
     link: 'https://mousewerk.de',
     titleColor: '#96ABC2',
@@ -91,19 +93,19 @@ const projects: Project[] = [
     features: [
       {
         icon: <FiLayout />,
-        text: 'Modern UI/UX'
+        text: 'Modernes UI/UX'
       },
       {
         icon: <FiZap />,
-        text: 'Optimized Performance'
+        text: 'Optimierte Leistung'
       },
       {
         icon: <FiSmartphone />,
-        text: 'Responsive Design'
+        text: 'Responsives Design'
       },
       {
         icon: <FiAward />,
-        text: 'Interactive Elements'
+        text: 'Interaktive Elemente'
       }
     ],
     techStack: {
@@ -112,29 +114,29 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: 'Bavarian Restaurant Homepage',
-    subtitle: 'Traditional Bavarian Restaurant Homepage',
-    description: 'An authentic Bavarian restaurant website that combines traditional aesthetics with modern functionality. Features include an interactive menu, table reservations, and event booking system. The design emphasizes the restaurant\'s charm while providing a seamless modern user experience for both local and tourist customers.',
+    title: 'Bayerisches Restaurant Homepage',
+    subtitle: 'Traditionelles bayerisches Restaurant Homepage',
+    description: 'Eine authentische Website für ein bayerisches Restaurant, die traditionelle Ästhetik mit moderner Funktionalität kombiniert. Zu den Funktionen gehören ein interaktives Menü, Tischreservierungen und ein Event-Buchungssystem. Das Design betont den Charme des Restaurants und bietet gleichzeitig eine nahtlose Benutzererfahrung für lokale und touristische Kunden.',
     images: ['/restaurant.png', '/restaurant2.png'],
     titleColor: '#8B4513',
     linkColor: '#8B4513',
-    tags: ['Next.js 14', 'React', 'Reservation System', 'Internationalization'],
+    tags: ['Next.js 14', 'React', 'Reservierungssystem', 'Internationalisierung'],
     features: [
       {
         icon: <FiLayout />,
-        text: 'Interactive Menu'
+        text: 'Interaktives Menü'
       },
       {
         icon: <FiZap />,
-        text: 'Online Reservations'
+        text: 'Online-Reservierungen'
       },
       {
         icon: <FiSmartphone />,
-        text: 'Multi-language Support'
+        text: 'Mehrsprachigkeit'
       },
       {
         icon: <FiAward />,
-        text: 'Event Planning'
+        text: 'Eventplanung'
       }
     ],
     techStack: {
@@ -145,28 +147,28 @@ const projects: Project[] = [
   {
     id: 4,
     title: 'StudyHub',
-    subtitle: 'Tools for Students Platform',
-    description: 'A comprehensive educational platform offering free tools and resources to help students excel in their academic journey. Features include study guides, calculator tools, formula sheets, and interactive learning materials. Built with accessibility and user experience in mind to support students in their day-to-day academic challenges.',
+    subtitle: 'Plattform für Studententools',
+    description: 'Eine umfassende Bildungsplattform mit kostenlosen Tools und Ressourcen, die Studenten unterstützen, um in ihrem Studium zu glänzen. Zu den Funktionen gehören Lernleitfäden, Rechenwerkzeuge, Formelsammlungen und interaktive Lernmaterialien. Entwickelt mit Schwerpunkt auf Benutzerfreundlichkeit und Barrierefreiheit.',
     images: ['/study.png', '/study2.png', '/study3.png'],
     titleColor: '#4A90E2',
     linkColor: '#4A90E2',
-    tags: ['Next.js 14', 'React', 'Educational Tools', 'Interactive Learning'],
+    tags: ['Next.js 14', 'React', 'Bildungstools', 'Interaktives Lernen'],
     features: [
       {
         icon: <FiLayout />,
-        text: 'Study Guides'
+        text: 'Lernleitfäden'
       },
       {
         icon: <FiZap />,
-        text: 'Calculator Tools'
+        text: 'Rechenwerkzeuge'
       },
       {
         icon: <FiSmartphone />,
-        text: 'Formula Database'
+        text: 'Formeldatenbank'
       },
       {
         icon: <FiAward />,
-        text: 'Practice Tests'
+        text: 'Übungstests'
       }
     ],
     techStack: {
@@ -218,7 +220,6 @@ const ProjectOverview: React.FC = () => {
 
     initializeGlide();
 
-    // Use the local variable in cleanup
     return () => {
       Object.values(glideInstances).forEach((glide) => {
         if (glide?.destroy) {
@@ -244,7 +245,7 @@ const ProjectOverview: React.FC = () => {
                 <div className={styles.imageContainer}>
                   <Image
                     src={image}
-                    alt={`${project.title} screenshot ${imageIndex + 1}`}
+                    alt={`${project.title} Screenshot ${imageIndex + 1}`}
                     fill
                     style={{ objectFit: 'cover' }}
                     priority={imageIndex === 0}
@@ -270,14 +271,14 @@ const ProjectOverview: React.FC = () => {
           <button 
             className={`${styles.glideArrow} ${styles.glideArrowPrev}`} 
             data-glide-dir="<"
-            aria-label="Previous image"
+            aria-label="Vorheriges Bild"
           >
             <FiChevronLeft />
           </button>
           <button 
             className={`${styles.glideArrow} ${styles.glideArrowNext}`} 
             data-glide-dir=">"
-            aria-label="Next image"
+            aria-label="Nächstes Bild"
           >
             <FiChevronRight />
           </button>
@@ -290,7 +291,7 @@ const ProjectOverview: React.FC = () => {
                 currentImageIndex[project.id] === bulletIndex ? styles.glideBulletActive : ''
               }`}
               data-glide-dir={`=${bulletIndex}`}
-              aria-label={`Go to slide ${bulletIndex + 1}`}
+              aria-label={`Gehe zu Slide ${bulletIndex + 1}`}
               style={{ 
                 backgroundColor: currentImageIndex[project.id] === bulletIndex ? project.titleColor : undefined,
                 borderColor: project.titleColor
@@ -305,8 +306,8 @@ const ProjectOverview: React.FC = () => {
   return (
     <section id="projects" className={styles.projectOverview} ref={sectionRef}>
       <div className={styles.titleContainer}>
-        <span className={styles.preTitle}>Featured Work</span>
-        <h2 className={styles.sectionTitle}>Our Projects</h2>
+        <span className={styles.preTitle}>Ausgewählte Arbeiten</span>
+        <h2 className={styles.sectionTitle}>Unsere Projekte</h2>
         <div className={styles.titleUnderline}></div>
       </div>
 
@@ -398,7 +399,7 @@ const ProjectOverview: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span>Visit Site</span>
+                <span>Website besuchen</span>
                 <BiLinkExternal className={styles.linkIcon} />
               </Link>
             ) : null}

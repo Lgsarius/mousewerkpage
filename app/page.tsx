@@ -1,3 +1,5 @@
+// Pfad zur Datei: /pages/index.tsx
+
 "use client";
 import { useEffect } from 'react';
 import styles from '@/styles/Home.module.css';
@@ -8,11 +10,11 @@ import Link from 'next/link';
 import { BiCode, BiPalette } from 'react-icons/bi';
 import { IoRocketOutline } from 'react-icons/io5';
 import { BsArrowRight } from 'react-icons/bs';
-// Remove Image import if not used
+// Image-Import entfernen, falls nicht verwendet
 
 export default function Home() {
   useEffect(() => {
-    // Add float delay to hero content elements
+    // Verzögerung für Schwebe-Effekte der Hero-Content-Elemente hinzufügen
     const heroElements = document.querySelectorAll(`.${styles.heroContent} > *`);
     heroElements.forEach((el, index) => {
       (el as HTMLElement).style.setProperty('--float-delay', String(index * 0.2));
@@ -53,32 +55,31 @@ export default function Home() {
           <div className={styles.heroContent}>
            
             <h1 className={styles.title}>
-              Transform Your Digital Vision Into Reality
+              Verwandeln Sie Ihre digitale Vision in Realität
             </h1>
             <p className={styles.description}>
-              We craft exceptional web experiences that drive results. From stunning designs 
-              to powerful functionality, we&apos;re your partner in digital excellence.
+              Wir schaffen außergewöhnliche Web-Erlebnisse, die Ergebnisse liefern. Von beeindruckendem Design bis hin zu leistungsstarker Funktionalität – wir sind Ihr Partner für digitale Exzellenz.
             </p>
             <div className={styles.ctaContainer}>
               <Link href="#projects" className={styles.ctaButton}>
-                View Our Work <BsArrowRight className={styles.buttonIcon} />
+                Unsere Arbeit ansehen <BsArrowRight className={styles.buttonIcon} />
               </Link>
               <Link href="/request" className={`${styles.ctaButton} ${styles.ctaSecondary}`}>
-                Let&apos;s Talk <BsArrowRight className={styles.buttonIcon} />
+                Lassen Sie uns reden <BsArrowRight className={styles.buttonIcon} />
               </Link>
             </div>
             <ul className={styles.featureList}>
               <li className={styles.featureItem}>
                 <BiCode className={styles.featureIcon} />
-                Custom Web Development
+                Individuelle Webentwicklung
               </li>
               <li className={styles.featureItem}>
                 <BiPalette className={styles.featureIcon} />
-                Modern UI/UX Design
+                Modernes UI/UX-Design
               </li>
               <li className={styles.featureItem}>
                 <IoRocketOutline className={styles.featureIcon} />
-                Performance Optimization
+                Leistungsoptimierung
               </li>
             </ul>
           </div>

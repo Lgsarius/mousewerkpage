@@ -79,13 +79,13 @@ export default function BookUs() {
           timeline: '',
           description: ''
         });
-        alert('Thank you for your booking request. We will contact you soon to discuss your project!');
+        alert('Vielen Dank für Ihre Projektanfrage. Wir werden uns in Kürze mit Ihnen in Verbindung setzen!');
       } else {
-        throw new Error('Failed to submit booking');
+        throw new Error('Fehler beim Senden der Anfrage');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('There was an error submitting your booking. Please try again.');
+      alert('Bei der Übermittlung Ihrer Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
     } finally {
       setIsLoading(false);
     }
@@ -99,53 +99,43 @@ export default function BookUs() {
     >
       <div className={styles.bookUsContainer}>
         <div className={styles.leftColumn}>
-          {/* <div className={styles.logoContainer}>
-            <Image 
-              src="/logo_trans.png" 
-              alt="WebDesign Logo" 
-              width={200} 
-              height={100} 
-              objectFit="contain"
-              className={styles.logoImage}
-            />
-          </div> */}
-          <h2 className={styles.bookUsTitle}>Craft Your Digital Presence</h2>
+          <h2 className={styles.bookUsTitle}>Gestalten Sie Ihre digitale Präsenz</h2>
           <p className={styles.bookUsDescription}>
-            Transform your vision into a stunning reality. Our expert team is ready to create a website that not only looks great but drives results for your business.
+            Verwandeln Sie Ihre Vision in eine beeindruckende Realität. Unser Expertenteam ist bereit, eine Website zu erstellen, die nicht nur großartig aussieht, sondern auch Ergebnisse für Ihr Unternehmen liefert.
           </p>
           <div className={styles.features}>
             <div className={styles.feature}>
               <div className={styles.featureIcon}>🎨</div>
               <div className={styles.featureText}>
-                <h3>Bespoke Design</h3>
-                <p>Tailored to your brand&apos;s unique identity</p>
+                <h3>Maßgeschneidertes Design</h3>
+                <p>Angepasst an die einzigartige Identität Ihrer Marke</p>
               </div>
             </div>
             <div className={styles.feature}>
               <div className={styles.featureIcon}>📱</div>
               <div className={styles.featureText}>
-                <h3>Responsive Development</h3>
-                <p>Flawless on every device</p>
+                <h3>Responsive Entwicklung</h3>
+                <p>Perfekt auf jedem Gerät</p>
               </div>
             </div>
             <div className={styles.feature}>
               <div className={styles.featureIcon}>🚀</div>
               <div className={styles.featureText}>
-                <h3>Rapid Delivery</h3>
-                <p>Quick turnaround without compromising quality</p>
+                <h3>Schnelle Lieferung</h3>
+                <p>Kurze Bearbeitungszeit ohne Qualitätseinbußen</p>
               </div>
             </div>
             <div className={styles.feature}>
               <div className={styles.featureIcon}>🔒</div>
               <div className={styles.featureText}>
-                <h3>Security First</h3>
-                <p>Built with modern security best practices</p>
+                <h3>Sicherheit zuerst</h3>
+                <p>Entwickelt nach modernsten Sicherheitsstandards</p>
               </div>
             </div>
           </div>
         </div>
         <div className={styles.rightColumn}>
-          <h3 className={styles.formTitle}>Request Your Project</h3>
+          <h3 className={styles.formTitle}>Projektanfrage</h3>
           <form onSubmit={handleSubmit} className={styles.bookUsForm}>
             <div className={styles.formGroup}>
               <input
@@ -156,7 +146,7 @@ export default function BookUs() {
                 onChange={handleChange}
                 required
                 className={styles.input}
-                placeholder="Your Name"
+                placeholder="Ihr Name"
               />
             </div>
             <div className={styles.formGroup}>
@@ -168,7 +158,7 @@ export default function BookUs() {
                 onChange={handleChange}
                 required
                 className={styles.input}
-                placeholder="Your Email"
+                placeholder="Ihre E-Mail"
               />
             </div>
             <div className={styles.formGroup}>
@@ -179,7 +169,7 @@ export default function BookUs() {
                 value={formData.company}
                 onChange={handleChange}
                 className={styles.input}
-                placeholder="Your Company (optional)"
+                placeholder="Ihr Unternehmen (optional)"
               />
             </div>
             <div className={styles.formRow}>
@@ -192,11 +182,11 @@ export default function BookUs() {
                   required
                   className={styles.select}
                 >
-                  <option value="">Project Type</option>
-                  <option value="website">Website Design</option>
-                  <option value="ecommerce">E-commerce Website</option>
-                  <option value="webapp">Web Application</option>
-                  <option value="redesign">Website Redesign</option>
+                  <option value="">Projekttyp</option>
+                  <option value="website">Website-Design</option>
+                  <option value="ecommerce">E-Commerce Website</option>
+                  <option value="webapp">Web-Anwendung</option>
+                  <option value="redesign">Website-Redesign</option>
                 </select>
               </div>
               <div className={styles.formGroup}>
@@ -208,11 +198,11 @@ export default function BookUs() {
                   required
                   className={styles.select}
                 >
-                  <option value="">Budget Range</option>
-                  <option value="0-1000">$0 - $1,000</option>
-                  <option value="1000-5000">$1,000 - $5,000</option>
-                  <option value="5000-10000">$5,000 - $10,000</option>
-                  <option value="10000+">$10,000+</option>
+                  <option value="">Budgetrahmen</option>
+                  <option value="0-1000">0€ - 1.000€</option>
+                  <option value="1000-5000">1.000€ - 5.000€</option>
+                  <option value="5000-10000">5.000€ - 10.000€</option>
+                  <option value="10000+">über 10.000€</option>
                 </select>
               </div>
             </div>
@@ -223,7 +213,7 @@ export default function BookUs() {
                 name="timeline"
                 value={formData.timeline}
                 onChange={handleChange}
-                placeholder="Desired Timeline (e.g., 2 months, ASAP)"
+                placeholder="Gewünschter Zeitrahmen (z.B. 2 Monate, ASAP)"
                 required
                 className={styles.input}
               />
@@ -236,7 +226,7 @@ export default function BookUs() {
                 onChange={handleChange}
                 required
                 className={styles.textarea}
-                placeholder="Tell us about your project..."
+                placeholder="Erzählen Sie uns von Ihrem Projekt..."
               ></textarea>
             </div>
             <button 
@@ -244,7 +234,7 @@ export default function BookUs() {
               className={`${styles.submitButton} ${isLoading ? styles.loading : ''}`}
               disabled={isLoading}
             >
-              {isLoading ? 'Submitting...' : 'Request Your Consultation'}
+              {isLoading ? 'Wird gesendet...' : 'Beratung anfragen'}
               {!isLoading && <span className={styles.buttonIcon}>→</span>}
             </button>
           </form>

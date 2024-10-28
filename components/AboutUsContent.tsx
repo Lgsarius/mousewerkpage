@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export default function AboutUsContent() {
   const features = [
-    { icon: <FaMoneyBillWave className={styles.icon} />, text: "Competitive Pricing" },
+    { icon: <FaMoneyBillWave className={styles.icon} />, text: "Wettbewerbsfähige Preise" },
     { icon: <FaHeadset className={styles.icon} />, text: "24/7 Support" },
-    { icon: <FaRocket className={styles.icon} />, text: "Rapid Development" },
-    { icon: <FaPuzzlePiece className={styles.icon} />, text: "Tailored Solutions" },
-    { icon: <FaLaptopCode className={styles.icon} />, text: "Cutting-edge Tech" },
-    { icon: <FaUsers className={styles.icon} />, text: "User-Centric Design" },
+    { icon: <FaRocket className={styles.icon} />, text: "Schnelle Entwicklung" },
+    { icon: <FaPuzzlePiece className={styles.icon} />, text: "Maßgeschneiderte Lösungen" },
+    { icon: <FaLaptopCode className={styles.icon} />, text: "Modernste Technologie" },
+    { icon: <FaUsers className={styles.icon} />, text: "Nutzerorientiertes Design" },
   ];
 
   return (
@@ -25,17 +25,17 @@ export default function AboutUsContent() {
             className={styles.logo}
           />
         </div>
-        <h1 className={styles.title}>About Mousewerk</h1>
-        <p className={styles.subtitle}>Crafting Digital Excellence</p>
+        <h1 className={styles.title}>Über Mousewerk</h1>
+        <p className={styles.subtitle}>Digitale Exzellenz gestalten</p>
       </div>
 
       <div className={styles.content}>
         <p className={styles.description}>
-          At Mousewerk, we&apos;re passionate about creating bespoke web solutions that perfectly fit our clients&apos; visions. Our team of skilled developers and designers work tirelessly to bring your ideas to life.
+          Bei Mousewerk sind wir leidenschaftlich daran interessiert, maßgeschneiderte Weblösungen zu entwickeln, die perfekt zur Vision unserer Kunden passen. Unser Team aus erfahrenen Entwicklern und Designern arbeitet unermüdlich daran, Ihre Ideen zum Leben zu erwecken.
         </p>
 
         <div className={styles.features}>
-          <h2 className={styles.featuresTitle}>Why Choose Us?</h2>
+          <h2 className={styles.featuresTitle}>Warum uns wählen?</h2>
           <div className={styles.featureGrid}>
             {features.map((feature, index) => (
               <div key={index} className={styles.featureItem}>
@@ -48,7 +48,7 @@ export default function AboutUsContent() {
 
         <div className={styles.ctaWrapper}>
           <Link href="/request" className={styles.ctaButton}>
-            Get in Touch
+            Kontaktieren Sie uns
           </Link>
         </div>
       </div>
