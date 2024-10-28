@@ -35,7 +35,7 @@ interface Project {
   subtitle: string;
   description: string;
   images: string[];
-  link: string;
+  link?: string;  // Make link optional with '?'
   titleColor: string;
   linkColor: string;
   tags: string[];
@@ -116,7 +116,6 @@ const projects: Project[] = [
     subtitle: 'Traditional Bavarian Restaurant Homepage',
     description: 'An authentic Bavarian restaurant website that combines traditional aesthetics with modern functionality. Features include an interactive menu, table reservations, and event booking system. The design emphasizes the restaurant\'s charm while providing a seamless modern user experience for both local and tourist customers.',
     images: ['/restaurant.png', '/restaurant2.png'],
-    link: 'https://bavarian-restaurant.de',
     titleColor: '#8B4513',
     linkColor: '#8B4513',
     tags: ['Next.js 14', 'React', 'Reservation System', 'Internationalization'],
@@ -141,6 +140,38 @@ const projects: Project[] = [
     techStack: {
       frontend: ['Next.js 14', 'React', 'TypeScript', 'i18n'],
       backend: ['CMS', 'PostgreSQL']
+    }
+  },
+  {
+    id: 4,
+    title: 'StudyHub',
+    subtitle: 'Tools for Students Platform',
+    description: 'A comprehensive educational platform offering free tools and resources to help students excel in their academic journey. Features include study guides, calculator tools, formula sheets, and interactive learning materials. Built with accessibility and user experience in mind to support students in their day-to-day academic challenges.',
+    images: ['/study.png', '/study2.png', '/study3.png'],
+    titleColor: '#4A90E2',
+    linkColor: '#4A90E2',
+    tags: ['Next.js 14', 'React', 'Educational Tools', 'Interactive Learning'],
+    features: [
+      {
+        icon: <FiLayout />,
+        text: 'Study Guides'
+      },
+      {
+        icon: <FiZap />,
+        text: 'Calculator Tools'
+      },
+      {
+        icon: <FiSmartphone />,
+        text: 'Formula Database'
+      },
+      {
+        icon: <FiAward />,
+        text: 'Practice Tests'
+      }
+    ],
+    techStack: {
+      frontend: ['Next.js 14', 'React', 'TypeScript', 'TailwindCSS'],
+      backend: ['MongoDB']
     }
   }
 ];
@@ -359,16 +390,19 @@ const ProjectOverview: React.FC = () => {
               ))}
             </div>
 
-            <Link 
-              href={project.link} 
-              className={styles.projectLink}
-              style={{ backgroundColor: project.linkColor }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Visit Site</span>
-              <BiLinkExternal className={styles.linkIcon} />
-            </Link>
+            {project.link ? (
+              <Link 
+                href={project.link} 
+                className={styles.projectLink}
+                style={{ backgroundColor: project.linkColor }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Visit Site</span>
+                <BiLinkExternal className={styles.linkIcon} />
+              </Link>
+            ) : null}
+
           </div>
 
           <div className={styles.projectImageWrapper}>
