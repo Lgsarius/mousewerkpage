@@ -2,6 +2,7 @@
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import CookieBanner from "@/components/CookieBanner";
 
 import '@/styles/globals.css'
 import '@glidejs/glide/dist/css/glide.core.min.css';
@@ -70,7 +71,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>{children}
+        <CookieBanner />
+      </body>
     </html>
   )
 }
