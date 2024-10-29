@@ -1,0 +1,213 @@
+/* Add these new styles to your existing CSS file */
+
+.subtitle {
+  color: #cccccc;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.ctaContainer {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #96ABC2, #4f6a88);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(150, 171, 194, 0.2);
+  background: linear-gradient(45deg, #4f6a88, #96ABC2);
+}
+
+/* Adjust responsive styles */
+@media (max-width: 768px) {
+  .subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .ctaContainer {
+    margin-top: 3rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+}
+
+.services {
+  padding: 6rem 2rem;
+  background-color: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.preTitle {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #96ABC2;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.titleUnderline {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #96ABC2 0%, #4f6a88 100%);
+  margin: 1.5rem auto;
+  border-radius: 2px;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.serviceCard {
+  width: 100%;
+  min-height: 100%;
+  background: rgba(150, 171, 194, 0.05);
+  border-radius: 16px;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(150, 171, 194, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  background: rgba(150, 171, 194, 0.08);
+  border-color: rgba(150, 171, 194, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.iconWrapper {
+  width: 60px;
+  height: 60px;
+  background: rgba(150, 171, 194, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #96ABC2;
+  transition: all 0.3s ease;
+}
+
+.serviceCard:hover .iconWrapper {
+  background: #96ABC2;
+  color: #1a1a1a;
+  transform: scale(1.1);
+}
+
+.serviceTitle {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.serviceDescription {
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #cccccc;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.checkmark {
+  color: #96ABC2;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 4rem 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .serviceCard {
+    padding: 1.5rem;
+  }
+}
+
+/* Add subtle animation for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.serviceCard {
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: calc(var(--animation-order) * 0.1s);
+}
+
+/* Reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  .serviceCard {
+    animation: none;
+    transform: none !important;
+  }
+} 

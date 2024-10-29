@@ -10,9 +10,25 @@ import Link from 'next/link';
 import { BiCode, BiPalette } from 'react-icons/bi';
 import { IoRocketOutline } from 'react-icons/io5';
 import { BsArrowRight } from 'react-icons/bs';
+import ServicesSection from '@/components/ServicesSection';
 // Image-Import entfernen, falls nicht verwendet
 
 export default function Home() {
+  // Move scrollToContent outside useEffect
+  const scrollToContent = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      const headerHeight = 70; // Height of your fixed header
+      const elementPosition = servicesSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   useEffect(() => {
     // Verzögerung für Schwebe-Effekte der Hero-Content-Elemente hinzufügen
     const heroElements = document.querySelectorAll(`.${styles.heroContent} > *`);
@@ -83,7 +99,12 @@ export default function Home() {
               </li>
             </ul>
           </div>
+          <div className={styles.scrollIndicator} onClick={scrollToContent}>
+            <span className={styles.scrollText}>Mehr entdecken</span>
+            <div className={styles.scrollArrow}></div>
+          </div>
         </section>
+        <ServicesSection />
         <ProjectOverview />
       </main>
       <Footer />

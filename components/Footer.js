@@ -3,50 +3,70 @@
 import Link from 'next/link';
 import styles from '../styles/Footer.module.css';
 import Image from 'next/image';
-// import { FaTiktok, FaInstagram } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaArrowRight } from 'react-icons/fa';
 
 export default function Footer() {
     return (
         <footer className={styles.footer}>
-            <div className={styles.footerContent}>
-                <div className={styles.logo}>
-                    <Link href="/">
-                        <Image src="/logo_trans.png" alt="Mousewerk" width={100} height={100}/>
-                    </Link>
-                    <p>Räume gestalten mit Mousewerk</p>
-                    <button className={styles.signUpButton}>
-                        <Link href="/book">Jetzt Buchen</Link>
-                    </button>
-                </div>
-                <div className={styles.navSection}>
-                    <h3>Navigation</h3>
-                    <ul>
-                        <li><Link href="https://lo-fi.study">Lern-App</Link></li>
-                        <li><Link href="/about">Über uns</Link></li>
-                        <li><Link href="/contact">Kontakt</Link></li>
-                    </ul>
-                </div>
-                <div className={styles.navSection}>
-                    <h3>Rechtliches</h3>
-                    <ul>
-                        <li><Link href="/privacy-policy">Datenschutzerklärung</Link></li>
-                        <li><Link href="/terms-of-service">AGB</Link></li>
-                    </ul>
-                </div>
-                {/* <div className={styles.navSection}>
-                    <h3>Follow Us</h3>
-                    <div className={styles.socialIcons}>
-                        <Link href="https://www.tiktok.com/@lofi.study.app?lang=en" target="_blank" rel="noopener noreferrer">
-                            <FaTiktok size={24} />
+            <div className={styles.footerWrapper}>
+                <div className={styles.footerContent}>
+                    <div className={styles.companySection}>
+                        <Link href="/" className={styles.logoLink}>
+                            <Image src="/logo_trans.png" alt="Mousewerk" width={120} height={120} className={styles.logoImage}/>
                         </Link>
-                        <Link href="https://www.instagram.com/lo_fi.study/" target="_blank" rel="noopener noreferrer">
-                            <FaInstagram size={24} />
+                        <p className={styles.companyDesc}>
+                            Innovative Webdesign-Lösungen für Ihren digitalen Erfolg. Wir gestalten die Zukunft Ihrer Online-Präsenz.
+                        </p>
+                        <Link href="/contact" className={styles.ctaButton}>
+                            Anfrage stellen <FaArrowRight className={styles.arrowIcon} />
                         </Link>
                     </div>
-                </div> */}
-            </div>
-            <div className={styles.copyright}>
-                © 2024 Copyright Mousewerk.de. Alle Rechte vorbehalten.
+
+                    <div className={styles.linksSection}>
+                        <div className={styles.navSection}>
+                            <h3>Navigation</h3>
+                            <ul>
+                                <li><Link href="/services">Services</Link></li>
+                                <li><Link href="/portfolio">Portfolio</Link></li>
+                                <li><Link href="/about">Über uns</Link></li>
+                                <li><Link href="/contact">Kontakt</Link></li>
+                            </ul>
+                        </div>
+
+                        <div className={styles.navSection}>
+                            <h3>Services</h3>
+                            <ul>
+                                <li><Link href="/webdesign">Webdesign</Link></li>
+                                <li><Link href="/development">Entwicklung</Link></li>
+                                <li><Link href="/seo">SEO</Link></li>
+                                <li><Link href="/hosting">Hosting</Link></li>
+                            </ul>
+                        </div>
+
+                        <div className={styles.navSection}>
+                            <h3>Rechtliches</h3>
+                            <ul>
+                                <li><Link href="/privacy">Datenschutz</Link></li>
+                                <li><Link href="/imprint">Impressum</Link></li>
+                                <li><Link href="/terms">AGB</Link></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.footerBottom}>
+                    <div className={styles.socialIcons}>
+                        <Link href="https://www.instagram.com/mousewerk.de/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                            <FaInstagram />
+                        </Link>
+                        <Link href="https://www.linkedin.com/company/mousewerk/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                            <FaLinkedin />
+                        </Link>
+                    </div>
+                    <div className={styles.copyright}>
+                        © {new Date().getFullYear()} Mousewerk. Alle Rechte vorbehalten.
+                    </div>
+                </div>
             </div>
         </footer>
     );

@@ -10,142 +10,230 @@
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  color: #e2e8f0;
-  
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 3rem;
-  position: relative;
-}
-
-.logoWrapper {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 2rem;
-  background-color: #2d3748;
-  border-radius: 50%;
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.heroSection,
+.missionSection,
+.featuresSection,
+.ctaSection {
+  width: 100%;
+  margin: 0;
+  padding: 6rem 2rem;}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-out;
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffffff 0%, #96ABC2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1.2s ease-out;
 }
 
 .subtitle {
   font-size: 1.5rem;
-  color: #a0aec0;
+  color: #96ABC2;
+  margin-bottom: 2rem;
 }
 
-.content {
+.heroDescription {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #cccccc;
+}
+
+.missionContent {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.description {
-  font-size: 1.25rem;
-  line-height: 1.7;
   text-align: center;
-  max-width: 800px;
-  margin-bottom: 3rem;
-  color: #e2e8f0;
-}
-
-.features {
-  width: 100%;
-  margin-bottom: 3rem;
-}
-
-.featuresTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #fff;
-}
-
-.featureGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 }
 
+.missionText {
+  max-width: 800px;
+}
+
+.missionText h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #96ABC2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.missionText p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #cccccc;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.statItem {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(150, 171, 194, 0.1);
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.statItem:hover {
+  transform: translateY(-5px);
+}
+
+.statNumber {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #96ABC2;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  color: #cccccc;
+  font-size: 1rem;
+}
+
+.featuresSection {
+  width: 100%;
+  margin: 0;
+  padding: 6rem 2rem;
+ 
+  text-align: center;
+}
+
+.featuresSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+  background: linear-gradient(135deg, #ffffff 0%, #96ABC2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.featureGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  padding: 0 1rem;
+}
+
 .featureItem {
+  padding: 3rem;
+  background: rgba(150, 171, 194, 0.05);
+  border: 1px solid rgba(150, 171, 194, 0.1);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  background-color: #2C3E50;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .featureItem:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  background: rgba(150, 171, 194, 0.1);
+  border-color: rgba(150, 171, 194, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.icon {
-  width: 2rem;
-  height: 2rem;
-  margin-right: 1rem;
-  color: #4299e1;
+.featureIcon {
+  font-size: 2.5rem;
+  color: #96ABC2;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.ctaWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+.featureItem:hover .featureIcon {
+  transform: scale(1.1);
+  color: #ffffff;
+}
+
+.featureItem h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.featureItem p {
+  color: #cccccc;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.ctaSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #96ABC2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ctaSection p {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-bottom: 2rem;
 }
 
 .ctaButton {
-  display: inline-block;
-  background-color: #4299e1;
-  color: #fff;
-  padding: 1rem 2.5rem;
-  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(45deg, #96ABC2, #4f6a88);
+  color: #ffffff;
   text-decoration: none;
+  border-radius: 30px;
   font-weight: 600;
-  font-size: 1.125rem;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
   animation: pulse 2s infinite;
 }
 
 .ctaButton:hover {
-  background-color: #3182ce;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
-  border-color: #63b3ed;
+  box-shadow: 0 4px 20px rgba(150, 171, 194, 0.3);
+  background: linear-gradient(45deg, #4f6a88, #96ABC2);
 }
 
-.ctaButton:active {
-  transform: translateY(0);
+@media (max-width: 968px) {
+  .missionContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .featureGrid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    gap: 2rem;
+  }
+  
+  .featureItem {
+    padding: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 3rem 1rem;
-  }
-
   .title {
     font-size: 2.5rem;
   }
@@ -154,27 +242,14 @@
     font-size: 1.25rem;
   }
 
-  .description {
-    font-size: 1.125rem;
-  }
-
-  .featuresTitle {
-    font-size: 1.75rem;
-  }
-
-  .featureGrid {
+  .statsGrid {
     grid-template-columns: 1fr;
   }
 
-  .featureItem {
-    padding: 1.25rem;
-  }
-
-  .ctaButton {
-    padding: 0.875rem 1.75rem;
-    font-size: 1rem;
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
+  .heroSection,
+  .missionSection,
+  .featuresSection,
+  .ctaSection {
+    padding: 4rem 1.5rem;
   }
 }
