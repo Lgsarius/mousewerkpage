@@ -181,8 +181,9 @@ export default function BookUs() {
                   onChange={handleChange}
                   required
                   className={styles.select}
+                  style={{ backgroundColor: '#1B1B1B' }}
                 >
-                  <option value="">Projekttyp</option>
+                  <option value="" disabled>Projekttyp</option>
                   <option value="website">Website-Design</option>
                   <option value="ecommerce">E-Commerce Website</option>
                   <option value="webapp">Web-Anwendung</option>
@@ -197,8 +198,9 @@ export default function BookUs() {
                   onChange={handleChange}
                   required
                   className={styles.select}
+                  style={{ backgroundColor: '#1B1B1B' }}
                 >
-                  <option value="">Budgetrahmen</option>
+                  <option value="" disabled>Budgetrahmen</option>
                   <option value="0-1000">0€ - 1.000€</option>
                   <option value="1000-5000">1.000€ - 5.000€</option>
                   <option value="5000-10000">5.000€ - 10.000€</option>
