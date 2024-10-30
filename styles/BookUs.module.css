@@ -38,37 +38,69 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  margin-top: 3rem;
 }
 
 .feature {
-  background: rgba(150, 171, 194, 0.05);
-  border: 1px solid rgba(150, 171, 194, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: rgba(150, 171, 194, 0.03);
+  border: 1px solid rgba(150, 171, 194, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
 }
 
 .feature:hover {
   transform: translateY(-3px);
-  background: rgba(150, 171, 194, 0.1);
-  border-color: rgba(150, 171, 194, 0.2);
+  background: rgba(150, 171, 194, 0.05);
+  border-color: rgba(150, 171, 194, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .featureIcon {
-  font-size: 2rem;
+  background: linear-gradient(135deg, rgba(150, 171, 194, 0.1) 0%, rgba(79, 106, 136, 0.1) 100%);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.feature:hover .featureIcon {
+  background: linear-gradient(135deg, rgba(150, 171, 194, 0.15) 0%, rgba(79, 106, 136, 0.15) 100%);
+  transform: scale(1.05);
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
   color: #96ABC2;
-  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.feature:hover .icon {
+  color: #ffffff;
+}
+
+.featureText {
+  flex: 1;
 }
 
 .featureText h3 {
   color: #ffffff;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .featureText p {
-  color: #cccccc;
-  font-size: 0.9rem;
+  color: #96ABC2;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .rightColumn {
@@ -184,6 +216,7 @@
 
   .features {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .rightColumn {
@@ -197,5 +230,101 @@
   .formTitle {
     font-size: 1.8rem;
   }
+
+  .feature {
+    padding: 1.25rem;
+  }
+
+  .featureIcon {
+    padding: 0.75rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.select {
+  appearance: none;
+  background: rgba(150, 171, 194, 0.05);
+  border: 1px solid rgba(150, 171, 194, 0.1);
+  border-radius: 12px;
+  padding: 1rem 3rem 1rem 1.25rem;
+  color: #ffffff;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2396ABC2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9L12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2rem;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #96ABC2;
+  background-color: rgba(150, 171, 194, 0.08);
+  box-shadow: 0 0 0 3px rgba(150, 171, 194, 0.1);
+}
+
+.select:hover {
+  background-color: rgba(150, 171, 194, 0.08);
+  border-color: rgba(150, 171, 194, 0.2);
+}
+
+.select option {
+  background-color: #1B1B1B;
+  color: #ffffff;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.select option[value=""] {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.select::-webkit-scrollbar-track {
+  background: #1B1B1B;
+}
+
+.select::-webkit-scrollbar-thumb {
+  background: #96ABC2;
+  border-radius: 4px;
+}
+
+.select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.select:focus-visible {
+  outline: none;
+  border-color: #96ABC2;
+  box-shadow: 0 0 0 3px rgba(150, 171, 194, 0.2);
+}
+
+.select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #ffffff;
+}
+
+.formGroup {
+  position: relative;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.select:hover {
+  animation: pulse 0.3s ease-in-out;
 }
 

@@ -114,33 +114,35 @@ export default function BookingsList() {
             <tbody>
               {bookings.map((booking) => (
                 <tr key={booking.id}>
-                  <td>{booking.name}</td>
-                  <td>{booking.email}</td>
-                  <td>{booking.projectType}</td>
-                  <td>{booking.budget}</td>
-                  <td>{booking.timeline}</td>
-                  <td>{booking.description}</td>
-                  <td>
+                  <td data-label="Name">{booking.name}</td>
+                  <td data-label="Email">{booking.email}</td>
+                  <td data-label="Project Type">{booking.projectType}</td>
+                  <td data-label="Budget">{booking.budget}</td>
+                  <td data-label="Timeline">{booking.timeline}</td>
+                  <td data-label="Description">{booking.description}</td>
+                  <td data-label="Status">
                     <select 
                       value={booking.status || 'pending'} 
                       onChange={(e) => changeStatus(booking.id, e.target.value)}
-                      className={styles.statusSelect}
+                      className={`${styles.statusSelect} ${styles[`status${booking.status?.charAt(0).toUpperCase() + booking.status?.slice(1)}`]}`}
+                      style={{ backgroundColor: '#1B1B1B' }}
                     >
-                      <option value="pending">Pending</option>
-                      <option value="in-progress">In Progress</option>
-                      <option value="completed">Completed</option>
-                      <option value="cancelled">Cancelled</option>
+                      <option value="pending">⏳ Pending</option>
+                      <option value="in-progress">🔄 In Progress</option>
+                      <option value="completed">✅ Completed</option>
+                      <option value="cancelled">❌ Cancelled</option>
                     </select>
                   </td>
-                  <td>
+                  <td data-label="Notes">
                     <textarea
                       value={booking.notes || ''}
                       onChange={(e) => handleNotesChange(booking.id, e.target.value)}
                       onBlur={(e) => updateBooking(booking.id, { notes: e.target.value })}
                       className={styles.notesTextarea}
+                      placeholder="Add notes..."
                     />
                   </td>
-                  <td>
+                  <td data-label="Actions">
                     <button 
                       onClick={() => openEmail(booking.email)}
                       className={styles.actionButton}

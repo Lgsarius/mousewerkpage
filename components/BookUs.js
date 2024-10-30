@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/BookUs.module.css';
+import { 
+  MdOutlineDesignServices, 
+  MdOutlineDevices, 
+  MdOutlineRocketLaunch, 
+  MdOutlineSecurity 
+} from 'react-icons/md';
 
 export default function BookUs() {
   const [formData, setFormData] = useState({
@@ -105,28 +111,36 @@ export default function BookUs() {
           </p>
           <div className={styles.features}>
             <div className={styles.feature}>
-              <div className={styles.featureIcon}>🎨</div>
+              <div className={styles.featureIcon}>
+                <MdOutlineDesignServices className={styles.icon} />
+              </div>
               <div className={styles.featureText}>
                 <h3>Maßgeschneidertes Design</h3>
                 <p>Angepasst an die einzigartige Identität Ihrer Marke</p>
               </div>
             </div>
             <div className={styles.feature}>
-              <div className={styles.featureIcon}>📱</div>
+              <div className={styles.featureIcon}>
+                <MdOutlineDevices className={styles.icon} />
+              </div>
               <div className={styles.featureText}>
                 <h3>Responsive Entwicklung</h3>
                 <p>Perfekt auf jedem Gerät</p>
               </div>
             </div>
             <div className={styles.feature}>
-              <div className={styles.featureIcon}>🚀</div>
+              <div className={styles.featureIcon}>
+                <MdOutlineRocketLaunch className={styles.icon} />
+              </div>
               <div className={styles.featureText}>
                 <h3>Schnelle Lieferung</h3>
                 <p>Kurze Bearbeitungszeit ohne Qualitätseinbußen</p>
               </div>
             </div>
             <div className={styles.feature}>
-              <div className={styles.featureIcon}>🔒</div>
+              <div className={styles.featureIcon}>
+                <MdOutlineSecurity className={styles.icon} />
+              </div>
               <div className={styles.featureText}>
                 <h3>Sicherheit zuerst</h3>
                 <p>Entwickelt nach modernsten Sicherheitsstandards</p>
@@ -181,7 +195,6 @@ export default function BookUs() {
                   onChange={handleChange}
                   required
                   className={styles.select}
-                  style={{ backgroundColor: '#1B1B1B' }}
                 >
                   <option value="" disabled>Projekttyp</option>
                   <option value="website">Website-Design</option>
@@ -198,7 +211,6 @@ export default function BookUs() {
                   onChange={handleChange}
                   required
                   className={styles.select}
-                  style={{ backgroundColor: '#1B1B1B' }}
                 >
                   <option value="" disabled>Budgetrahmen</option>
                   <option value="0-1000">0€ - 1.000€</option>
