@@ -331,23 +331,27 @@
 /* Toast Styling */
 .toastMessage {
   text-align: left;
-  padding: 1rem;
-  background-color: rgba(27, 27, 27, 0.9);
-  border-radius: 8px;
+  padding: 1.5rem;
+  background: rgba(150, 171, 194, 0.05);
+  border: 1px solid rgba(150, 171, 194, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 }
 
 .toastMessage h4 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ffffff 0%, #96ABC2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .toastMessage p {
   margin: 0;
   font-size: 1rem;
   color: #e0e0e0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .toastMessage p:not(:last-child) {

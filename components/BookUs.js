@@ -174,7 +174,17 @@ export default function BookUs() {
       className={styles.bookUsSection} 
       style={{ minHeight: viewportHeight }}
     >
-      <Toaster position="top-center" />
+      <Toaster 
+        position="top-center"
+        toastOptions={{
+          duration: 5000,
+          style: {
+            background: 'transparent',
+            boxShadow: 'none',
+            padding: 0,
+          },
+        }}
+      />
       <div className={styles.bookUsContainer}>
         <div className={styles.leftColumn}>
           <h2 className={styles.bookUsTitle}>Gestalten Sie Ihre digitale Präsenz</h2>
