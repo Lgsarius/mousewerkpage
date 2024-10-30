@@ -1,16 +1,8 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../../../styles/dashboard.module.css';
-
-// Debounce function
-const debounce = (func, delay) => {
-  let timeoutId;
-  return (...args) => {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func(...args), delay);
-  };
-};
+import toast from 'react-hot-toast';
 
 export default function BookingsList() {
   const [bookings, setBookings] = useState([]);
@@ -23,74 +15,57 @@ export default function BookingsList() {
 
   const fetchBookings = async () => {
     try {
+      setLoading(true);
       const response = await fetch('/api/admin/fetch-bookings');
+      
       if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Failed to fetch bookings: ${response.status} ${response.statusText}. ${errorText}`);
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+      
       const data = await response.json();
       setBookings(data);
-      setLoading(false);
+      setError(null);
     } catch (err) {
       console.error('Error fetching bookings:', err);
-      setError(err.message);
+      setError('Failed to load bookings. Please try again later.');
+      toast.error('Failed to load bookings');
+    } finally {
       setLoading(false);
     }
   };
 
-  const updateBooking = async (id, updateData) => {
-    if (!id) {
-      console.error('Booking ID is undefined');
-      return;
-    }
-    try {
-      const response = await fetch(`/api/admin/update-booking/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updateData),
-      });
-      if (!response.ok) {
-        throw new Error('Failed to update booking');
-      }
-      // Refresh the bookings list after successful update
-      fetchBookings();
-    } catch (err) {
-      console.error('Error updating booking:', err);
-      // You might want to show an error message to the user here
-    }
-  };
-
-  const changeStatus = (id, newStatus) => {
-    updateBooking(id, { status: newStatus });
-  };
-
-  // Debounced update notes function
-  const debouncedUpdateNotes = useCallback(
-    debounce((id, newNotes) => {
-      updateBooking(id, { notes: newNotes });
-    }, 500),
-    []
-  );
-
-  const handleNotesChange = (id, newNotes) => {
-    // Update local state immediately for responsiveness
-    setBookings(prevBookings =>
-      prevBookings.map(booking =>
-        booking.id === id ? { ...booking, notes: newNotes } : booking
-      )
+  if (loading) {
+    return (
+      <div className={styles.loadingContainer}>
+        <div className={styles.loader}></div>
+        <p>Loading bookings...</p>
+      </div>
     );
-    // Debounce the API call
-    debouncedUpdateNotes(id, newNotes);
-  };
+  }
 
-  const openEmail = (email) => {
-    window.open(`mailto:${email}`, '_blank');
-  };
+  if (error) {
+    return (
+      <div className={styles.errorContainer}>
+        <h3>Error</h3>
+        <p>{error}</p>
+        <button 
+          onClick={fetchBookings}
+          className={styles.retryButton}
+        >
+          Try Again
+        </button>
+      </div>
+    );
+  }
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (!bookings?.length) {
+    return (
+      <div className={styles.emptyContainer}>
+        <h3>No Bookings</h3>
+        <p>There are no bookings to display at this time.</p>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.container}>
