@@ -48,7 +48,7 @@ export default function BookingsList() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const result = await response.json();
+      await response.json();
       
       // Update local state
       setBookings(prevBookings => 
