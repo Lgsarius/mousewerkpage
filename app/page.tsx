@@ -78,10 +78,10 @@ export default function Home() {
             </p>
             <div className={styles.ctaContainer}>
               <Link href="#projects" className={styles.ctaButton}>
-                Unsere Arbeit ansehen <BsArrowRight className={styles.buttonIcon} />
+                Projekte erkunden <BsArrowRight className={styles.buttonIcon} />
               </Link>
               <Link href="/request" className={`${styles.ctaButton} ${styles.ctaSecondary}`}>
-                Lassen Sie uns reden <BsArrowRight className={styles.buttonIcon} />
+                Jetzt durchstarten <BsArrowRight className={styles.buttonIcon} />
               </Link>
             </div>
             <ul className={styles.featureList}>
