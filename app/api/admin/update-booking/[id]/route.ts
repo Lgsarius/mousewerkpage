@@ -1,15 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { supabaseAdmin } from '@/utils/supabase';
 
-type Props = {
-  params: { id: string }
-}
-
 export async function PUT(
-  request: NextRequest,
-  { params }: Props
-) {
+  req: Request,
+  { params }: { params: { id: string } }
+): Promise<Response> {
   try {
     // Check admin authentication
     const cookieStore = await cookies();
@@ -31,7 +27,7 @@ export async function PUT(
     }
 
     // Get update data from request body
-    const updateData = await request.json();
+    const updateData = await req.json();
 
     // Update booking in Supabase
     const { data, error } = await supabaseAdmin
