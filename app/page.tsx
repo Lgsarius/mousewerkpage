@@ -71,10 +71,10 @@ export default function Home() {
           <div className={styles.heroContent}>
            
             <h1 className={styles.title}>
-              Verwandeln Sie Ihre digitale Vision in Realität
+              Aus Vision wird digitale Realität
             </h1>
             <p className={styles.description}>
-              Wir schaffen außergewöhnliche Web-Erlebnisse, die Ergebnisse liefern. Von beeindruckendem Design bis hin zu leistungsstarker Funktionalität – wir sind Ihr Partner für digitale Exzellenz.
+              Mit innovativer Technologie und kreativem Design verwandeln wir Ihre Ideen in beeindruckende digitale Erlebnisse. Professionell, zukunftsorientiert und maßgeschneidert für Ihren Erfolg.
             </p>
             <div className={styles.ctaContainer}>
               <Link href="#projects" className={styles.ctaButton}>
