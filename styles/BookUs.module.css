@@ -328,3 +328,26 @@
   animation: pulse 0.3s ease-in-out;
 }
 
+/* Toast Styling */
+.toastMessage {
+  text-align: left;
+}
+
+.toastMessage h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.toastMessage p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  line-height: 1.4;
+}
+
+.toastMessage p:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+

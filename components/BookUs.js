@@ -6,6 +6,8 @@ import {
   MdOutlineRocketLaunch, 
   MdOutlineSecurity 
 } from 'react-icons/md';
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function BookUs() {
   const [formData, setFormData] = useState({
@@ -56,16 +58,72 @@ export default function BookUs() {
     }));
   };
 
+  const sendEmail = async (formData) => {
+    // Format the budget range nicely
+    const formatBudget = (budget) => {
+      switch(budget) {
+        case '0-1000': return 'bis 1.000€';
+        case '1000-5000': return '1.000€ - 5.000€';
+        case '5000-10000': return '5.000€ - 10.000€';
+        case '10000+': return 'über 10.000€';
+        default: return budget;
+      }
+    };
+
+    // Format the project type nicely
+    const formatProjectType = (type) => {
+      switch(type) {
+        case 'website': return 'Website-Design';
+        case 'ecommerce': return 'E-Commerce Website';
+        case 'webapp': return 'Web-Anwendung';
+        case 'redesign': return 'Website-Redesign';
+        default: return type;
+      }
+    };
+
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      company: formData.company || 'Nicht angegeben',
+      project_type: formatProjectType(formData.projectType),
+      budget: formatBudget(formData.budget),
+      timeline: formData.timeline,
+      description: formData.description,
+      submission_date: new Date().toLocaleString('de-DE', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      })
+    };
+
+    try {
+      await emailjs.send(
+        'service_7pyloyq',
+        'template_6q1cpwg',
+        templateParams,
+        'QhFhCsS9c6-vZ0GBw'
+      );
+      return true;
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      return false;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (isMobile) {
-      // Blur active element to hide keyboard
       document.activeElement?.blur();
     }
 
+    const loadingToast = toast.loading('Ihre Anfrage wird gesendet...');
     setIsLoading(true);
+
     try {
+      // Send to your API
       const response = await fetch('/api/submit-booking', {
         method: 'POST',
         headers: {
@@ -74,25 +132,63 @@ export default function BookUs() {
         body: JSON.stringify(formData),
       });
       
-      if (response.ok) {
-        console.log('Booking submitted:', formData);
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          projectType: '',
-          budget: '',
-          timeline: '',
-          description: ''
-        });
-        alert('Vielen Dank für Ihre Projektanfrage. Wir werden uns in Kürze mit Ihnen in Verbindung setzen!');
-      } else {
-        throw new Error('Fehler beim Senden der Anfrage');
+      if (!response.ok) {
+        throw new Error('API Error');
       }
+
+      // Send emails via EmailJS
+      const emailSent = await sendEmail(formData);
+      
+      if (!emailSent) {
+        throw new Error('Email Error');
+      }
+
+      // Success
+      toast.success(
+        <div className={styles.toastMessage}>
+          <h4>Anfrage erfolgreich gesendet!</h4>
+          <p>Wir haben Ihre Projektanfrage erhalten und werden uns innerhalb von 24 Stunden bei Ihnen melden.</p>
+          <p>Eine Bestätigungs-E-Mail wurde an {formData.email} gesendet.</p>
+        </div>,
+        {
+          duration: 5000,
+          style: {
+            background: '#1B1B1B',
+            color: '#ffffff',
+            border: '1px solid rgba(150, 171, 194, 0.1)',
+          }
+        }
+      );
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        projectType: '',
+        budget: '',
+        timeline: '',
+        description: ''
+      });
+
     } catch (error) {
       console.error('Error:', error);
-      alert('Bei der Übermittlung Ihrer Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
+      toast.error(
+        <div className={styles.toastMessage}>
+          <h4>Ein Fehler ist aufgetreten</h4>
+          <p>Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.</p>
+        </div>,
+        {
+          duration: 5000,
+          style: {
+            background: '#1B1B1B',
+            color: '#ffffff',
+            border: '1px solid rgba(255, 71, 87, 0.2)',
+          }
+        }
+      );
     } finally {
+      toast.dismiss(loadingToast);
       setIsLoading(false);
     }
   };
@@ -103,6 +199,7 @@ export default function BookUs() {
       className={styles.bookUsSection} 
       style={{ minHeight: viewportHeight }}
     >
+      <Toaster position="top-center" />
       <div className={styles.bookUsContainer}>
         <div className={styles.leftColumn}>
           <h2 className={styles.bookUsTitle}>Gestalten Sie Ihre digitale Präsenz</h2>
