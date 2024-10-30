@@ -2,9 +2,15 @@ import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { supabaseAdmin } from '@/utils/supabase';
 
+// Keep the Props type, but update it to match Next.js route handler requirements
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
 export async function PUT(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: Props  // Use the Props type here
 ): Promise<Response> {
   try {
     // Check admin authentication
