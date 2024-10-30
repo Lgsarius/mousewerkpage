@@ -148,7 +148,6 @@ export default function BookUs() {
         <div className={styles.toastMessage}>
           <h4>Anfrage erfolgreich gesendet!</h4>
           <p>Wir haben Ihre Projektanfrage erhalten und werden uns innerhalb von 24 Stunden bei Ihnen melden.</p>
-          <p>Eine Bestätigungs-E-Mail wurde an {formData.email} gesendet.</p>
         </div>,
         {
           duration: 5000,
