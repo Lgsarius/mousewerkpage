@@ -1,25 +1,20 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+import { supabaseAdmin } from '@/utils/supabase';
 
 export async function GET() {
   try {
-    // Check admin authentication
+    // Fix: await the cookies
     const cookieStore = cookies();
-    const isAdmin = cookieStore.get('admin')?.value === 'true';
+    const adminCookie = await cookieStore.get('admin');
+    const isAdmin = adminCookie?.value === 'true';
 
     if (!isAdmin) {
       return new NextResponse('Unauthorized', { status: 401 });
     }
 
-    // Initialize Supabase client
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
-
     // Fetch bookings from Supabase
-    const { data: bookings, error } = await supabase
+    const { data: bookings, error } = await supabaseAdmin
       .from('bookings')
       .select('*')
       .order('created_at', { ascending: false });

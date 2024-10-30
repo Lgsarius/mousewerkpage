@@ -34,6 +34,44 @@ export default function BookingsList() {
     }
   };
 
+  const updateBooking = async (id, updateData) => {
+    try {
+      const response = await fetch(`/api/admin/update-booking/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updateData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      
+      // Update local state
+      setBookings(prevBookings => 
+        prevBookings.map(booking => 
+          booking.id === id ? { ...booking, ...updateData } : booking
+        )
+      );
+
+      toast.success('Booking updated successfully');
+    } catch (error) {
+      console.error('Error updating booking:', error);
+      toast.error('Failed to update booking');
+    }
+  };
+
+  const handleStatusChange = async (id, newStatus) => {
+    await updateBooking(id, { status: newStatus });
+  };
+
+  const handleNotesChange = async (id, notes) => {
+    await updateBooking(id, { notes });
+  };
+
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
@@ -98,9 +136,8 @@ export default function BookingsList() {
                   <td data-label="Status">
                     <select 
                       value={booking.status || 'pending'} 
-                      onChange={(e) => changeStatus(booking.id, e.target.value)}
+                      onChange={(e) => handleStatusChange(booking.id, e.target.value)}
                       className={`${styles.statusSelect} ${styles[`status${booking.status?.charAt(0).toUpperCase() + booking.status?.slice(1)}`]}`}
-                      style={{ backgroundColor: '#1B1B1B' }}
                     >
                       <option value="pending">⏳ Pending</option>
                       <option value="in-progress">🔄 In Progress</option>
@@ -112,14 +149,13 @@ export default function BookingsList() {
                     <textarea
                       value={booking.notes || ''}
                       onChange={(e) => handleNotesChange(booking.id, e.target.value)}
-                      onBlur={(e) => updateBooking(booking.id, { notes: e.target.value })}
                       className={styles.notesTextarea}
                       placeholder="Add notes..."
                     />
                   </td>
                   <td data-label="Actions">
                     <button 
-                      onClick={() => openEmail(booking.email)}
+                      onClick={() => window.location.href = `mailto:${booking.email}`}
                       className={styles.actionButton}
                     >
                       Email

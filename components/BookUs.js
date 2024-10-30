@@ -8,6 +8,7 @@ import {
 } from 'react-icons/md';
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
+import { supabase } from '@/utils/supabase';
 
 export default function BookUs() {
   const [formData, setFormData] = useState({
@@ -123,40 +124,27 @@ export default function BookUs() {
     setIsLoading(true);
 
     try {
-      // Send to your API
-      const response = await fetch('/api/submit-booking', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      if (!response.ok) {
-        throw new Error('API Error');
-      }
+      // Insert into Supabase
+      const { error: supabaseError } = await supabase
+        .from('bookings')
+        .insert([formData]);
 
-      // Send emails via EmailJS
+      if (supabaseError) throw supabaseError;
+
+      // Send email notification
       const emailSent = await sendEmail(formData);
       
       if (!emailSent) {
         throw new Error('Email Error');
       }
 
-      // Success
+      // Success notification
       toast.success(
         <div className={styles.toastMessage}>
           <h4>Anfrage erfolgreich gesendet!</h4>
           <p>Wir haben Ihre Projektanfrage erhalten und werden uns innerhalb von 24 Stunden bei Ihnen melden.</p>
         </div>,
-        {
-          duration: 5000,
-          style: {
-            background: '#1B1B1B',
-            color: '#ffffff',
-            border: '1px solid rgba(150, 171, 194, 0.1)',
-          }
-        }
+        { duration: 5000 }
       );
 
       // Reset form
@@ -177,14 +165,7 @@ export default function BookUs() {
           <h4>Ein Fehler ist aufgetreten</h4>
           <p>Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.</p>
         </div>,
-        {
-          duration: 5000,
-          style: {
-            background: '#1B1B1B',
-            color: '#ffffff',
-            border: '1px solid rgba(255, 71, 87, 0.2)',
-          }
-        }
+        { duration: 5000 }
       );
     } finally {
       toast.dismiss(loadingToast);
