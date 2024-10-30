@@ -2,15 +2,8 @@ import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { supabaseAdmin } from '@/utils/supabase';
 
-// Keep the Props type, but update it to match Next.js route handler requirements
-type Props = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-}
-
 export async function PUT(
-  req: Request,
-  { params }: Props  // Use the Props type here
+  req: Request
 ): Promise<Response> {
   try {
     // Check admin authentication
@@ -24,7 +17,8 @@ export async function PUT(
       );
     }
 
-    const { id } = params;
+    const url = new URL(req.url);
+    const id = url.searchParams.get('id');
     if (!id) {
       return NextResponse.json(
         { message: 'Booking ID is required' },
@@ -39,7 +33,7 @@ export async function PUT(
     const { data, error } = await supabaseAdmin
       .from('bookings')
       .update(updateData)
-      .eq('id', id)
+      .eq('id', id as string)
       .select()
       .single();
 
