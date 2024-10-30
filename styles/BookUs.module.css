@@ -331,20 +331,23 @@
 /* Toast Styling */
 .toastMessage {
   text-align: left;
+  padding: 1rem;
+  background-color: rgba(27, 27, 27, 0.9);
+  border-radius: 8px;
 }
 
 .toastMessage h4 {
   margin: 0 0 0.5rem 0;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: #ffffff;
 }
 
 .toastMessage p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #e0e0e0;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .toastMessage p:not(:last-child) {

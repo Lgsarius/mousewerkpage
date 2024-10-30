@@ -112,7 +112,7 @@ export default function BookUs() {
       document.activeElement?.blur();
     }
 
-    const loadingToast = toast.loading('Ihre Anfrage wird gesendet...');
+    const loadingToast = toast.loading('Ihre Anfrage wird gesendet...', { duration: 3000 });
     setIsLoading(true);
 
     try {
@@ -158,7 +158,9 @@ export default function BookUs() {
       toast.error(
         <div className={styles.toastMessage}>
           <h4>Ein Fehler ist aufgetreten</h4>
-        </div>
+          <p>Bitte versuchen Sie es später erneut.</p>
+        </div>,
+        { duration: 5000 }
       );
     } finally {
       toast.dismiss(loadingToast);
