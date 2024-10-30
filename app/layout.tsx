@@ -59,6 +59,10 @@ export const metadata: Metadata = {
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
     ],
+    other: {
+      rel: 'apple-touch-icon',
+      url: '/apple-touch-icon.png',
+    },
   },
   manifest: '/site.webmanifest',
   robots: {
@@ -74,7 +78,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}
+      <body className="antialiased">
+        <main>{children}</main>
         <CookieBanner />
       </body>
     </html>
