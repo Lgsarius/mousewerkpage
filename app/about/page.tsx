@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import AboutUsContent from "@/components/AboutUsContent";
 import styles from "@/styles/Home.module.css";
 
-export default function AboutUs() {
+export default function AboutPage() {
   return (
     <div className={styles.container}>
       <Header />

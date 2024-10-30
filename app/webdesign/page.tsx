@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { BiPalette } from 'react-icons/bi';
 import styles from '@/styles/ServicePage.module.css';
 
-export default function WebDesign() {
+export default function WebdesignPage() {
   return (
     <>
       <Header />

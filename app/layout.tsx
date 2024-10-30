@@ -21,13 +21,16 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Mousewerk | Webentwicklung & Digitale Lösungen',
-  description: 'Professionelle Webentwicklung und digitale Lösungen. Wir schaffen herausragende Web-Erlebnisse, die Resultate liefern – vom ansprechenden Design bis zur leistungsstarken Funktionalität.',
-  keywords: 'Webentwicklung, digitale Lösungen, React, Next.js, Webdesign, UI/UX Design, Webanwendungen, Webagentur, Website-Erstellung',
   metadataBase: new URL('https://mousewerk.de'),
+  title: {
+    template: '%s | Mousewerk',
+    default: 'Mousewerk | Webentwicklung & Digitale Lösungen'
+  },
+  description: 'Mit innovativer Technologie und kreativem Design verwandeln wir Ihre Ideen in beeindruckende digitale Erlebnisse.',
+  keywords: 'Webentwicklung, digitale Lösungen, React, Next.js, Webdesign, UI/UX Design, Webanwendungen, Webagentur, Website-Erstellung',
   openGraph: {
     title: 'Mousewerk | Webentwicklung & Digitale Lösungen',
-    description: 'Professionelle Webentwicklung und digitale Lösungen. Wir schaffen Web-Erlebnisse, die begeistern und Ergebnisse liefern.',
+    description: 'Mit innovativer Technologie und kreativem Design verwandeln wir Ihre Ideen in beeindruckende digitale Erlebnisse.',
     url: 'https://mousewerk.de',
     siteName: 'Mousewerk',
     images: [
@@ -44,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Mousewerk | Webentwicklung & Digitale Lösungen',
-    description: 'Professionelle Webentwicklung und digitale Lösungen. Wir schaffen Web-Erlebnisse, die begeistern und Ergebnisse liefern.',
+    description: 'Mit innovativer Technologie und kreativem Design verwandeln wir Ihre Ideen in beeindruckende digitale Erlebnisse.',
     images: ['/LOGO.png'],
   },
   icons: {

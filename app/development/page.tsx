@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { BiCode } from 'react-icons/bi';
 import styles from '@/styles/ServicePage.module.css';
 
-export default function Development() {
+export default function DevelopmentPage() {
   return (
     <>
       <Header />

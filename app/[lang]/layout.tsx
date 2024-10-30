@@ -19,18 +19,42 @@ const geistMono = localFont({
 
 const dictionaries = {
   en: {
-    title: 'Mousewerk | Web Development & Digital Solutions',
-    description: 'Professional web development and digital solutions. We create exceptional web experiences that drive results, combining stunning design with powerful functionality.',
-    shortDescription: 'Professional web development and digital solutions. We create exceptional web experiences that drive results.',
-    keywords: 'web development, digital solutions, React, Next.js, web design, UI/UX design, web applications',
-    altText: 'Mousewerk - Web Development & Digital Solutions',
+    default: {
+      title: 'Mousewerk | Web Development & Digital Solutions',
+      description: 'Professional web development and digital solutions. We create exceptional web experiences that drive results, combining stunning design with powerful functionality.',
+      shortDescription: 'Professional web development and digital solutions. We create exceptional web experiences that drive results.',
+      keywords: 'web development, digital solutions, React, Next.js, web design, UI/UX design, web applications',
+      altText: 'Mousewerk - Web Development & Digital Solutions',
+    },
+    home: {
+      title: 'Mousewerk | Home - Web Development & Digital Solutions',
+    },
+    about: {
+      title: 'About Us | Mousewerk',
+    },
+    contact: {
+      title: 'Contact | Mousewerk',
+    },
+    // Add more pages as needed
   },
   de: {
-    title: 'Mousewerk | Webentwicklung & Digitale Lösungen',
-    description: 'Professionelle Webentwicklung und digitale Lösungen. Wir schaffen außergewöhnliche Web-Erlebnisse, die Ergebnisse liefern und erstklassiges Design mit leistungsstarker Funktionalität verbinden.',
-    shortDescription: 'Professionelle Webentwicklung und digitale Lösungen. Wir schaffen außergewöhnliche Web-Erlebnisse.',
-    keywords: 'Webentwicklung, digitale Lösungen, React, Next.js, Webdesign, UI/UX Design, Webanwendungen',
-    altText: 'Mousewerk - Webentwicklung & Digitale Lösungen',
+    default: {
+      title: 'Mousewerk | Webentwicklung & Digitale Lösungen',
+      description: 'Professionelle Webentwicklung und digitale Lösungen. Wir schaffen außergewöhnliche Web-Erlebnisse, die Ergebnisse liefern und erstklassiges Design mit leistungsstarker Funktionalität verbinden.',
+      shortDescription: 'Professionelle Webentwicklung und digitale Lösungen. Wir schaffen außergewöhnliche Web-Erlebnisse.',
+      keywords: 'Webentwicklung, digitale Lösungen, React, Next.js, Webdesign, UI/UX Design, Webanwendungen',
+      altText: 'Mousewerk - Webentwicklung & Digitale Lösungen',
+    },
+    home: {
+      title: 'Mousewerk | Startseite - Webentwicklung & Digitale Lösungen',
+    },
+    about: {
+      title: 'Über Uns | Mousewerk',
+    },
+    contact: {
+      title: 'Kontakt | Mousewerk',
+    },
+    // Add more pages as needed
   }
 };
 

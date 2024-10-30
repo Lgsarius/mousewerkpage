@@ -5,7 +5,7 @@ import ProjectOverview from '@/components/ProjectOverview';
 import styles from '@/styles/Portfolio.module.css';
 import { BiFolder } from 'react-icons/bi';
 
-export default function Portfolio() {
+export default function PortfolioPage() {
   return (
     <>
       <Header />
