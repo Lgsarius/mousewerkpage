@@ -4,7 +4,7 @@ import { supabaseAdmin } from '@/utils/supabase';
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
     // Check admin authentication
@@ -18,7 +18,7 @@ export async function PUT(
       );
     }
 
-    const { id } = params;
+    const { id } = context.params;
     if (!id) {
       return NextResponse.json(
         { message: 'Booking ID is required' },
