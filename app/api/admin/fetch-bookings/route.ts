@@ -5,8 +5,8 @@ import { supabaseAdmin } from '@/utils/supabase';
 export async function GET() {
   try {
     // Fix: await the cookies
-    const cookieStore = cookies();
-    const adminCookie = await cookieStore.get('admin');
+    const cookieStore = await cookies();
+    const adminCookie = cookieStore.get('admin');
     const isAdmin = adminCookie?.value === 'true';
 
     if (!isAdmin) {

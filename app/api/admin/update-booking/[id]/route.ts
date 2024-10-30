@@ -1,14 +1,14 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { supabaseAdmin } from '@/utils/supabase';
 
 export async function PUT(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
     // Check admin authentication
-    const cookieStore = cookies();
+    const cookieStore = await cookies();
     const isAdmin = cookieStore.get('admin')?.value === 'true';
 
     if (!isAdmin) {
