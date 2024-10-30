@@ -39,7 +39,6 @@ export default function Footer() {
                                 <li><Link href="/webdesign">Webdesign</Link></li>
                                 <li><Link href="/development">Entwicklung</Link></li>
                                 <li><Link href="/seo">SEO</Link></li>
-                                <li><Link href="/hosting">Hosting</Link></li>
                             </ul>
                         </div>
 
