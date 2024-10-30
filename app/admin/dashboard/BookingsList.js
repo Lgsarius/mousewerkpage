@@ -50,7 +50,6 @@ export default function BookingsList() {
 
       await response.json();
       
-      // Update local state
       setBookings(prevBookings => 
         prevBookings.map(booking => 
           booking.id === id ? { ...booking, ...updateData } : booking

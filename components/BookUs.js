@@ -8,7 +8,6 @@ import {
 } from 'react-icons/md';
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
-import { supabase } from '@/utils/supabase';
 
 export default function BookUs() {
   const [formData, setFormData] = useState({
@@ -26,25 +25,20 @@ export default function BookUs() {
   const [viewportHeight, setViewportHeight] = useState('100vh');
 
   useEffect(() => {
-    // Handle mobile detection
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    // Handle viewport height for mobile browsers
     const handleResize = () => {
       setViewportHeight(`${window.innerHeight}px`);
     };
 
-    // Initial checks
     checkMobile();
     handleResize();
 
-    // Event listeners
     window.addEventListener('resize', checkMobile);
     window.addEventListener('resize', handleResize);
 
-    // Cleanup
     return () => {
       window.removeEventListener('resize', checkMobile);
       window.removeEventListener('resize', handleResize);
@@ -60,7 +54,6 @@ export default function BookUs() {
   };
 
   const sendEmail = async (formData) => {
-    // Format the budget range nicely
     const formatBudget = (budget) => {
       switch(budget) {
         case '0-1000': return 'bis 1.000€';
@@ -71,7 +64,6 @@ export default function BookUs() {
       }
     };
 
-    // Format the project type nicely
     const formatProjectType = (type) => {
       switch(type) {
         case 'website': return 'Website-Design';
@@ -124,21 +116,24 @@ export default function BookUs() {
     setIsLoading(true);
 
     try {
-      // Insert into Supabase
-      const { error: supabaseError } = await supabase
-        .from('bookings')
-        .insert([formData]);
+      const response = await fetch('/api/submit-booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      if (supabaseError) throw supabaseError;
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-      // Send email notification
       const emailSent = await sendEmail(formData);
       
       if (!emailSent) {
         throw new Error('Email Error');
       }
 
-      // Success notification
       toast.success(
         <div className={styles.toastMessage}>
           <h4>Anfrage erfolgreich gesendet!</h4>
@@ -147,7 +142,6 @@ export default function BookUs() {
         { duration: 5000 }
       );
 
-      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -159,13 +153,12 @@ export default function BookUs() {
       });
 
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error occurred:', error.message || error);
+      console.error('Full error object:', error);
       toast.error(
         <div className={styles.toastMessage}>
           <h4>Ein Fehler ist aufgetreten</h4>
-          <p>Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.</p>
-        </div>,
-        { duration: 5000 }
+        </div>
       );
     } finally {
       toast.dismiss(loadingToast);

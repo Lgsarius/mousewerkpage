@@ -1,36 +1,24 @@
 export const runtime = 'nodejs';
 
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-import { Builder, parseString } from 'xml2js';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export async function POST(request) {
-  const booking = await request.json();
-  const xmlPath = path.join(process.cwd(), 'data', 'bookings.xml');
-  
-  let bookings = { bookings: { booking: [] } };
-  
-  if (fs.existsSync(xmlPath)) {
-    const xmlData = fs.readFileSync(xmlPath, 'utf-8');
-    parseString(xmlData, (err, result) => {
-      if (!err && result && result.bookings) {
-        bookings = result;
-      }
-    });
-  }
-  
-  bookings.bookings.booking.push(booking);
-  
-  const builder = new Builder();
-  const xml = builder.buildObject(bookings);
-  
-  fs.writeFileSync(xmlPath, xml);
-  
-  return NextResponse.json({ message: 'Booking saved successfully' });
-}
+  try {
+    const bookingData = await request.json();
 
-const dataDir = path.join(process.cwd(), 'data');
-if (!fs.existsSync(dataDir)){
-    fs.mkdirSync(dataDir);
+    const newBooking = await prisma.booking.create({
+      data: bookingData,
+    });
+
+    return NextResponse.json({ message: 'Booking saved successfully', booking: newBooking });
+  } catch (error) {
+    console.error('Error saving booking:', error);
+    return NextResponse.json(
+      { message: 'Internal server error' },
+      { status: 500 }
+    );
+  }
 }

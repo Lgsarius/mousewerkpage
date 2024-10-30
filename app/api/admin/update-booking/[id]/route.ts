@@ -1,64 +1,27 @@
 import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import { supabaseAdmin } from '@/utils/supabase';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export async function PUT(
-  req: Request
+  req: Request,
+  { params }: { params: { id: string } }
 ): Promise<Response> {
   try {
-    // Check admin authentication
-    const cookieStore = await cookies();
-    const isAdmin = cookieStore.get('admin')?.value === 'true';
-
-    if (!isAdmin) {
-      return NextResponse.json(
-        { message: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
-
-    const url = new URL(req.url);
-    const id = url.searchParams.get('id');
-    if (!id) {
-      return NextResponse.json(
-        { message: 'Booking ID is required' },
-        { status: 400 }
-      );
-    }
-
-    // Get update data from request body
+    const { id } = params;
     const updateData = await req.json();
 
-    // Update booking in Supabase
-    const { data, error } = await supabaseAdmin
-      .from('bookings')
-      .update(updateData)
-      .eq('id', id as string)
-      .select()
-      .single();
-
-    if (error) {
-      console.error('Supabase error:', error);
-      return NextResponse.json(
-        { message: 'Error updating booking' },
-        { status: 500 }
-      );
-    }
-
-    if (!data) {
-      return NextResponse.json(
-        { message: 'Booking not found' },
-        { status: 404 }
-      );
-    }
+    const updatedBooking = await prisma.booking.update({
+      where: { id: parseInt(id) },
+      data: updateData,
+    });
 
     return NextResponse.json({
       message: 'Booking updated successfully',
-      booking: data
+      booking: updatedBooking,
     });
-
   } catch (error) {
-    console.error('Server error:', error);
+    console.error('Error updating booking:', error);
     return NextResponse.json(
       { message: 'Internal server error' },
       { status: 500 }

@@ -1,0 +1,23 @@
+   datasource db {
+     provider = "postgresql"
+     url      = env("DATABASE_URL")
+     directUrl = env("DIRECT_URL")
+   }
+
+   generator client {
+     provider = "prisma-client-js"
+   }
+
+   model Booking {
+     id          Int      @id @default(autoincrement())
+     name        String
+     email       String
+     company     String?
+     projectType String
+     budget      String
+     timeline    String
+     description String
+     status      String   @default("pending")
+     notes       String?
+     createdAt   DateTime @default(now())
+   }
