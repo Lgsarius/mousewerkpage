@@ -26,7 +26,6 @@ export default function Footer() {
                         <div className={styles.navSection}>
                             <h3>Navigation</h3>
                             <ul>
-                                <li><Link href="/services">Services</Link></li>
                                 <li><Link href="/portfolio">Portfolio</Link></li>
                                 <li><Link href="/about">Über uns</Link></li>
                                 <li><Link href="/contact">Kontakt</Link></li>
@@ -47,7 +46,7 @@ export default function Footer() {
                             <ul>
                                 <li><Link href="/privacy-policy">Datenschutz</Link></li>
                                 <li><Link href="/imprint">Impressum</Link></li>
-                                <li><Link href="/terms">AGB</Link></li>
+                                <li><Link href="/terms-of-service">AGB</Link></li>
                             </ul>
                         </div>
                     </div>
