@@ -2,9 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { supabaseAdmin } from '@/utils/supabase';
 
+type Props = {
+  params: { id: string }
+}
+
 export async function PUT(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: Props
 ) {
   try {
     // Check admin authentication
@@ -18,7 +22,7 @@ export async function PUT(
       );
     }
 
-    const { id } = context.params;
+    const { id } = params;
     if (!id) {
       return NextResponse.json(
         { message: 'Booking ID is required' },
