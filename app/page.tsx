@@ -1,17 +1,12 @@
-
-/* eslint-disable */
 "use client";
 import { useEffect } from 'react';
-import styles from '@/styles/Home.module.css';
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ProjectOverview from "@/components/ProjectOverview";
+import styles from '../styles/Home.module.css';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ProjectOverview from "../components/ProjectOverview";
 import Link from 'next/link';
-import { BiCode, BiPalette } from 'react-icons/bi';
-import { IoRocketOutline } from 'react-icons/io5';
 import { BsArrowRight } from 'react-icons/bs';
-import ServicesSection from '@/components/ServicesSection';
-import CADViewer from '@/components/CADViewer';
+import ServicesSection from '../components/ServicesSection';
 import { FaCog, FaDrawPolygon, FaFileImport } from 'react-icons/fa';
 // Image-Import entfernen, falls nicht verwendet
 

@@ -39,7 +39,7 @@ const services: Service[] = [
     title: 'CAD-Optimierung',
     subtitle: 'Maximale Effizienz durch optimierte Daten',
     description: 'Wir optimieren Ihre CAD-Modelle für bessere Performance und Qualität. Durch professionelle Fehlerbereinigung und Geometrieoptimierung erreichen wir maximale Effizienz bei minimaler Dateigröße.',
-    modelPath: '/models/optimization-demo.stl',
+    modelPath: '/static/models/optimization-demo.stl',
     link: '/services/cad-optimization',
     titleColor: '#96ABC2',
     features: [
@@ -60,7 +60,7 @@ const services: Service[] = [
     title: 'Datenkonvertierung',
     subtitle: 'Nahtlose Formatumwandlung',
     description: 'Professionelle Konvertierung Ihrer CAD-Daten in alle gängigen Formate. Wir gewährleisten dabei höchste Präzision und Datenqualität bei der Umwandlung.',
-    modelPath: '/models/conversion-demo.stl',
+    modelPath: '/static/models/conversion-demo.stl',
     link: '/services/data-conversion',
     titleColor: '#4A90E2',
     features: [
@@ -81,7 +81,7 @@ const services: Service[] = [
     title: 'Spezialfälle',
     subtitle: 'Maßgeschneiderte Lösungen',
     description: 'Individuelle Lösungen für komplexe CAD-Herausforderungen. Von Reverse Engineering bis zur Aufbereitung von Legacy-Daten finden wir die optimale Lösung für Ihre speziellen Anforderungen.',
-    modelPath: '/models/special-demo.stl',
+    modelPath: '/static/models/special-demo.stl',
     link: '/services/special-cases',
     titleColor: '#FF7B00',
     features: [
