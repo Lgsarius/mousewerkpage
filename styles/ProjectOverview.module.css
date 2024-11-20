@@ -217,12 +217,50 @@
 }
 
 .serviceImageWrapper {
-  aspect-ratio: 16/9;
-  min-height: 200px;
   width: 100%;
-  overflow: hidden;
-  border-radius: 8px;
+  aspect-ratio: 4/3;
+  position: relative;
   background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.modelLoader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .serviceImageWrapper {
+    aspect-ratio: 1/1;
+    min-height: 280px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .serviceImageWrapper {
+    aspect-ratio: 4/3;
+    min-height: 320px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .serviceImageWrapper {
+    aspect-ratio: 16/9;
+    min-height: 400px;
+  }
+}
+
+.serviceImageWrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
 }
 
 @media (min-width: 768px) {

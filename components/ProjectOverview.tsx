@@ -100,7 +100,7 @@ const services: Service[] = [
 ];
 
 const ModelLoader = ({ color = '#4A90E2' }) => (
-  <div className={styles.modelLoader}>
+  <div className={styles.modelLoader} style={{ backgroundColor: '#1a1a1a' }}>
     <div className={styles.blueprint} style={{ borderColor: color }}>
       <div className={styles.gears}>
         <div className={styles.gear} style={{ borderColor: color }}></div>

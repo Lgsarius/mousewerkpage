@@ -14,39 +14,24 @@ interface CADViewerProps {
 
 const CADViewer: React.FC<CADViewerProps> = ({
   modelPath,
-  backgroundColor = 'transparent',
+  backgroundColor = '#1a1a1a',
   modelColor = '#96ABC2'
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const sceneRef = useRef<THREE.Scene | null>(null);
-  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
-  const modelRef = useRef<THREE.Mesh | null>(null);
+  const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!mountRef.current) return;
+
+    const width = mountRef.current.clientWidth;
+    const height = mountRef.current.clientHeight;
 
     const scene = new THREE.Scene();
-    sceneRef.current = scene;
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
 
-    const camera = new THREE.PerspectiveCamera(
-      35,
-      containerRef.current.clientWidth / containerRef.current.clientHeight,
-      0.1,
-      1000
-    );
-    cameraRef.current = camera;
-    camera.position.set(0, 1, 4);
-
-    const renderer = new THREE.WebGLRenderer({ 
-      antialias: true,
-      alpha: true
-    });
-    renderer.setClearColor(0x000000, 0);
-    rendererRef.current = renderer;
-    renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    containerRef.current.appendChild(renderer.domElement);
+    renderer.setSize(width, height);
+    renderer.setClearColor(backgroundColor);
+    mountRef.current.appendChild(renderer.domElement);
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
@@ -85,7 +70,6 @@ const CADViewer: React.FC<CADViewerProps> = ({
         });
 
         const mesh = new THREE.Mesh(geometry, material);
-        modelRef.current = mesh;
         
         const scale = 2 / maxDim;
         mesh.scale.multiplyScalar(scale);
@@ -127,27 +111,26 @@ const CADViewer: React.FC<CADViewerProps> = ({
     animate();
 
     const handleResize = () => {
-      if (!containerRef.current || !cameraRef.current || !rendererRef.current) return;
+      if (!mountRef.current) return;
       
-      const camera = cameraRef.current;
-      const renderer = rendererRef.current;
+      const newWidth = mountRef.current.clientWidth;
+      const newHeight = mountRef.current.clientHeight;
       
-      camera.aspect = containerRef.current.clientWidth / containerRef.current.clientHeight;
+      camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
+      renderer.setSize(newWidth, newHeight);
     };
+
     window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      if (containerRef.current && renderer.domElement) {
-        containerRef.current.removeChild(renderer.domElement);
-      }
+      mountRef.current?.removeChild(renderer.domElement);
       renderer.dispose();
     };
-  }, [modelPath, backgroundColor, modelColor]);
+  }, [backgroundColor, modelColor, modelPath]);
 
-  return <div className={styles.viewerContainer} ref={containerRef} />;
+  return <div ref={mountRef} style={{ width: '100%', height: '100%' }} />;
 };
 
 export default CADViewer; 

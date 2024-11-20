@@ -68,7 +68,7 @@ export default function Home() {
           <div className={styles.heroContent}>
            
             <h1 className={styles.title}>
-              CAD-Optimierung und Datenaufbereitung
+              Expertise in allem rund um CAD
             </h1>
             <p className={styles.description}>
               Professionelle CAD-Dienstleistungen für Ihre technischen Anforderungen. Wir optimieren, reparieren und konvertieren Ihre CAD-Daten mit höchster Präzision und Effizienz.
