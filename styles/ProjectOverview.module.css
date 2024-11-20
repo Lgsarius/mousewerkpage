@@ -1,13 +1,11 @@
 .servicesOverview {
-  padding: 4rem 1rem;
+  padding: 2rem 1rem;
   background: linear-gradient(
     to bottom,
     #1a1a1a,
     #242424,
     #1a1a1a
   );
-  position: relative;
-  overflow: hidden;
 }
 
 .servicesOverview::before {
@@ -27,7 +25,7 @@
 
 .titleContainer {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .preTitle {
@@ -40,9 +38,9 @@
 }
 
 .sectionTitle {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #ffffff;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .titleUnderline {
@@ -56,8 +54,9 @@
 .serviceSection {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 6rem;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding: 1rem 0;
   opacity: 1;
   transform: translateY(0);
   position: relative;
@@ -99,20 +98,21 @@
 }
 
 .serviceTitle {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #ffffff;
   margin: 0;
   transition: color 0.3s ease;
+  line-height: 1.2;
 }
 
 .serviceDescription {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.6;
   color: #cccccc;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   max-width: 650px;
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 1rem;
   border-left: 3px solid rgba(150, 171, 194, 0.2);
 }
 
@@ -133,15 +133,15 @@
 .featureGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
-  margin: 2rem 0;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
 }
 
 .featureItem {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 0.8rem;
+  padding: 0.8rem;
   background-color: rgba(150, 171, 194, 0.05);
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -156,12 +156,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: 12px;
   background-color: rgba(150, 171, 194, 0.1);
   transition: all 0.3s ease;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .featureText {
@@ -172,8 +172,8 @@
 .benefitsList {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.8rem;
-  margin: 2rem 0;
+  gap: 0.6rem;
+  margin: 1.5rem 0;
 }
 
 .benefitItem {
@@ -199,6 +199,9 @@
   font-size: 0.9rem;
   transition: all 0.3s ease;
   text-decoration: none;
+  width: 100%;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .serviceLink:hover {
@@ -215,13 +218,16 @@
 
 .serviceImageWrapper {
   aspect-ratio: 16/9;
-  min-height: 300px;
+  min-height: 200px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
   background: #1a1a1a;
 }
 
 @media (min-width: 768px) {
   .servicesOverview {
-    padding: 8rem 2rem;
+    padding: 4rem 2rem;
   }
 
   .titleContainer {
@@ -229,7 +235,7 @@
   }
 
   .sectionTitle {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
 
   .serviceSection {
@@ -270,6 +276,10 @@
   .benefitsList {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .serviceLink {
+    width: auto;
+  }
 }
 
 @keyframes fadeInUp {
@@ -285,15 +295,15 @@
 
 .modelLoader {
   width: 100%;
-  height: 300px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
- 
+  min-height: 200px;
 }
 
 .blueprint {
-  padding: 20px;
+  padding: 15px;
   border: 2px solid #4A90E2;
   border-radius: 8px;
   background: rgba(74, 144, 226, 0.1);
@@ -301,12 +311,15 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  margin: 10px;
+  width: calc(100% - 20px);
 }
 
 .gears {
   position: relative;
   width: 60px;
   height: 60px;
+  transform: scale(0.8);
 }
 
 .gear {
@@ -358,4 +371,19 @@
   font-size: 14px;
   font-family: monospace;
   letter-spacing: 1px;
+}
+
+@media (min-width: 768px) {
+  .modelLoader {
+    min-height: 300px;
+  }
+
+  .blueprint {
+    padding: 20px;
+    width: auto;
+  }
+
+  .gears {
+    transform: scale(1);
+  }
 }

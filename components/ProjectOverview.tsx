@@ -157,11 +157,7 @@ const ServicesOverview: React.FC = () => {
           <div className={styles.serviceContent}>
             <div className={styles.serviceHeader}>
               <span className={styles.serviceSubtitle}>{service.subtitle}</span>
-              <h3 
-                className={styles.serviceTitle}
-              >
-                {service.title}
-              </h3>
+              <h3 className={styles.serviceTitle}>{service.title}</h3>
             </div>
             
             <p className={styles.serviceDescription}>
@@ -170,7 +166,12 @@ const ServicesOverview: React.FC = () => {
             
             <div className={styles.featureGrid}>
               {service.features.map((feature, i) => (
-                <div key={i} className={styles.featureItem}>
+                <div 
+                  key={i} 
+                  className={styles.featureItem}
+                  role="button"
+                  tabIndex={0}
+                >
                   <div 
                     className={styles.featureIcon}
                     style={{ color: service.titleColor }}
