@@ -1,0 +1,272 @@
+.technicalDrawingContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.fadeOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0) 0%,
+    rgba(26, 26, 26, 0.7) 85%,
+    rgba(26, 26, 26, 1) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.drawingLayer {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  filter: drop-shadow(0 0 2px rgba(150, 171, 194, 0.2));
+}
+
+.backgroundGrid {
+  opacity: 0.3;
+}
+
+.techPattern {
+  opacity: 0.1;
+  animation: patternFloat 30s linear infinite;
+}
+
+.drawPath {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  opacity: 0;
+}
+
+.mainTitle {
+  fill: rgba(150, 171, 194, 0.8);
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.subTitle {
+  fill: rgba(150, 171, 194, 0.6);
+  font-size: 12px;
+}
+
+.viewTitle {
+  fill: rgba(150, 171, 194, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.hiddenLogo {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hiddenLogo:hover {
+  opacity: 0.6;
+  animation: revealLogo 1s ease forwards;
+}
+
+.hiddenText {
+  fill: rgba(150, 171, 194, 0.1);
+  font-size: 8px;
+  font-family: monospace;
+  transition: all 0.3s ease;
+}
+
+.hiddenText:hover {
+  fill: rgba(150, 171, 194, 0.8);
+  font-size: 10px;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.6;
+  }
+}
+
+@keyframes patternFloat {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes revealLogo {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .drawingLayer {
+    opacity: 0.4;
+  }
+  
+  .fadeOverlay {
+    height: 200px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .techPattern,
+  .drawPath {
+    animation: none;
+  }
+} 
+
+/* Staggered animations for different component groups */
+.frameGroup {
+  animation: draw 4s ease forwards;
+}
+
+.armsGroup {
+  animation: draw 4s ease forwards 2s;
+}
+
+.motorGroup {
+  animation: draw 4s ease forwards 4s;
+}
+
+.electronicsGroup {
+  animation: draw 4s ease forwards 6s;
+}
+
+.annotationsGroup {
+  animation: draw 4s ease forwards 8s;
+}
+
+/* Component-specific animations */
+.motorMount circle {
+  transform-origin: center;
+  animation: mountReveal 2s ease forwards;
+  animation-delay: calc(var(--index) * 0.5s + 4s);
+}
+
+.arm path {
+  animation: armExtend 3s ease forwards;
+  animation-delay: calc(var(--index) * 0.5s + 2s);
+}
+
+@keyframes mountReveal {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes armExtend {
+  from {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+/* Hover effects */
+.motorMount:hover circle {
+  filter: drop-shadow(0 0 2px rgba(150, 171, 194, 0.8));
+}
+
+.arm:hover path {
+  stroke-width: 3;
+  transition: stroke-width 0.3s ease;
+}
+
+.titleText {
+  fill: rgba(150, 171, 194, 0.8);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.infoText {
+  fill: rgba(150, 171, 194, 0.6);
+  font-size: 12px;
+}
+
+.blockTitle {
+  fill: rgba(150, 171, 194, 0.8);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.revisionText, .specText, .noteText {
+  fill: rgba(150, 171, 194, 0.6);
+  font-size: 10px;
+}
+
+.dimensionText {
+  fill: rgba(150, 171, 194, 0.6);
+  font-size: 10px;
+  text-anchor: middle;
+}
+
+.detailText, .sectionText {
+  fill: rgba(150, 171, 194, 0.7);
+  font-size: 12px;
+  text-anchor: middle;
+}
+
+/* Animation sequences */
+.titleBlock {
+  animation: fadeIn 1s ease forwards;
+}
+
+.revisionBlock {
+  animation: fadeIn 1s ease forwards 0.5s;
+}
+
+.specsBlock {
+  animation: fadeIn 1s ease forwards 1s;
+}
+
+.notesBlock {
+  animation: fadeIn 1s ease forwards 1.5s;
+}
+
+.dimensionLines {
+  animation: fadeIn 1s ease forwards 2s;
+}
+
+.detailView, .sectionView {
+  animation: fadeIn 1s ease forwards 2.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} 

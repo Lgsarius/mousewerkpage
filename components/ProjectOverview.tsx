@@ -100,13 +100,18 @@ const services: Service[] = [
 ];
 
 const ModelLoader = ({ color = '#4A90E2' }) => (
-  <div className={styles.modelLoader} style={{ backgroundColor: '#1a1a1a' }}>
-    <div className={styles.blueprint} style={{ borderColor: color }}>
-      <div className={styles.gears}>
-        <div className={styles.gear} style={{ borderColor: color }}></div>
-        <div className={styles.gear} style={{ borderColor: color }}></div>
+  <div className={styles.modelLoader}>
+    <div className={styles.blueprint}>
+      <div className={styles.loaderContainer}>
+        <div className={styles.spinner} style={{ borderColor: color }}></div>
+        <div className={styles.progressRing} style={{ borderColor: color }}></div>
+        <div className={styles.cube}>
+          <div className={styles.face} style={{ backgroundColor: color }}></div>
+          <div className={styles.face} style={{ backgroundColor: color }}></div>
+          <div className={styles.face} style={{ backgroundColor: color }}></div>
+        </div>
       </div>
-      <span style={{ color }}>Loading 3D Model...</span>
+      <span style={{ color }}>Loading Model...</span>
     </div>
   </div>
 );
@@ -143,9 +148,9 @@ const ServicesOverview: React.FC = () => {
   return (
     <section className={styles.servicesOverview}>
       <div className={styles.titleContainer}>
-        <span className={styles.preTitle}>Unsere Expertise</span>
-        <h2 className={styles.sectionTitle}>CAD-Dienstleistungen</h2>
-        <div className={styles.titleUnderline}></div>
+        <span className={styles.preTitle} style={{ color: '#96ABC2' }}>Unsere Expertise</span>
+        <h2 className={styles.sectionTitle} style={{ color: '#ffffff' }}>CAD-Dienstleistungen</h2>
+        <div className={styles.titleUnderline} style={{ backgroundColor: '#96ABC2' }}></div>
       </div>
 
       {services.map((service, index) => (

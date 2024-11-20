@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 import { useEffect } from 'react';
 import styles from '../styles/Home.module.css';
@@ -8,6 +9,7 @@ import Link from 'next/link';
 import { BsArrowRight } from 'react-icons/bs';
 import ServicesSection from '../components/ServicesSection';
 import { FaCog, FaDrawPolygon, FaFileImport } from 'react-icons/fa';
+import TechnicalDrawing from "../components/TechnicalDrawing";
 // Image-Import entfernen, falls nicht verwendet
 
 export default function Home() {
@@ -65,6 +67,7 @@ export default function Home() {
       <Header />
       <main className={styles.main}>
         <section className={styles.hero}>
+          <TechnicalDrawing />
           <div className={styles.heroContent}>
            
             <h1 className={styles.title}>
