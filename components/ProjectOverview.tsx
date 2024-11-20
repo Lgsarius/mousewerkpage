@@ -14,7 +14,8 @@ import {
   FaSearch
 } from 'react-icons/fa';
 import Link from 'next/link';
-import CADViewer from './CADViewer';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 
 interface Feature {
   icon: React.ReactNode;
@@ -111,6 +112,11 @@ const ModelLoader = ({ color = '#4A90E2' }) => (
   </div>
 );
 
+const CADViewer = dynamic(() => import('./CADViewer'), {
+  loading: () => <ModelLoader />,
+  ssr: false
+});
+
 const ServicesOverview: React.FC = () => {
   const [activeService, setActiveService] = useState<number | null>(null);
 
@@ -178,11 +184,13 @@ const ServicesOverview: React.FC = () => {
           </div>
 
           <div className={styles.serviceImageWrapper}>
-            <CADViewer
-              modelPath={service.modelPath}
-              backgroundColor="#1a1a1a"
-              modelColor={service.titleColor}
-            />
+            <Suspense fallback={<ModelLoader />}>
+              <CADViewer
+                modelPath={service.modelPath}
+                backgroundColor="#1a1a1a"
+                modelColor={service.titleColor}
+              />
+            </Suspense>
           </div>
         </div>
       ))}
