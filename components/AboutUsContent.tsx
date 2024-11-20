@@ -1,29 +1,35 @@
 /* eslint-disable */
 import styles from "@/styles/AboutUsContent.module.css";
-import { FaRocket, FaPuzzlePiece, FaLaptopCode, FaUsers, FaArrowRight, FaCog, FaDrawPolygon, FaFileImport, FaTools } from "react-icons/fa";
+import {  FaArrowRight, FaCog, FaDrawPolygon, FaFileImport, FaTools, FaCheck } from "react-icons/fa";
 import Link from "next/link";
+import dynamic from 'next/dynamic';
+import HeroModel from './HeroModel';
 
 export default function AboutUsContent() {
   const features = [
     { 
-      icon: <FaDrawPolygon className={styles.icon} />, 
+      icon: <FaDrawPolygon />, 
       title: "CAD-Expertise",
-      description: "Erfahrung in der Optimierung und Reparatur von CAD-Modellen verschiedenster Formate."
+      description: "Erfahrung in der Optimierung und Reparatur von CAD-Modellen verschiedenster Formate.",
+      benefits: ["3D Modellierung", "Technische Zeichnungen", "Reverse Engineering"]
     },
     { 
-      icon: <FaFileImport className={styles.icon} />, 
+      icon: <FaFileImport />, 
       title: "Datenkonvertierung",
-      description: "Professionelle Umwandlung und Aufbereitung Ihrer CAD-Daten in alle gängigen Formate."
+      description: "Professionelle Umwandlung und Aufbereitung Ihrer CAD-Daten in alle gängigen Formate.",
+      benefits: ["Alle CAD Formate", "Qualitätssicherung", "Schnelle Bearbeitung"]
     },
     { 
-      icon: <FaCog className={styles.icon} />, 
+      icon: <FaCog />, 
       title: "Technische Präzision",
-      description: "Höchste Genauigkeit bei der Bearbeitung Ihrer CAD-Modelle und technischen Zeichnungen."
+      description: "Höchste Genauigkeit bei der Bearbeitung Ihrer CAD-Modelle und technischen Zeichnungen.",
+      benefits: ["Maßgenau", "Normgerecht", "Qualitätsgeprüft"]
     },
     { 
-      icon: <FaTools className={styles.icon} />, 
+      icon: <FaTools />, 
       title: "Individuelle Lösungen",
-      description: "Maßgeschneiderte CAD-Dienstleistungen für Ihre spezifischen technischen Anforderungen."
+      description: "Maßgeschneiderte CAD-Dienstleistungen für Ihre spezifischen technischen Anforderungen.",
+      benefits: ["Kundenspezifisch", "Flexibel", "Innovativ"]
     }
   ];
 
@@ -31,15 +37,18 @@ export default function AboutUsContent() {
     <div className={styles.container}>
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
-          <h1 className={styles.title}>Über Mousewerk</h1>
-          <p className={styles.subtitle}>Ihr Spezialist für CAD-Optimierung</p>
-          <div className={styles.heroDescription}>
-            <p>
-              Bei Mousewerk sind wir Experten für CAD-Datenaufbereitung und -Optimierung. 
-              Unsere Mission ist es, technische Zeichnungen und 3D-Modelle zu optimieren 
-              und an Ihre spezifischen Anforderungen anzupassen.
-            </p>
+          <div className={styles.heroText}>
+            <h1 className={styles.title}>Über Mousewerk</h1>
+            <p className={styles.subtitle}>Ihr Spezialist für CAD-Optimierung</p>
+            <div className={styles.heroDescription}>
+              <p>
+                Bei Mousewerk sind wir Experten für CAD-Datenaufbereitung und -Optimierung. 
+                Unsere Mission ist es, technische Zeichnungen und 3D-Modelle zu optimieren 
+                und an Ihre spezifischen Anforderungen anzupassen.
+              </p>
+            </div>
           </div>
+          <HeroModel />
         </div>
       </section>
 
@@ -61,21 +70,38 @@ export default function AboutUsContent() {
         <div className={styles.featureGrid}>
           {features.map((feature, index) => (
             <div key={index} className={styles.featureItem}>
-              <div className={styles.featureIcon}>{feature.icon}</div>
-              <h3>{feature.title}</h3>
+              <div className={styles.featureHeader}>
+                <div className={styles.featureIcon}>{feature.icon}</div>
+                <h3>{feature.title}</h3>
+              </div>
               <p>{feature.description}</p>
+              <ul className={styles.benefitsList}>
+                {feature.benefits.map((benefit, idx) => (
+                  <li key={idx}>
+                    <FaCheck className={styles.checkIcon} />
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </section>
 
       <section className={styles.ctaSection}>
-        <h2>Bereit für Ihr nächstes Projekt?</h2>
-        <p>Lassen Sie uns gemeinsam Ihre digitale Vision verwirklichen.</p>
-        <Link href="/contact" className={styles.ctaButton}>
-          <span>Projekt anfragen</span>
-          <FaArrowRight />
-        </Link>
+        <div className={styles.ctaContent}>
+          <h2 className={styles.ctaTitle}>Bereit für Ihr nächstes Projekt?</h2>
+          <p className={styles.ctaDescription}>
+            Lassen Sie uns gemeinsam Ihre Vision verwirklichen.
+          </p>
+          <Link href="/contact" className={styles.ctaButton}>
+            <div className={styles.buttonContent}>
+              <span>Projekt anfragen</span>
+              <FaArrowRight className={styles.arrowIcon} />
+            </div>
+            <div className={styles.buttonHighlight} />
+          </Link>
+        </div>
       </section>
     </div>
   );

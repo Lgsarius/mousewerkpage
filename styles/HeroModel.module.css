@@ -1,0 +1,44 @@
+.modelContainer {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: rgba(150, 171, 194, 0.03);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(150, 171, 194, 0.1);
+}
+
+.axisLabels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.axisLabel {
+  position: absolute;
+  font-size: 14px;
+  font-weight: 500;
+  transform: translate(-50%, -50%);
+}
+
+.xLabel {
+  color: #ff4b5c;
+}
+
+.yLabel {
+  color: #2ECC71;
+}
+
+.zLabel {
+  color: #3498DB;
+}
+
+@media (max-width: 768px) {
+  .modelContainer {
+    height: 400px;
+  }
+  
+  .axisLabel {
+    font-size: 12px;
+  }
+} 

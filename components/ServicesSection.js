@@ -127,7 +127,7 @@ export default function ServicesSection() {
         <div className={`${styles.ctaContainer} ${inView ? styles.animate : ''}`}>
           <a href="/request" className={styles.ctaButton}>
             <span className={styles.ctaText}>Jetzt Projekt anfragen</span>
-            <div className={styles.ctaArrow}>→</div>
+           
           </a>
         </div>
       </div>
