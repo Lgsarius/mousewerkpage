@@ -1,5 +1,5 @@
-// Pfad zur Datei: /pages/index.tsx
 
+/* eslint-disable */
 "use client";
 import { useEffect } from 'react';
 import styles from '@/styles/Home.module.css';

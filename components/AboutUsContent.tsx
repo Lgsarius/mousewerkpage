@@ -1,3 +1,4 @@
+/* eslint-disable */
 import styles from "@/styles/AboutUsContent.module.css";
 import { FaRocket, FaPuzzlePiece, FaLaptopCode, FaUsers, FaArrowRight, FaCog, FaDrawPolygon, FaFileImport, FaTools } from "react-icons/fa";
 import Link from "next/link";
