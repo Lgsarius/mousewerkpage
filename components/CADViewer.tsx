@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import styles from '@/styles/CADViewer.module.css';
 
 interface CADViewerProps {
@@ -37,7 +37,6 @@ const CADViewer: React.FC<CADViewerProps> = ({
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.screenSpacePanning = true;
-    controls.target.set(0, 0.5, 0);
     controls.minDistance = 2;
     controls.maxDistance = 10;
 
@@ -52,47 +51,43 @@ const CADViewer: React.FC<CADViewerProps> = ({
     directionalLight2.position.set(-1, 0, -2);
     scene.add(directionalLight2);
 
-    const loader = new STLLoader();
+    const loader = new GLTFLoader();
     loader.load(
       modelPath,
-      (geometry) => {
-        geometry.center();
+      (gltf) => {
+        const model = gltf.scene;
         
-        const box = new THREE.Box3().setFromObject(new THREE.Mesh(geometry));
+        // Center the model
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
         const size = box.getSize(new THREE.Vector3());
         const maxDim = Math.max(size.x, size.y, size.z);
         
-        const material = new THREE.MeshPhongMaterial({
-          color: modelColor,
-          specular: 0x111111,
-          shininess: 200,
-          side: THREE.DoubleSide
+        // Scale model to fit view
+        const scale = 2 / maxDim;
+        model.scale.multiplyScalar(scale);
+        
+        // Center model
+        model.position.sub(center.multiplyScalar(scale));
+        model.position.y = 0;
+
+        // Apply color to all materials
+        model.traverse((child) => {
+          if (child instanceof THREE.Mesh) {
+            child.material = new THREE.MeshPhongMaterial({
+              color: modelColor,
+              specular: 0x111111,
+              shininess: 200
+            });
+          }
         });
 
-        const mesh = new THREE.Mesh(geometry, material);
-        
-        const scale = 2 / maxDim;
-        mesh.scale.multiplyScalar(scale);
-        
-        mesh.position.y = 0.5;
+        scene.add(model);
 
-        scene.add(mesh);
-
-        const wireframe = new THREE.LineSegments(
-          new THREE.WireframeGeometry(geometry),
-          new THREE.LineBasicMaterial({
-            color: 0xffffff,
-            transparent: true,
-            opacity: 0.1
-          })
-        );
-        wireframe.scale.copy(mesh.scale);
-        wireframe.position.copy(mesh.position);
-        scene.add(wireframe);
-
+        // Position camera
         const distance = maxDim * 1.5;
         camera.position.set(distance, distance/1.5, distance);
-        camera.lookAt(new THREE.Vector3(0, 0.5, 0));
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
         controls.update();
       },
       (xhr) => {
