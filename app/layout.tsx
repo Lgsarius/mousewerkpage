@@ -23,14 +23,14 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://mousewerk.de'),
   title: {
-    template: '%s | Mousewerk',
-    default: 'Mousewerk | CAD-Optimierung & Datenaufbereitung'
+    template: '%s | Mousewerk Kassel',
+    default: 'Mousewerk Kassel | CAD-Optimierung & Datenaufbereitung'
   },
-  description: 'Professionelle CAD-Optimierung, Datenkonvertierung und Spezialanfertigungen für die Industrie. Ihr Spezialist für technische Datenverarbeitung.',
-  keywords: 'CAD-Optimierung, Datenkonvertierung, CAD-Daten, Reverse Engineering, Legacy-Daten, Technische Zeichnungen, 3D-Modelle, CAD-Dienstleistungen, Datenaufbereitung, CAD-Reparatur',
+  description: 'Professionelle CAD-Optimierung, Datenkonvertierung und Spezialanfertigungen für die Industrie in Kassel und Umgebung. Ihr lokaler Spezialist für technische Datenverarbeitung in Nordhessen.',
+  keywords: 'CAD-Optimierung Kassel, Datenkonvertierung Kassel, CAD-Daten, Reverse Engineering, Legacy-Daten, Technische Zeichnungen, 3D-Modelle, CAD-Dienstleistungen Nordhessen, Datenaufbereitung, CAD-Reparatur',
   openGraph: {
-    title: 'Mousewerk | CAD-Optimierung & Datenaufbereitung',
-    description: 'Professionelle CAD-Optimierung, Datenkonvertierung und Spezialanfertigungen für die Industrie.',
+    title: 'Mousewerk Kassel | CAD-Optimierung & Datenaufbereitung',
+    description: 'Professionelle CAD-Optimierung und Datenkonvertierung in Kassel. Ihr lokaler Partner für technische Datenverarbeitung in Nordhessen.',
     url: 'https://mousewerk.de',
     siteName: 'Mousewerk',
     images: [
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mousewerk | CAD-Optimierung & Datenaufbereitung',
-    description: 'Professionelle CAD-Optimierung, Datenkonvertierung und Spezialanfertigungen für die Industrie.',
+    title: 'Mousewerk Kassel | CAD-Optimierung & Datenaufbereitung',
+    description: 'Professionelle CAD-Optimierung und Datenkonvertierung in Kassel. Ihr lokaler Partner für technische Datenverarbeitung in Nordhessen.',
     images: ['/LOGO.png'],
   },
   icons: {

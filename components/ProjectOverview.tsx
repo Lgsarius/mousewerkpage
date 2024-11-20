@@ -1,6 +1,6 @@
 /* eslint-disable */
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import styles from '@/styles/ProjectOverview.module.css';
 import { 
   FaDrawPolygon, 
@@ -15,7 +15,6 @@ import {
 } from 'react-icons/fa';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
 
 interface Feature {
   icon: React.ReactNode;
@@ -112,13 +111,34 @@ const ModelLoader = ({ color = '#4A90E2' }) => (
   </div>
 );
 
-const CADViewer = dynamic(() => import('./CADViewer'), {
-  loading: () => <ModelLoader />,
-  ssr: false
-});
+// Lazy load the CADViewer component
+const CADViewer = lazy(() => import('./CADViewer'));
 
 const ServicesOverview: React.FC = () => {
-  const [activeService, setActiveService] = useState<number | null>(null);
+  const [visibleServices, setVisibleServices] = useState<number[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const serviceId = Number(entry.target.getAttribute('data-service-id'));
+            setVisibleServices(prev => [...prev, serviceId]);
+          }
+        });
+      },
+      {
+        rootMargin: '100px',
+        threshold: 0.1
+      }
+    );
+
+    document.querySelectorAll('[data-service-id]').forEach(el => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className={styles.servicesOverview}>
@@ -130,17 +150,15 @@ const ServicesOverview: React.FC = () => {
 
       {services.map((service, index) => (
         <div 
-          key={service.id} 
+          key={service.id}
+          data-service-id={service.id}
           className={`${styles.serviceSection} ${index % 2 === 0 ? styles.even : styles.odd}`}
-          onMouseEnter={() => setActiveService(service.id)}
-          onMouseLeave={() => setActiveService(null)}
         >
           <div className={styles.serviceContent}>
             <div className={styles.serviceHeader}>
               <span className={styles.serviceSubtitle}>{service.subtitle}</span>
               <h3 
                 className={styles.serviceTitle}
-                style={{ color: activeService === service.id ? service.titleColor : undefined }}
               >
                 {service.title}
               </h3>
@@ -184,13 +202,17 @@ const ServicesOverview: React.FC = () => {
           </div>
 
           <div className={styles.serviceImageWrapper}>
-            <Suspense fallback={<ModelLoader />}>
-              <CADViewer
-                modelPath={service.modelPath}
-                backgroundColor="#1a1a1a"
-                modelColor={service.titleColor}
-              />
-            </Suspense>
+            {visibleServices.includes(service.id) ? (
+              <Suspense fallback={<ModelLoader color={service.titleColor} />}>
+                <CADViewer
+                  modelPath={service.modelPath}
+                  backgroundColor="#1a1a1a"
+                  modelColor={service.titleColor}
+                />
+              </Suspense>
+            ) : (
+              <ModelLoader color={service.titleColor} />
+            )}
           </div>
         </div>
       ))}
