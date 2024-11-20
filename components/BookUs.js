@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/BookUs.module.css';
 import { 
-  MdOutlineDesignServices, 
-  MdOutlineDevices, 
-  MdOutlineRocketLaunch, 
-  MdOutlineSecurity 
-} from 'react-icons/md';
+  FaDrawPolygon, 
+  FaFileImport, 
+  FaCog, 
+  FaRobot,
+  FaCheck 
+} from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -14,8 +15,8 @@ export default function BookUs() {
     name: '',
     email: '',
     company: '',
-    projectType: '',
-    budget: '',
+    serviceType: '',
+    fileFormat: '',
     timeline: '',
     description: ''
   });
@@ -54,23 +55,23 @@ export default function BookUs() {
   };
 
   const sendEmail = async (formData) => {
-    const formatBudget = (budget) => {
-      switch(budget) {
-        case '0-1000': return 'bis 1.000€';
-        case '1000-5000': return '1.000€ - 5.000€';
-        case '5000-10000': return '5.000€ - 10.000€';
-        case '10000+': return 'über 10.000€';
-        default: return budget;
+    const formatServiceType = (type) => {
+      switch(type) {
+        case 'optimization': return 'CAD-Optimierung';
+        case 'conversion': return 'Datenkonvertierung';
+        case 'special': return 'Spezialfälle';
+        case 'consulting': return 'CAD-Beratung';
+        default: return type;
       }
     };
 
-    const formatProjectType = (type) => {
-      switch(type) {
-        case 'website': return 'Website-Design';
-        case 'ecommerce': return 'E-Commerce Website';
-        case 'webapp': return 'Web-Anwendung';
-        case 'redesign': return 'Website-Redesign';
-        default: return type;
+    const formatFileFormat = (format) => {
+      switch(format) {
+        case 'step': return 'STEP';
+        case 'iges': return 'IGES';
+        case 'stl': return 'STL';
+        case 'other': return 'Andere Formate';
+        default: return format;
       }
     };
 
@@ -78,8 +79,8 @@ export default function BookUs() {
       name: formData.name,
       email: formData.email,
       company: formData.company || 'Nicht angegeben',
-      project_type: formatProjectType(formData.projectType),
-      budget: formatBudget(formData.budget),
+      service_type: formatServiceType(formData.serviceType),
+      file_format: formatFileFormat(formData.fileFormat),
       timeline: formData.timeline,
       description: formData.description,
       submission_date: new Date().toLocaleString('de-DE', {
@@ -146,8 +147,8 @@ export default function BookUs() {
         name: '',
         email: '',
         company: '',
-        projectType: '',
-        budget: '',
+        serviceType: '',
+        fileFormat: '',
         timeline: '',
         description: ''
       });
@@ -187,56 +188,56 @@ export default function BookUs() {
       />
       <div className={styles.bookUsContainer}>
         <div className={styles.leftColumn}>
-          <h2 className={styles.bookUsTitle}>Gestalten Sie Ihre digitale Präsenz</h2>
+          <h2 className={styles.bookUsTitle}>Optimieren Sie Ihre CAD-Daten</h2>
           <p className={styles.bookUsDescription}>
-            Verwandeln Sie Ihre Vision in eine beeindruckende Realität. Unser Expertenteam ist bereit, eine Website zu erstellen, die nicht nur großartig aussieht, sondern auch Ergebnisse für Ihr Unternehmen liefert.
+            Verwandeln Sie Ihre CAD-Modelle in optimierte, effiziente Daten. Unser Expertenteam steht bereit, 
+            um Ihre technischen Zeichnungen und 3D-Modelle zu optimieren und in die gewünschten Formate zu konvertieren.
           </p>
           <div className={styles.features}>
             <div className={styles.feature}>
               <div className={styles.featureIcon}>
-                <MdOutlineDesignServices className={styles.icon} />
+                <FaDrawPolygon className={styles.icon} />
               </div>
               <div className={styles.featureText}>
-                <h3>Maßgeschneidertes Design</h3>
-                <p>Angepasst an die einzigartige Identität Ihrer Marke</p>
+                <h3>CAD-Optimierung</h3>
+                <p>Effiziente Geometrie und optimierte Dateigrößen</p>
               </div>
             </div>
             <div className={styles.feature}>
               <div className={styles.featureIcon}>
-                <MdOutlineDevices className={styles.icon} />
+                <FaFileImport className={styles.icon} />
               </div>
               <div className={styles.featureText}>
-                <h3>Responsive Entwicklung</h3>
-                <p>Perfekt auf jedem Gerät</p>
+                <h3>Datenkonvertierung</h3>
+                <p>Alle gängigen CAD-Formate</p>
               </div>
             </div>
             <div className={styles.feature}>
               <div className={styles.featureIcon}>
-                <MdOutlineRocketLaunch className={styles.icon} />
+                <FaRobot className={styles.icon} />
               </div>
               <div className={styles.featureText}>
-                <h3>Schnelle Lieferung</h3>
-                <p>Kurze Bearbeitungszeit ohne Qualitätseinbußen</p>
+                <h3>Automatisierung</h3>
+                <p>Effiziente Verarbeitung großer Datenmengen</p>
               </div>
             </div>
             <div className={styles.feature}>
               <div className={styles.featureIcon}>
-                <MdOutlineSecurity className={styles.icon} />
+                <FaCog className={styles.icon} />
               </div>
               <div className={styles.featureText}>
-                <h3>Sicherheit zuerst</h3>
-                <p>Entwickelt nach modernsten Sicherheitsstandards</p>
+                <h3>Spezialanpassungen</h3>
+                <p>Maßgeschneiderte Lösungen für komplexe Anforderungen</p>
               </div>
             </div>
           </div>
         </div>
         <div className={styles.rightColumn}>
-          <h3 className={styles.formTitle}>Projektanfrage</h3>
+          <h3 className={styles.formTitle}>CAD-Projektanfrage</h3>
           <form onSubmit={handleSubmit} className={styles.bookUsForm}>
             <div className={styles.formGroup}>
               <input
                 type="text"
-                id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -248,7 +249,6 @@ export default function BookUs() {
             <div className={styles.formGroup}>
               <input
                 type="email"
-                id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -260,7 +260,6 @@ export default function BookUs() {
             <div className={styles.formGroup}>
               <input
                 type="text"
-                id="company"
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
@@ -271,58 +270,58 @@ export default function BookUs() {
             <div className={styles.formRow}>
               <div className={styles.formGroup}>
                 <select
-                  id="projectType"
-                  name="projectType"
-                  value={formData.projectType}
+                  name="serviceType"
+                  value={formData.serviceType}
                   onChange={handleChange}
                   required
                   className={styles.select}
                 >
-                  <option value="" disabled>Projekttyp</option>
-                  <option value="website">Website-Design</option>
-                  <option value="ecommerce">E-Commerce Website</option>
-                  <option value="webapp">Web-Anwendung</option>
-                  <option value="redesign">Website-Redesign</option>
+                 
+                  <option value="optimization">CAD-Optimierung</option>
+                  <option value="conversion">Datenkonvertierung</option>
+                  <option value="special">Spezialfälle</option>
+                  <option value="consulting">CAD-Beratung</option>
                 </select>
               </div>
               <div className={styles.formGroup}>
                 <select
-                  id="budget"
-                  name="budget"
-                  value={formData.budget}
+                  name="fileFormat"
+                  value={formData.fileFormat}
                   onChange={handleChange}
                   required
                   className={styles.select}
                 >
-                  <option value="" disabled>Budgetrahmen</option>
-                  <option value="0-1000">0€ - 1.000€</option>
-                  <option value="1000-5000">1.000€ - 5.000€</option>
-                  <option value="5000-10000">5.000€ - 10.000€</option>
-                  <option value="10000+">über 10.000€</option>
+                
+                  <option value="step">STEP</option>
+                  <option value="iges">IGES</option>
+                  <option value="stl">STL</option>
+                  <option value="stl">PRT</option>
+                  <option value="stl">JT</option>
+                  <option value="stl">DWG</option>
+                  <option value="stl">DXF</option>
+                  <option value="other">Andere</option>
                 </select>
               </div>
             </div>
             <div className={styles.formGroup}>
               <input
                 type="text"
-                id="timeline"
                 name="timeline"
                 value={formData.timeline}
                 onChange={handleChange}
-                placeholder="Gewünschter Zeitrahmen (z.B. 2 Monate, ASAP)"
+                placeholder="Gewünschter Zeitrahmen (z.B. 1 Woche, ASAP)"
                 required
                 className={styles.input}
               />
             </div>
             <div className={styles.formGroup}>
               <textarea
-                id="description"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
                 required
                 className={styles.textarea}
-                placeholder="Erzählen Sie uns von Ihrem Projekt..."
+                placeholder="Beschreiben Sie Ihr CAD-Projekt (Anzahl der Dateien, aktuelle Formate, spezielle Anforderungen...)"
               ></textarea>
             </div>
             <button 
@@ -330,7 +329,7 @@ export default function BookUs() {
               className={`${styles.submitButton} ${isLoading ? styles.loading : ''}`}
               disabled={isLoading}
             >
-              {isLoading ? 'Wird gesendet...' : 'Beratung anfragen'}
+              {isLoading ? 'Wird gesendet...' : 'Angebot anfordern'}
               {!isLoading && <span className={styles.buttonIcon}>→</span>}
             </button>
           </form>

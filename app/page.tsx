@@ -11,6 +11,7 @@ import { BiCode, BiPalette } from 'react-icons/bi';
 import { IoRocketOutline } from 'react-icons/io5';
 import { BsArrowRight } from 'react-icons/bs';
 import ServicesSection from '@/components/ServicesSection';
+import CADViewer from '@/components/CADViewer';
 import { FaCog, FaDrawPolygon, FaFileImport } from 'react-icons/fa';
 // Image-Import entfernen, falls nicht verwendet
 
@@ -107,6 +108,7 @@ export default function Home() {
         </section>
         <ServicesSection />
         <ProjectOverview />
+
       </main>
       <Footer />
     </div>
