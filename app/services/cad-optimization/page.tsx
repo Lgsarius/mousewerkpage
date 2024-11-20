@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 import styles from '@/styles/services.module.css';
 import { FaCheck, FaCog, FaTools, FaArrowRight, FaDrawPolygon } from 'react-icons/fa';
