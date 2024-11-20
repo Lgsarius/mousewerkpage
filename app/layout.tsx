@@ -24,13 +24,13 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://mousewerk.de'),
   title: {
     template: '%s | Mousewerk',
-    default: 'Mousewerk | Webentwicklung & Digitale Lösungen'
+    default: 'Mousewerk | CAD-Optimierung & Datenaufbereitung'
   },
-  description: 'Mit innovativer Technologie und kreativem Design verwandeln wir Ihre Ideen in beeindruckende digitale Erlebnisse.',
-  keywords: 'Webentwicklung, digitale Lösungen, React, Next.js, Webdesign, UI/UX Design, Webanwendungen, Webagentur, Website-Erstellung',
+  description: 'Professionelle CAD-Optimierung, Datenkonvertierung und Spezialanfertigungen für die Industrie. Ihr Spezialist für technische Datenverarbeitung.',
+  keywords: 'CAD-Optimierung, Datenkonvertierung, CAD-Daten, Reverse Engineering, Legacy-Daten, Technische Zeichnungen, 3D-Modelle, CAD-Dienstleistungen, Datenaufbereitung, CAD-Reparatur',
   openGraph: {
-    title: 'Mousewerk | Webentwicklung & Digitale Lösungen',
-    description: 'Mit innovativer Technologie und kreativem Design verwandeln wir Ihre Ideen in beeindruckende digitale Erlebnisse.',
+    title: 'Mousewerk | CAD-Optimierung & Datenaufbereitung',
+    description: 'Professionelle CAD-Optimierung, Datenkonvertierung und Spezialanfertigungen für die Industrie.',
     url: 'https://mousewerk.de',
     siteName: 'Mousewerk',
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         url: '/LOGO.png',
         width: 1200,
         height: 630,
-        alt: 'Mousewerk - Webentwicklung & Digitale Lösungen',
+        alt: 'Mousewerk - CAD-Optimierung & Datenaufbereitung',
       },
     ],
     locale: 'de_DE',
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mousewerk | Webentwicklung & Digitale Lösungen',
-    description: 'Mit innovativer Technologie und kreativem Design verwandeln wir Ihre Ideen in beeindruckende digitale Erlebnisse.',
+    title: 'Mousewerk | CAD-Optimierung & Datenaufbereitung',
+    description: 'Professionelle CAD-Optimierung, Datenkonvertierung und Spezialanfertigungen für die Industrie.',
     images: ['/LOGO.png'],
   },
   icons: {
@@ -69,6 +69,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: 'your-google-verification-code', // Falls vorhanden
+  },
+  alternates: {
+    canonical: 'https://mousewerk.de',
+  },
+  category: 'technology',
 };
 
 export default function RootLayout({

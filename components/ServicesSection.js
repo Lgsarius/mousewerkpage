@@ -1,46 +1,46 @@
-import { FaCode, FaPencilRuler, FaSearchDollar, FaServer } from 'react-icons/fa';
+import { FaCog, FaDrawPolygon, FaFileImport, FaTools } from 'react-icons/fa';
 import styles from '../styles/ServicesSection.module.css';
 
 export default function ServicesSection() {
   const services = [
     {
-      icon: <FaPencilRuler />,
-      title: "Webdesign",
-      description: "Moderne und benutzerfreundliche Designs, die Ihre Marke perfekt repräsentieren.",
+      icon: <FaDrawPolygon />,
+      title: "CAD-Optimierung",
+      description: "Professionelle Optimierung und Reparatur Ihrer CAD-Modelle für maximale Effizienz.",
       features: [
-        "Responsive Design",
-        "UI/UX Konzeption",
-        "Corporate Design Integration"
+        "Fehlerbereinigung",
+        "Geometrieoptimierung",
+        "Datenkomprimierung"
       ]
     },
     {
-      icon: <FaCode />,
-      title: "Webentwicklung",
-      description: "Professionelle Entwicklung Ihrer Website mit modernsten Technologien.",
+      icon: <FaFileImport />,
+      title: "Datenkonvertierung",
+      description: "Zuverlässige Umwandlung Ihrer CAD-Daten in verschiedene Formate.",
       features: [
-        "React & Next.js",
-        "Performance-Optimierung",
-        "Mobile-First Ansatz"
+        "Format-Konvertierung",
+        "Datenaufbereitung",
+        "Qualitätssicherung"
       ]
     },
     {
-      icon: <FaSearchDollar />,
-      title: "SEO & Marketing",
-      description: "Optimierung Ihrer Online-Präsenz für mehr Sichtbarkeit und Conversions.",
+      icon: <FaCog />,
+      title: "CAD-Anpassung",
+      description: "Maßgeschneiderte Anpassungen und Modifikationen Ihrer CAD-Modelle.",
       features: [
-        "Suchmaschinenoptimierung",
-        "Content-Strategie",
-        "Performance Marketing"
+        "Modellanpassung",
+        "Bauteiloptimierung",
+        "Konstruktionsänderungen"
       ]
     },
     {
-      icon: <FaServer />,
-      title: "Wartung & Support",
-      description: "Zuverlässige Betreuung und Wartung Ihrer Website nach dem Launch.",
+      icon: <FaTools />,
+      title: "Spezialfälle",
+      description: "Lösung komplexer CAD-Herausforderungen und Sonderanfertigungen.",
       features: [
-        "Regelmäßige Updates",
-        "Security-Monitoring",
-        "Technischer Support"
+        "Reverse Engineering",
+        "Legacy-Daten Aufbereitung",
+        "Spezielle Anforderungen"
       ]
     }
   ];
@@ -50,10 +50,10 @@ export default function ServicesSection() {
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.preTitle}>Unsere Leistungen</span>
-          <h2 className={styles.title}>Was wir bieten</h2>
+          <h2 className={styles.title}>CAD-Dienstleistungen</h2>
           <div className={styles.titleUnderline}></div>
           <p className={styles.subtitle}>
-            Professionelle Webentwicklung und Design für Ihren digitalen Erfolg
+            Professionelle CAD-Optimierung und Datenaufbereitung für Ihre technischen Anforderungen
           </p>
         </div>
 

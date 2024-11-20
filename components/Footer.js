@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import styles from '../styles/Footer.module.css';
 import Image from 'next/image';
-import { FaInstagram, FaLinkedin, FaArrowRight } from 'react-icons/fa';
+import { FaLinkedin, FaArrowRight } from 'react-icons/fa';
 
 export default function Footer() {
     return (
@@ -15,10 +15,11 @@ export default function Footer() {
                             <Image src="/logo_trans.png" alt="Mousewerk" width={120} height={120} className={styles.logoImage}/>
                         </Link>
                         <p className={styles.companyDesc}>
-                            Innovative Webdesign-Lösungen für Ihren digitalen Erfolg. Wir gestalten die Zukunft Ihrer Online-Präsenz.
+                            Professionelle CAD-Optimierung und Datenaufbereitung für die Industrie. 
+                            Wir sind Ihr Spezialist für technische Datenverarbeitung.
                         </p>
                         <Link href="/contact" className={styles.ctaButton}>
-                            Anfrage stellen <FaArrowRight className={styles.arrowIcon} />
+                            Projekt anfragen <FaArrowRight className={styles.arrowIcon} />
                         </Link>
                     </div>
 
@@ -26,7 +27,7 @@ export default function Footer() {
                         <div className={styles.navSection}>
                             <h3>Navigation</h3>
                             <ul>
-                                <li><Link href="/portfolio">Portfolio</Link></li>
+                                <li><Link href="/projects">Projekte</Link></li>
                                 <li><Link href="/about">Über uns</Link></li>
                                 <li><Link href="/contact">Kontakt</Link></li>
                             </ul>
@@ -35,9 +36,9 @@ export default function Footer() {
                         <div className={styles.navSection}>
                             <h3>Services</h3>
                             <ul>
-                                <li><Link href="/webdesign">Webdesign</Link></li>
-                                <li><Link href="/development">Entwicklung</Link></li>
-                                <li><Link href="/seo">SEO</Link></li>
+                                <li><Link href="/services/cad-optimization">CAD-Optimierung</Link></li>
+                                <li><Link href="/services/data-conversion">Datenkonvertierung</Link></li>
+                                <li><Link href="/services/special-cases">Spezialfälle</Link></li>
                             </ul>
                         </div>
 
@@ -54,9 +55,6 @@ export default function Footer() {
 
                 <div className={styles.footerBottom}>
                     <div className={styles.socialIcons}>
-                        <Link href="https://www.instagram.com/mousewerk.de/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                            <FaInstagram />
-                        </Link>
                         <Link href="https://www.linkedin.com/company/mousewerk/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                             <FaLinkedin />
                         </Link>

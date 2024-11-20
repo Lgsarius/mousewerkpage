@@ -11,6 +11,7 @@ import { BiCode, BiPalette } from 'react-icons/bi';
 import { IoRocketOutline } from 'react-icons/io5';
 import { BsArrowRight } from 'react-icons/bs';
 import ServicesSection from '@/components/ServicesSection';
+import { FaCog, FaDrawPolygon, FaFileImport } from 'react-icons/fa';
 // Image-Import entfernen, falls nicht verwendet
 
 export default function Home() {
@@ -71,10 +72,10 @@ export default function Home() {
           <div className={styles.heroContent}>
            
             <h1 className={styles.title}>
-              Aus Vision wird digitale Realität
+              CAD-Optimierung und Datenaufbereitung
             </h1>
             <p className={styles.description}>
-              Mit innovativer Technologie und kreativem Design verwandeln wir Ihre Ideen in beeindruckende digitale Erlebnisse. Professionell, zukunftsorientiert und maßgeschneidert für Ihren Erfolg.
+              Professionelle CAD-Dienstleistungen für Ihre technischen Anforderungen. Wir optimieren, reparieren und konvertieren Ihre CAD-Daten mit höchster Präzision und Effizienz.
             </p>
             <div className={styles.ctaContainer}>
               <Link href="#projects" className={styles.ctaButton}>
@@ -86,16 +87,16 @@ export default function Home() {
             </div>
             <ul className={styles.featureList}>
               <li className={styles.featureItem}>
-                <BiCode className={styles.featureIcon} />
-                Individuelle Webentwicklung
+                <FaDrawPolygon className={styles.featureIcon} />
+                CAD-Optimierung & Reparatur
               </li>
               <li className={styles.featureItem}>
-                <BiPalette className={styles.featureIcon} />
-                Modernes UI/UX-Design
+                <FaFileImport className={styles.featureIcon} />
+                Datenkonvertierung
               </li>
               <li className={styles.featureItem}>
-                <IoRocketOutline className={styles.featureIcon} />
-                Leistungsoptimierung
+                <FaCog className={styles.featureIcon} />
+                Spezialanfertigungen
               </li>
             </ul>
           </div>

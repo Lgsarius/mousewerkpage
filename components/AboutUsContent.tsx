@@ -1,28 +1,28 @@
 import styles from "@/styles/AboutUsContent.module.css";
-import { FaRocket, FaPuzzlePiece, FaLaptopCode, FaUsers, FaArrowRight } from "react-icons/fa";
+import { FaRocket, FaPuzzlePiece, FaLaptopCode, FaUsers, FaArrowRight, FaCog, FaDrawPolygon, FaFileImport, FaTools } from "react-icons/fa";
 import Link from "next/link";
 
 export default function AboutUsContent() {
   const features = [
     { 
-      icon: <FaLaptopCode className={styles.icon} />, 
-      title: "Modernste Technologie",
-      description: "Wir setzen auf zukunftssichere Technologien wie React, Next.js und moderne Backend-Lösungen."
+      icon: <FaDrawPolygon className={styles.icon} />, 
+      title: "CAD-Expertise",
+      description: "Erfahrung in der Optimierung und Reparatur von CAD-Modellen verschiedenster Formate."
     },
     { 
-      icon: <FaPuzzlePiece className={styles.icon} />, 
-      title: "Maßgeschneiderte Lösungen",
-      description: "Jedes Projekt wird individuell nach Ihren spezifischen Anforderungen entwickelt."
+      icon: <FaFileImport className={styles.icon} />, 
+      title: "Datenkonvertierung",
+      description: "Professionelle Umwandlung und Aufbereitung Ihrer CAD-Daten in alle gängigen Formate."
     },
     { 
-      icon: <FaRocket className={styles.icon} />, 
-      title: "Schnelle Entwicklung",
-      description: "Effiziente Prozesse ermöglichen eine schnelle Projektrealisierung ohne Qualitätseinbußen."
+      icon: <FaCog className={styles.icon} />, 
+      title: "Technische Präzision",
+      description: "Höchste Genauigkeit bei der Bearbeitung Ihrer CAD-Modelle und technischen Zeichnungen."
     },
     { 
-      icon: <FaUsers className={styles.icon} />, 
-      title: "Nutzerorientiertes Design",
-      description: "Wir entwickeln Interfaces, die Ihre Zielgruppe begeistern und Conversion-Raten steigern."
+      icon: <FaTools className={styles.icon} />, 
+      title: "Individuelle Lösungen",
+      description: "Maßgeschneiderte CAD-Dienstleistungen für Ihre spezifischen technischen Anforderungen."
     }
   ];
 
@@ -31,12 +31,12 @@ export default function AboutUsContent() {
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
           <h1 className={styles.title}>Über Mousewerk</h1>
-          <p className={styles.subtitle}>Digitale Exzellenz gestalten</p>
+          <p className={styles.subtitle}>Ihr Spezialist für CAD-Optimierung</p>
           <div className={styles.heroDescription}>
             <p>
-              Bei Mousewerk verbinden wir technische Innovation mit kreativem Design. 
-              Unsere Mission ist es, digitale Lösungen zu schaffen, die nicht nur 
-              funktional sind, sondern auch begeistern.
+              Bei Mousewerk sind wir Experten für CAD-Datenaufbereitung und -Optimierung. 
+              Unsere Mission ist es, technische Zeichnungen und 3D-Modelle zu optimieren 
+              und an Ihre spezifischen Anforderungen anzupassen.
             </p>
           </div>
         </div>
@@ -47,12 +47,11 @@ export default function AboutUsContent() {
           <div className={styles.missionText}>
             <h2>Unsere Mission</h2>
             <p>
-        Als junges, dynamisches Team bringen wir innovative Ideen und moderne 
-        Technologien zusammen. Unser Ziel ist es, durch die perfekte Verbindung 
-        von Design und Funktionalität digitale Produkte zu schaffen, die begeistern.
-      </p>
+              Als spezialisiertes Team für CAD-Dienstleistungen verbinden wir technisches 
+              Know-how mit effizienten Prozessen. Unser Ziel ist es, Ihre CAD-Daten zu 
+              optimieren und Ihre Produktentwicklung zu beschleunigen.
+            </p>
           </div>
-         
         </div>
       </section>
 
