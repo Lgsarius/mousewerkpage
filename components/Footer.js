@@ -18,7 +18,7 @@ export default function Footer() {
                             Professionelle CAD-Optimierung und Datenaufbereitung für die Industrie. 
                             Wir sind Ihr Spezialist für technische Datenverarbeitung.
                         </p>
-                        <Link href="/contact" className={styles.ctaButton}>
+                        <Link href="/request" className={styles.ctaButton}>
                             Projekt anfragen <FaArrowRight className={styles.arrowIcon} />
                         </Link>
                     </div>
