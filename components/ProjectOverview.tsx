@@ -208,16 +208,147 @@ const ServicesOverview: React.FC = () => {
           </div>
 
           <div className={styles.serviceImageWrapper}>
-            {visibleServices.includes(service.id) ? (
-              <Suspense fallback={<ModelLoader color={service.titleColor} />}>
-                <CADViewer
-                  modelPath={service.modelPath}
-                  modelColor={service.titleColor}
-                />
-              </Suspense>
-            ) : (
-              <ModelLoader color={service.titleColor} />
-            )}
+            <div className={styles.cadInterface}>
+              <div className={styles.cadHeader}>
+                <div className={styles.cadControls}>
+                  <div className={styles.cadControl} style={{ background: '#ff5f57' }}></div>
+                  <div className={styles.cadControl} style={{ background: '#ffbd2e' }}></div>
+                  <div className={styles.cadControl} style={{ background: '#28c940' }}></div>
+                </div>
+                <div className={styles.cadTabs}>
+                  <div className={styles.cadTab + ' ' + styles.active}>
+                    <span className={styles.tabIcon}>📐</span>
+                    {service.title}.model
+                  </div>
+                  <div className={styles.cadTab}>
+                    <span className={styles.tabIcon}>🔧</span>
+                    Properties
+                  </div>
+                </div>
+              </div>
+              
+              <div className={styles.cadToolbar}>
+                {/* Main Tools */}
+                <div className={styles.toolSection}>
+                  <div className={`${styles.cadTool} ${styles.active}`}>
+                    <span className={styles.toolIcon}>⚡</span>
+                    <span className={styles.toolHint}>Select</span>
+                  </div>
+                  <div className={styles.cadTool}>
+                    <span className={styles.toolIcon}>✋</span>
+                    <span className={styles.toolHint}>Pan</span>
+                  </div>
+                  <div className={styles.cadTool}>
+                    <span className={styles.toolIcon}>🔄</span>
+                    <span className={styles.toolHint}>Rotate</span>
+                  </div>
+                  <div className={styles.cadTool}>
+                    <span className={styles.toolIcon}>🔍</span>
+                    <span className={styles.toolHint}>Zoom</span>
+                  </div>
+                </div>
+
+                {/* View Modes */}
+                <div className={styles.toolSection}>
+                  <div className={styles.sectionDivider}></div>
+                  <div className={styles.cadTool}>
+                    <span className={styles.toolIcon}>◯</span>
+                    <span className={styles.toolHint}>Wireframe</span>
+                  </div>
+                  <div className={styles.cadTool}>
+                    <span className={styles.toolIcon}>◗</span>
+                    <span className={styles.toolHint}>Shaded</span>
+                  </div>
+                </div>
+
+                {/* Measure */}
+                <div className={styles.toolSection}>
+                  <div className={styles.sectionDivider}></div>
+                  <div className={styles.cadTool}>
+                    <span className={styles.toolIcon}>📏</span>
+                    <span className={styles.toolHint}>Measure</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.assetTree}>
+                <div className={styles.treeHeader}>
+                  <span className={styles.treeTitle}>Model Structure</span>
+                </div>
+                <div className={styles.treeContent}>
+                  <div className={styles.treeItem}>
+                    <span className={styles.treeIcon}>📁</span>
+                    <span className={styles.treeName}>Assembly</span>
+                  </div>
+                  <div className={`${styles.treeItem} ${styles.treeItemChild}`}>
+                    <span className={styles.treeIcon}>⚙️</span>
+                    <span className={styles.treeName}>Main Body</span>
+                  </div>
+                  <div className={`${styles.treeItem} ${styles.treeItemChild}`}>
+                    <span className={styles.treeIcon}>⚙️</span>
+                    <span className={styles.treeName}>Components</span>
+                  </div>
+                  <div className={`${styles.treeItem} ${styles.treeItemChild} ${styles.treeItemNested}`}>
+                    <span className={styles.treeIcon}>🔧</span>
+                    <span className={styles.treeName}>Part_001</span>
+                  </div>
+                  <div className={`${styles.treeItem} ${styles.treeItemChild} ${styles.treeItemNested}`}>
+                    <span className={styles.treeIcon}>🔧</span>
+                    <span className={styles.treeName}>Part_002</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.modelViewerContainer}>
+                <div className={styles.viewportGrid}></div>
+                <div className={styles.viewportStatus}>
+                  <div className={styles.statusItem}>
+                    <span>X: 0.000</span>
+                    <span>Y: 0.000</span>
+                    <span>Z: 0.000</span>
+                  </div>
+                  <div className={styles.statusItem}>Scale: 1:1</div>
+                  <div className={styles.statusItem}>View: Isometric</div>
+                </div>
+                <div className={styles.axisIndicator}>
+                  <div className={styles.axisGroup}>
+                    <div className={styles.axisLine + ' ' + styles.xAxis}></div>
+                    <span className={styles.axisLabel + ' ' + styles.xLabel}>X</span>
+                  </div>
+                  <div className={styles.axisGroup}>
+                    <div className={styles.axisLine + ' ' + styles.yAxis}></div>
+                    <span className={styles.axisLabel + ' ' + styles.yLabel}>Y</span>
+                  </div>
+                  <div className={styles.axisGroup}>
+                    <div className={styles.axisLine + ' ' + styles.zAxis}></div>
+                    <span className={styles.axisLabel + ' ' + styles.zLabel}>Z</span>
+                  </div>
+                </div>
+                
+                <div className={styles.modelLoader}>
+                  {visibleServices.includes(service.id) ? (
+                    <Suspense fallback={<ModelLoader color={service.titleColor} />}>
+                      <CADViewer
+                        modelPath={service.modelPath}
+                        modelColor={service.titleColor}
+                      />
+                    </Suspense>
+                  ) : (
+                    <ModelLoader color={service.titleColor} />
+                  )}
+                </div>
+
+                <div className={styles.viewportGuides}>
+                  <div className={styles.viewportCenter}>
+                    <div className={styles.viewportCross}></div>
+                    <div className={styles.centerPoint}></div>
+                  </div>
+                  <div className={styles.viewportDimensions}>
+                    <div className={styles.dimensionLine}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       ))}

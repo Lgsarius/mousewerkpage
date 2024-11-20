@@ -1,7 +1,13 @@
 import { FaCog, FaDrawPolygon, FaFileImport, FaTools } from 'react-icons/fa';
 import styles from '../styles/ServicesSection.module.css';
+import { useInView } from 'react-intersection-observer';
 
 export default function ServicesSection() {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
   const services = [
     {
       icon: <FaDrawPolygon />,
@@ -45,13 +51,37 @@ export default function ServicesSection() {
     }
   ];
 
+  const handleMouseMove = (e, card) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
+
   return (
-    <section id="services" className={styles.services}>
+    <section id="services" className={styles.services} ref={ref}>
+      <div className={styles.technicalBackground}>
+        <div className={styles.gridLines}></div>
+        <div className={styles.floatingElements}>
+          {[...Array(5)].map((_, i) => (
+            <div 
+              key={i} 
+              className={styles.floatingShape}
+              style={{ '--delay': i * 2 }}
+            ></div>
+          ))}
+        </div>
+      </div>
+
       <div className={styles.container}>
-        <div className={styles.header}>
+        <div className={`${styles.header} ${inView ? styles.animate : ''}`}>
           <span className={styles.preTitle}>Unsere Leistungen</span>
           <h2 className={styles.title}>CAD-Dienstleistungen</h2>
-          <div className={styles.titleUnderline}></div>
+          <div className={styles.titleUnderline}>
+            <div className={styles.underlineDot}></div>
+          </div>
           <p className={styles.subtitle}>
             Professionelle CAD-Optimierung und Datenaufbereitung für Ihre technischen Anforderungen
           </p>
@@ -61,29 +91,43 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className={styles.serviceCard}
+              className={`${styles.serviceCard} ${inView ? styles.animate : ''}`}
               style={{ '--animation-order': index }}
+              onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.removeProperty('--mouse-x');
+                e.currentTarget.style.removeProperty('--mouse-y');
+              }}
             >
-              <div className={styles.iconWrapper}>
-                {service.icon}
+              <div className={styles.cardContent}>
+                <div className={styles.iconWrapper}>
+                  {service.icon}
+                  <div className={styles.iconGlow}></div>
+                </div>
+                <h3 className={styles.serviceTitle}>{service.title}</h3>
+                <p className={styles.serviceDescription}>{service.description}</p>
+                <ul className={styles.featureList}>
+                  {service.features.map((feature, featureIndex) => (
+                    <li 
+                      key={featureIndex} 
+                      className={styles.featureItem}
+                      style={{ '--feature-delay': featureIndex }}
+                    >
+                      <span className={styles.checkmark}>✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className={styles.serviceTitle}>{service.title}</h3>
-              <p className={styles.serviceDescription}>{service.description}</p>
-              <ul className={styles.featureList}>
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className={styles.featureItem}>
-                    <span className={styles.checkmark}>✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              <div className={styles.cardBorder}></div>
             </div>
           ))}
         </div>
 
-        <div className={styles.ctaContainer}>
+        <div className={`${styles.ctaContainer} ${inView ? styles.animate : ''}`}>
           <a href="/request" className={styles.ctaButton}>
-            Jetzt Projekt anfragen
+            <span className={styles.ctaText}>Jetzt Projekt anfragen</span>
+            <div className={styles.ctaArrow}>→</div>
           </a>
         </div>
       </div>
