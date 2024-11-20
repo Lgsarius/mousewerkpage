@@ -313,13 +313,19 @@
 }
 
 .toolIcon {
-  font-size: 16px;
+  width: 16px;
+  height: 16px;
   color: rgba(150, 171, 194, 0.9);
   transition: transform 0.2s ease;
 }
 
 .cadTool:hover .toolIcon {
   transform: scale(1.1);
+  color: rgba(150, 171, 194, 1);
+}
+
+.cadTool.active .toolIcon {
+  color: #96ABC2;
 }
 
 .toolHint {
@@ -371,6 +377,18 @@
 
   .toolHint {
     display: none;
+  }
+
+  .toolIcon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolIcon {
+    width: 13px;
+    height: 13px;
   }
 }
 

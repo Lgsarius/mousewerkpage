@@ -11,7 +11,14 @@ import {
   FaArrowRight,
   FaRobot,
   FaDatabase,
-  FaSearch
+  FaSearch,
+  FaMousePointer, 
+  FaHandPaper, 
+  FaSync, 
+  FaSearchPlus,
+  FaCircle,
+  FaAdjust,
+  FaRuler
 } from 'react-icons/fa';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -231,19 +238,19 @@ const ServicesOverview: React.FC = () => {
                 {/* Main Tools */}
                 <div className={styles.toolSection}>
                   <div className={`${styles.cadTool} ${styles.active}`}>
-                    <span className={styles.toolIcon}>⚡</span>
+                    <FaMousePointer className={styles.toolIcon} />
                     <span className={styles.toolHint}>Select</span>
                   </div>
                   <div className={styles.cadTool}>
-                    <span className={styles.toolIcon}>✋</span>
+                    <FaHandPaper className={styles.toolIcon} />
                     <span className={styles.toolHint}>Pan</span>
                   </div>
                   <div className={styles.cadTool}>
-                    <span className={styles.toolIcon}>🔄</span>
+                    <FaSync className={styles.toolIcon} />
                     <span className={styles.toolHint}>Rotate</span>
                   </div>
                   <div className={styles.cadTool}>
-                    <span className={styles.toolIcon}>🔍</span>
+                    <FaSearchPlus className={styles.toolIcon} />
                     <span className={styles.toolHint}>Zoom</span>
                   </div>
                 </div>
@@ -252,11 +259,11 @@ const ServicesOverview: React.FC = () => {
                 <div className={styles.toolSection}>
                   <div className={styles.sectionDivider}></div>
                   <div className={styles.cadTool}>
-                    <span className={styles.toolIcon}>◯</span>
+                    <FaCircle className={styles.toolIcon} />
                     <span className={styles.toolHint}>Wireframe</span>
                   </div>
                   <div className={styles.cadTool}>
-                    <span className={styles.toolIcon}>◗</span>
+                    <FaAdjust className={styles.toolIcon} />
                     <span className={styles.toolHint}>Shaded</span>
                   </div>
                 </div>
@@ -265,7 +272,7 @@ const ServicesOverview: React.FC = () => {
                 <div className={styles.toolSection}>
                   <div className={styles.sectionDivider}></div>
                   <div className={styles.cadTool}>
-                    <span className={styles.toolIcon}>📏</span>
+                    <FaRuler className={styles.toolIcon} />
                     <span className={styles.toolHint}>Measure</span>
                   </div>
                 </div>
