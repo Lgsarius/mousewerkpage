@@ -27,11 +27,16 @@ const CADViewer: React.FC<CADViewerProps> = ({
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true
+    });
 
     renderer.setSize(width, height);
-    renderer.setClearColor(backgroundColor);
+    renderer.setClearColor(0x000000, 0);
     mountRef.current.appendChild(renderer.domElement);
+
+    scene.background = null;
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
@@ -40,15 +45,15 @@ const CADViewer: React.FC<CADViewerProps> = ({
     controls.minDistance = 2;
     controls.maxDistance = 10;
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
-    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
-    directionalLight1.position.set(1, 2, 2);
+    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1.0);
+    directionalLight1.position.set(1, 3, 2);
     scene.add(directionalLight1);
 
-    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.4);
-    directionalLight2.position.set(-1, 0, -2);
+    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.6);
+    directionalLight2.position.set(-1, 1, -2);
     scene.add(directionalLight2);
 
     const loader = new GLTFLoader();
@@ -64,20 +69,21 @@ const CADViewer: React.FC<CADViewerProps> = ({
         const maxDim = Math.max(size.x, size.y, size.z);
         
         // Scale model to fit view
-        const scale = 2 / maxDim;
+        const scale = (2 / maxDim) * 6;
         model.scale.multiplyScalar(scale);
         
-        // Center model
+        // Center model using the same scale value
         model.position.sub(center.multiplyScalar(scale));
-        model.position.y = 0;
+        model.position.y = -0.5;
 
-        // Apply color to all materials
+        // Apply enhanced material properties
         model.traverse((child) => {
           if (child instanceof THREE.Mesh) {
             child.material = new THREE.MeshPhongMaterial({
               color: modelColor,
-              specular: 0x111111,
-              shininess: 200
+              specular: 0x333333,
+              shininess: 30,
+              flatShading: false
             });
           }
         });
@@ -85,8 +91,8 @@ const CADViewer: React.FC<CADViewerProps> = ({
         scene.add(model);
 
         // Position camera
-        const distance = maxDim * 1.5;
-        camera.position.set(distance, distance/1.5, distance);
+        const distance = maxDim * 10;
+        camera.position.set(distance, distance/2, distance);
         camera.lookAt(new THREE.Vector3(0, 0, 0));
         controls.update();
       },
@@ -100,6 +106,11 @@ const CADViewer: React.FC<CADViewerProps> = ({
 
     const animate = () => {
       requestAnimationFrame(animate);
+      
+      // Add rotation to the scene (adjust rotationSpeed as needed)
+      const rotationSpeed = 0.002; // radians per frame
+      scene.rotation.y += rotationSpeed;
+      
       controls.update();
       renderer.render(scene, camera);
     };

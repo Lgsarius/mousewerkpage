@@ -39,7 +39,7 @@ const services: Service[] = [
     title: 'CAD-Optimierung',
     subtitle: 'Maximale Effizienz durch optimierte Daten',
     description: 'Wir optimieren Ihre CAD-Modelle für bessere Performance und Qualität. Durch professionelle Fehlerbereinigung und Geometrieoptimierung erreichen wir maximale Effizienz bei minimaler Dateigröße.',
-    modelPath: '/static/models/GearboxAssy.gltf',
+    modelPath: '/static/models/2CylinderEngine.gltf',
     link: '/services/cad-optimization',
     titleColor: '#96ABC2',
     features: [
@@ -207,7 +207,6 @@ const ServicesOverview: React.FC = () => {
               <Suspense fallback={<ModelLoader color={service.titleColor} />}>
                 <CADViewer
                   modelPath={service.modelPath}
-                  backgroundColor="#1a1a1a"
                   modelColor={service.titleColor}
                 />
               </Suspense>
