@@ -3,28 +3,31 @@
 .footer {
     background: linear-gradient(to bottom, #1a1a1a, #121212);
     color: #ffffff;
-    padding: 4rem 0 2rem;
+    padding: 6rem 0 2rem;
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 .footerWrapper {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 4rem;
+    width: 100%;
 }
 
 .footerContent {
     display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 4rem;
-    margin-bottom: 3rem;
+    grid-template-columns: 1fr 2fr;
+    gap: 6rem;
+    margin-bottom: 4rem;
 }
 
 .companySection {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
+    max-width: 400px;
 }
 
 .logoLink {
@@ -74,7 +77,8 @@
 .linksSection {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 4rem;
+    justify-content: flex-end;
 }
 
 .navSection h3 {
@@ -184,14 +188,37 @@
     transform: translateX(3px);
 }
 
+@media (max-width: 1200px) {
+    .footerWrapper {
+        padding: 0 3rem;
+    }
+    
+    .footerContent {
+        gap: 4rem;
+    }
+}
+
 @media (max-width: 968px) {
+    .footer {
+        padding: 4rem 0 2rem;
+    }
+
+    .footerWrapper {
+        padding: 0 2rem;
+    }
+
     .footerContent {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
 
+    .companySection {
+        max-width: 100%;
+    }
+
     .linksSection {
         grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
     }
 }
 
@@ -226,6 +253,11 @@
     }
 
     .companySection {
+        text-align: center;
+        align-items: center;
+    }
+
+    .navSection {
         text-align: center;
     }
 

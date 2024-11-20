@@ -239,19 +239,19 @@ const ServicesOverview: React.FC = () => {
                 <div className={styles.toolSection}>
                   <div className={`${styles.cadTool} ${styles.active}`}>
                     <FaMousePointer className={styles.toolIcon} />
-                    <span className={styles.toolHint}>Select</span>
+                    <span className={styles.toolHint}>Auswählen</span>
                   </div>
                   <div className={styles.cadTool}>
                     <FaHandPaper className={styles.toolIcon} />
-                    <span className={styles.toolHint}>Pan</span>
+                    <span className={styles.toolHint}>Verschieben</span>
                   </div>
                   <div className={styles.cadTool}>
                     <FaSync className={styles.toolIcon} />
-                    <span className={styles.toolHint}>Rotate</span>
+                    <span className={styles.toolHint}>Drehen</span>
                   </div>
                   <div className={styles.cadTool}>
                     <FaSearchPlus className={styles.toolIcon} />
-                    <span className={styles.toolHint}>Zoom</span>
+                    <span className={styles.toolHint}>Vergrößern</span>
                   </div>
                 </div>
 
@@ -260,11 +260,11 @@ const ServicesOverview: React.FC = () => {
                   <div className={styles.sectionDivider}></div>
                   <div className={styles.cadTool}>
                     <FaCircle className={styles.toolIcon} />
-                    <span className={styles.toolHint}>Wireframe</span>
+                    <span className={styles.toolHint}>Drahtmodell</span>
                   </div>
                   <div className={styles.cadTool}>
                     <FaAdjust className={styles.toolIcon} />
-                    <span className={styles.toolHint}>Shaded</span>
+                    <span className={styles.toolHint}>Schattiert</span>
                   </div>
                 </div>
 
@@ -273,35 +273,35 @@ const ServicesOverview: React.FC = () => {
                   <div className={styles.sectionDivider}></div>
                   <div className={styles.cadTool}>
                     <FaRuler className={styles.toolIcon} />
-                    <span className={styles.toolHint}>Measure</span>
+                    <span className={styles.toolHint}>Messen</span>
                   </div>
                 </div>
               </div>
 
               <div className={styles.assetTree}>
                 <div className={styles.treeHeader}>
-                  <span className={styles.treeTitle}>Model Structure</span>
+                  <span className={styles.treeTitle}>Modellstruktur</span>
                 </div>
                 <div className={styles.treeContent}>
                   <div className={styles.treeItem}>
                     <span className={styles.treeIcon}>📁</span>
-                    <span className={styles.treeName}>Assembly</span>
+                    <span className={styles.treeName}>Baugruppe</span>
                   </div>
                   <div className={`${styles.treeItem} ${styles.treeItemChild}`}>
                     <span className={styles.treeIcon}>⚙️</span>
-                    <span className={styles.treeName}>Main Body</span>
+                    <span className={styles.treeName}>Hauptkörper</span>
                   </div>
                   <div className={`${styles.treeItem} ${styles.treeItemChild}`}>
                     <span className={styles.treeIcon}>⚙️</span>
-                    <span className={styles.treeName}>Components</span>
+                    <span className={styles.treeName}>Komponenten</span>
                   </div>
                   <div className={`${styles.treeItem} ${styles.treeItemChild} ${styles.treeItemNested}`}>
                     <span className={styles.treeIcon}>🔧</span>
-                    <span className={styles.treeName}>Part_001</span>
+                    <span className={styles.treeName}>Teil_001</span>
                   </div>
                   <div className={`${styles.treeItem} ${styles.treeItemChild} ${styles.treeItemNested}`}>
                     <span className={styles.treeIcon}>🔧</span>
-                    <span className={styles.treeName}>Part_002</span>
+                    <span className={styles.treeName}>Teil_002</span>
                   </div>
                 </div>
               </div>
@@ -310,12 +310,12 @@ const ServicesOverview: React.FC = () => {
                 <div className={styles.viewportGrid}></div>
                 <div className={styles.viewportStatus}>
                   <div className={styles.statusItem}>
-                    <span>X: 0.000</span>
-                    <span>Y: 0.000</span>
-                    <span>Z: 0.000</span>
+                    <span>X: 0,000</span>
+                    <span>Y: 0,000</span>
+                    <span>Z: 0,000</span>
                   </div>
-                  <div className={styles.statusItem}>Scale: 1:1</div>
-                  <div className={styles.statusItem}>View: Isometric</div>
+                  <div className={styles.statusItem}>Maßstab: 1:1</div>
+                  <div className={styles.statusItem}>Ansicht: Isometrisch</div>
                 </div>
                 <div className={styles.axisIndicator}>
                   <div className={styles.axisGroup}>
