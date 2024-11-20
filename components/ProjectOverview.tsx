@@ -99,6 +99,18 @@ const services: Service[] = [
   }
 ];
 
+const ModelLoader = ({ color = '#4A90E2' }) => (
+  <div className={styles.modelLoader}>
+    <div className={styles.blueprint} style={{ borderColor: color }}>
+      <div className={styles.gears}>
+        <div className={styles.gear} style={{ borderColor: color }}></div>
+        <div className={styles.gear} style={{ borderColor: color }}></div>
+      </div>
+      <span style={{ color }}>Loading 3D Model...</span>
+    </div>
+  </div>
+);
+
 const ServicesOverview: React.FC = () => {
   const [activeService, setActiveService] = useState<number | null>(null);
 
