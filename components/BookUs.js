@@ -11,6 +11,7 @@ import {
 } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
+import { init } from '@emailjs/browser';
 
 export default function BookUs() {
   const [formData, setFormData] = useState({
@@ -48,6 +49,10 @@ export default function BookUs() {
     };
   }, []);
 
+  useEffect(() => {
+    init("QhFhCsS9c6-vZ0GBw");
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -77,33 +82,38 @@ export default function BookUs() {
       }
     };
 
-    const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      company: formData.company || 'Nicht angegeben',
-      service_type: formatServiceType(formData.serviceType),
-      file_format: formatFileFormat(formData.fileFormat),
-      timeline: formData.timeline,
-      description: formData.description,
-      submission_date: new Date().toLocaleString('de-DE', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      })
-    };
-
     try {
-      await emailjs.send(
-        'service_7pyloyq',
-        'template_6q1cpwg',
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company || 'Nicht angegeben',
+        service_type: formatServiceType(formData.serviceType),
+        file_format: formatFileFormat(formData.fileFormat),
+        timeline: formData.timeline,
+        description: formData.description,
+        submission_date: new Date().toLocaleString('de-DE', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+      };
+
+      const adminResponse = await emailjs.send(
+        'service_lk7ep3o',
+        'template_iyiatr5',
         templateParams,
         'QhFhCsS9c6-vZ0GBw'
       );
+
+      if (adminResponse.status !== 200) {
+        throw new Error('Failed to send admin notification');
+      }
+
       return true;
     } catch (error) {
-      console.error('EmailJS Error:', error);
+      console.error('EmailJS Error:', error.text || error.message || 'Unknown error');
       return false;
     }
   };
@@ -128,13 +138,13 @@ export default function BookUs() {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`Database error: ${response.status}`);
       }
 
       const emailSent = await sendEmail(formData);
       
       if (!emailSent) {
-        throw new Error('Email Error');
+        throw new Error('Failed to send emails');
       }
 
       toast.success(
@@ -156,12 +166,11 @@ export default function BookUs() {
       });
 
     } catch (error) {
-      console.error('Error occurred:', error.message || error);
-      console.error('Full error object:', error);
+      console.error('Error details:', error);
       toast.error(
         <div className={styles.toastMessage}>
           <h4>Ein Fehler ist aufgetreten</h4>
-          <p>Bitte versuchen Sie es später erneut.</p>
+          <p>Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.</p>
         </div>,
         { duration: 5000 }
       );

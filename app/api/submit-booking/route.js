@@ -7,7 +7,18 @@ const prisma = new PrismaClient();
 
 export async function POST(request) {
   try {
-    const bookingData = await request.json();
+    const formData = await request.json();
+    
+    // Map serviceType to projectType and prepare booking data
+    const bookingData = {
+      name: formData.name,
+      email: formData.email,
+      company: formData.company || null,
+      projectType: formData.serviceType, // Map serviceType to projectType
+      budget: formData.fileFormat, // Using fileFormat as budget since it's required in schema
+      timeline: formData.timeline,
+      description: formData.description
+    };
 
     const newBooking = await prisma.booking.create({
       data: bookingData,

@@ -114,13 +114,13 @@ export default function BookingsList() {
               <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Project Type</th>
-                <th>Budget</th>
-                <th>Timeline</th>
-                <th>Description</th>
+                <th>Art des Projekts</th>
+                <th>Dateiformat</th>
+                <th>Zeitrahmen</th>
+                <th>Beschreibung</th>
                 <th>Status</th>
-                <th>Notes</th>
-                <th>Actions</th>
+                <th>Notizen</th>
+                <th>Aktionen</th>
               </tr>
             </thead>
             <tbody>
