@@ -1,9 +1,8 @@
 "use client";
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '@/styles/BlogMain.module.css';
-import { FaArrowRight, FaClock, FaTag } from 'react-icons/fa';
+import { FaArrowRight, FaClock } from 'react-icons/fa';
 import { BlogPost } from '@/types/blog';
 import CategoryTag from '@/components/blog/CategoryTag';
 
