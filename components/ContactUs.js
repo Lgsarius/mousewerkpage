@@ -29,10 +29,23 @@ export default function ContactUs() {
     const loadingToast = toast.loading('Ihre Nachricht wird gesendet...', { duration: 3000 });
 
     try {
-      const result = await emailjs.sendForm(
+      const templateParams = {
+        user_name: formData.user_name,
+        user_email: formData.user_email,
+        message: formData.message,
+        date: new Date().toLocaleString('de-DE', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+      };
+
+      const result = await emailjs.send(
         'service_lk7ep3o',
-        'template_iyiatr5',
-        form.current,
+        'template_wkd2oxe',
+        templateParams,
         'QhFhCsS9c6-vZ0GBw'
       );
 
@@ -75,7 +88,7 @@ export default function ContactUs() {
         }}
       />
       <div className={styles.contactContainer}>
-        <h2 className={styles.contactTitle}>Contact Us</h2>
+        <h2 className={styles.contactTitle}>Kontaktieren Sie uns</h2>
         <form ref={form} onSubmit={handleSubmit} className={styles.contactForm}>
           <div className={styles.formGroup}>
             <label htmlFor="user_name" className={styles.label}>Name</label>
@@ -117,13 +130,10 @@ export default function ContactUs() {
             className={styles.submitButton}
             disabled={loading}
           >
-            {loading ? (
-              'Sending...'
-            ) : (
-              <>
-                Send Message <FaPaperPlane style={{ marginLeft: '8px' }} />
-              </>
-            )}
+            <span>
+              {loading ? 'Wird gesendet...' : 'Kontaktieren Sie uns'}
+              {!loading && <FaPaperPlane />}
+            </span>
           </button>
         </form>
       </div>

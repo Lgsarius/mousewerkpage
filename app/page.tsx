@@ -77,8 +77,8 @@ export default function Home() {
               Professionelle CAD-Dienstleistungen für Ihre technischen Anforderungen. Wir optimieren, reparieren und konvertieren Ihre CAD-Daten mit höchster Präzision und Effizienz.
             </p>
             <div className={styles.ctaContainer}>
-              <Link href="#projects" className={styles.ctaButton}>
-                Projekte erkunden <BsArrowRight className={styles.buttonIcon} />
+              <Link href="/services" className={styles.ctaButton}>
+                Was wir bieten <BsArrowRight className={styles.buttonIcon} />
               </Link>
               <Link href="/request" className={`${styles.ctaButton} ${styles.ctaSecondary}`}>
                 Jetzt durchstarten <BsArrowRight className={styles.buttonIcon} />

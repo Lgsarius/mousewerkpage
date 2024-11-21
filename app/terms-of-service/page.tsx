@@ -5,105 +5,103 @@ import styles from '@/styles/TermsOfService.module.css';
 
 export default function TermsOfService() {
   return (
-    <div>
+    <div style={{ background: 'var(--background-dark)' }}>
       <Header />
       <main className={styles.container}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Terms of Service</h1>
-          <p className={styles.subtitle}>Legal Information & Terms of Use</p>
+          <h1 className={styles.title}>Allgemeine Geschäftsbedingungen</h1>
+          <p className={styles.subtitle}>Rechtliche Informationen & Nutzungsbedingungen</p>
         </div>
         
         <section className={styles.termsSection}>
           <div className={styles.termsCard}>
-            <h2 className={styles.sectionTitle}>1. Legal Notice (Impressum)</h2>
+            <h2 className={styles.sectionTitle}>1. Impressum</h2>
             <div className={styles.sectionContent}>
-              <p><strong>Information according to § 5 TMG:</strong></p>
+              <p><strong>Angaben gemäß § 5 TMG:</strong></p>
               <p>MouseWerk<br />
               Oberzwehrener Str. 62b<br />
-            34132 Kassel<br />
-              Germany</p>
+              34132 Kassel<br />
+              Deutschland</p>
               
-              <p><strong>Represented by:</strong><br />
-              [Maurice Kleindienst]</p>
+              <p><strong>Vertreten durch:</strong><br />
+              Maurice Kleindienst</p>
               
-              <p><strong>Contact:</strong><br />
-             
-              Email: support@mousewerk.de</p>
-       
+              <p><strong>Kontakt:</strong><br />
+              E-Mail: support@mousewerk.de</p>
             </div>
           </div>
 
           <div className={styles.termsCard}>
-            <h2 className={styles.sectionTitle}>2. Data Protection (GDPR)</h2>
+            <h2 className={styles.sectionTitle}>2. Datenschutz (DSGVO)</h2>
             <div className={styles.sectionContent}>
-              <p><strong>2.1 Data Controller</strong></p>
-              <p>The data controller for this website is MouseWerk GmbH [contact details as above].</p>
+              <p><strong>2.1 Verantwortlicher</strong></p>
+              <p>Der Verantwortliche für diese Website ist MouseWerk [Kontaktdaten wie oben].</p>
               
-              <p><strong>2.2 Your Rights Under GDPR</strong></p>
+              <p><strong>2.2 Ihre Rechte nach DSGVO</strong></p>
               <ul className={styles.bulletList}>
-                <li>Right to access (Art. 15 GDPR)</li>
-                <li>Right to rectification (Art. 16 GDPR)</li>
-                <li>Right to erasure (Art. 17 GDPR)</li>
-                <li>Right to restriction of processing (Art. 18 GDPR)</li>
-                <li>Right to data portability (Art. 20 GDPR)</li>
-                <li>Right to object (Art. 21 GDPR)</li>
+                <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+                <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+                <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+                <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+                <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+                <li>Recht auf Widerspruch (Art. 21 DSGVO)</li>
               </ul>
             </div>
           </div>
 
           <div className={styles.termsCard}>
-            <h2 className={styles.sectionTitle}>3. Terms of Use</h2>
+            <h2 className={styles.sectionTitle}>3. Nutzungsbedingungen</h2>
             <div className={styles.sectionContent}>
-              <p><strong>3.1 Scope</strong></p>
-              <p>These terms govern the use of MouseWerk&apos;s software and services. By using our services, you agree to these terms.</p>
+              <p><strong>3.1 Geltungsbereich</strong></p>
+              <p>Diese Bedingungen regeln die Nutzung der Software und Dienstleistungen von MouseWerk. Mit der Nutzung unserer Dienste stimmen Sie diesen Bedingungen zu.</p>
               
-              <p><strong>3.2 License Terms</strong></p>
-              <p>Users receive a non-exclusive, non-transferable right to use the software in accordance with these terms.</p>
+              <p><strong>3.2 Lizenzbedingungen</strong></p>
+              <p>Nutzer erhalten ein nicht-exklusives, nicht übertragbares Recht zur Nutzung der Software gemäß diesen Bedingungen.</p>
               
-              <p><strong>3.3 User Obligations</strong></p>
-              <p>Users agree to:</p>
+              <p><strong>3.3 Nutzerpflichten</strong></p>
+              <p>Nutzer verpflichten sich:</p>
               <ul className={styles.bulletList}>
-                <li>Use the software only for legal purposes</li>
-                <li>Maintain the confidentiality of their account credentials</li>
-                <li>Not attempt to circumvent any security measures</li>
-                <li>Not reverse engineer the software</li>
+                <li>Die Software nur für legale Zwecke zu nutzen</li>
+                <li>Die Vertraulichkeit ihrer Zugangsdaten zu wahren</li>
+                <li>Keine Sicherheitsmaßnahmen zu umgehen</li>
+                <li>Die Software nicht zurückzuentwickeln</li>
               </ul>
             </div>
           </div>
 
           <div className={styles.termsCard}>
-            <h2 className={styles.sectionTitle}>4. Liability and Warranty</h2>
+            <h2 className={styles.sectionTitle}>4. Haftung und Gewährleistung</h2>
             <div className={styles.sectionContent}>
-              <p><strong>4.1 Limitation of Liability</strong></p>
-              <p>MouseWerk shall be liable without limitation for damages caused intentionally or by gross negligence, as well as for damages resulting from injury to life, body, or health.</p>
+              <p><strong>4.1 Haftungsbeschränkung</strong></p>
+              <p>MouseWerk haftet unbeschränkt für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit, sowie für vorsätzlich oder grob fahrlässig verursachte Schäden.</p>
               
-              <p><strong>4.2 Warranty</strong></p>
-              <p>The software is provided &quot;as is&quot;. We make no warranties regarding the accuracy, availability, or fitness for a particular purpose.</p>
+              <p><strong>4.2 Gewährleistung</strong></p>
+              <p>Die Software wird "wie besehen" zur Verfügung gestellt. Wir übernehmen keine Gewähr für die Richtigkeit, Verfügbarkeit oder Eignung für einen bestimmten Zweck.</p>
             </div>
           </div>
 
           <div className={styles.termsCard}>
-            <h2 className={styles.sectionTitle}>5. Payment Terms</h2>
+            <h2 className={styles.sectionTitle}>5. Zahlungsbedingungen</h2>
             <div className={styles.sectionContent}>
-              <p><strong>5.1 Pricing</strong></p>
-              <p>All prices are in EUR and include applicable VAT.</p>
+              <p><strong>5.1 Preise</strong></p>
+              <p>Alle Preise verstehen sich in EUR inklusive der gesetzlichen Mehrwertsteuer.</p>
               
-              <p><strong>5.2 Payment Processing</strong></p>
-              <p>Payments are processed securely through our payment service providers in compliance with PSD2 requirements.</p>
+              <p><strong>5.2 Zahlungsabwicklung</strong></p>
+              <p>Zahlungen werden sicher über unsere Zahlungsdienstleister gemäß PSD2-Anforderungen abgewickelt.</p>
             </div>
           </div>
 
           <div className={styles.termsCard}>
-            <h2 className={styles.sectionTitle}>6. Final Provisions</h2>
+            <h2 className={styles.sectionTitle}>6. Schlussbestimmungen</h2>
             <div className={styles.sectionContent}>
-              <p><strong>6.1 Governing Law</strong></p>
-              <p>These terms are governed by German law. The UN Convention on Contracts for the International Sale of Goods (CISG) is excluded.</p>
+              <p><strong>6.1 Geltendes Recht</strong></p>
+              <p>Es gilt deutsches Recht. Das UN-Kaufrecht (CISG) wird ausgeschlossen.</p>
               
-              <p><strong>6.2 Jurisdiction</strong></p>
-              <p>For disputes with merchants, legal entities under public law, or special funds under public law, the exclusive place of jurisdiction is Kassel, Germany.</p>
+              <p><strong>6.2 Gerichtsstand</strong></p>
+              <p>Bei Streitigkeiten mit Kaufleuten, juristischen Personen des öffentlichen Rechts oder öffentlich-rechtlichen Sondervermögen ist der ausschließliche Gerichtsstand Kassel.</p>
               
-              <p><strong>6.3 Contact</strong></p>
-              <p>For questions about these terms, please contact us at{' '}
+              <p><strong>6.3 Kontakt</strong></p>
+              <p>Bei Fragen zu diesen Bedingungen kontaktieren Sie uns bitte unter{' '}
                 <a href="mailto:support@mousewerk.de" className={styles.contactEmail}>
                   support@mousewerk.de
                 </a>

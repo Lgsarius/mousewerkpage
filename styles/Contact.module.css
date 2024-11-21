@@ -9,8 +9,17 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 3rem;
-  border-radius: 1rem;
+  border-radius: 16px;
+  background: rgba(150, 171, 194, 0.03);
   border: 1px solid rgba(150, 171, 194, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contactContainer:hover {
+  background: rgba(150, 171, 194, 0.05);
+  border-color: rgba(150, 171, 194, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .contactTitle {
@@ -42,13 +51,20 @@
 
 .input,
 .textarea {
-  padding: 1rem;
-  border-radius: 0.5rem;
+  padding: 1.2rem;
+  border-radius: 12px;
   border: 1px solid rgba(150, 171, 194, 0.2);
   background-color: rgba(150, 171, 194, 0.05);
   color: #ffffff;
   font-size: 1rem;
   transition: all 0.3s ease;
+  width: 100%;
+}
+
+.input:hover,
+.textarea:hover {
+  background-color: rgba(150, 171, 194, 0.08);
+  border-color: rgba(150, 171, 194, 0.3);
 }
 
 .input:focus,
@@ -56,7 +72,7 @@
   outline: none;
   border-color: #96ABC2;
   background-color: rgba(150, 171, 194, 0.1);
-  box-shadow: 0 0 0 2px rgba(150, 171, 194, 0.1);
+  box-shadow: 0 0 0 3px rgba(150, 171, 194, 0.1);
 }
 
 .textarea {
@@ -65,23 +81,47 @@
 }
 
 .submitButton {
-  background: linear-gradient(45deg, #96ABC2, #4f6a88);
-  color: #ffffff;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 1.2rem 2.5rem;
-  border: none;
-  border-radius: 30px;
   font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
+  font-weight: 500;
+  color: #ffffff;
+  background: transparent;
+  border: 2px solid #96ABC2;
+  border-radius: 12px;
+  overflow: hidden;
   transition: all 0.3s ease;
-  margin-top: 1rem;
-  animation: pulse 2s infinite;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submitButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, #96ABC2, #4f6a88);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .submitButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(150, 171, 194, 0.3);
-  background: linear-gradient(45deg, #4f6a88, #96ABC2);
+  box-shadow: 0 8px 20px rgba(150, 171, 194, 0.2);
+}
+
+.submitButton:hover::before {
+  opacity: 1;
+}
+
+.submitButton span {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 @keyframes pulse {

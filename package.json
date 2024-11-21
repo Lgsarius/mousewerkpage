@@ -27,6 +27,7 @@
     "fortawesome": "^0.0.1-security",
     "framer-motion": "^11.11.10",
     "glidejs": "^2.1.0",
+    "lorem-picsum-wallpaper": "^1.4.0",
     "next": "15.0.1",
     "postcss": "^8",
     "react": "^18.2.0",

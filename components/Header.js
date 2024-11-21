@@ -28,6 +28,7 @@ export default function Header() {
         <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
           <Link href="/contact" className={styles.navLink}>Kontakt</Link>
           <Link href="/about" className={styles.navLink}>Über uns</Link>
+          <Link href="/blog" className={styles.navLink}>Blog</Link>
           <Link href="/request" className={`${styles.navLink} ${styles.signInButton}`}>
             Anfrage
           </Link>

@@ -270,4 +270,106 @@
   .benefitItem {
     padding: 1rem;
   }
+}
+
+.servicesOverview {
+  padding: 4rem 2rem;
+  background: rgba(150, 171, 194, 0.02);
+}
+
+.servicesGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.serviceCard {
+  padding: 2.5rem;
+  background: rgba(150, 171, 194, 0.05);
+  border: 1px solid rgba(150, 171, 194, 0.1);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  background: rgba(150, 171, 194, 0.08);
+  border-color: rgba(150, 171, 194, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.serviceHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.serviceIcon {
+  font-size: 2rem;
+  color: #96ABC2;
+}
+
+.serviceDescription {
+  color: #cccccc;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.featureList li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #cccccc;
+  margin-bottom: 0.5rem;
+}
+
+.featureIcon {
+  color: #96ABC2;
+  font-size: 1rem;
+}
+
+.serviceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #96ABC2;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.serviceLink:hover {
+  color: #ffffff;
+}
+
+.arrowIcon {
+  transition: transform 0.3s ease;
+}
+
+.serviceLink:hover .arrowIcon {
+  transform: translateX(5px);
+}
+
+@media (max-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .servicesOverview {
+    padding: 2rem 1rem;
+  }
 } 
