@@ -283,7 +283,7 @@ export const mockPosts: BlogPost[] = [
           `
         },
         {
-          id: 6,
+          id: "6",
           title: "Automatisierung im CAD-Workflow",
           excerpt: "Wie Sie repetitive Aufgaben in Ihrem CAD-Workflow automatisieren können...",
           category: "Optimierung",
