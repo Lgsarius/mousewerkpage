@@ -1,5 +1,5 @@
-export interface BlogPost {
-  id: number;
+export type BlogPost = {
+  id: string;
   title: string;
   excerpt: string;
   category: string;
