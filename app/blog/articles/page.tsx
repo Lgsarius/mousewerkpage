@@ -10,7 +10,7 @@ import Link from 'next/link';
 // Mock data with picsum.photos placeholder images
 const mockPosts: BlogPost[] = [
   {
-      id: 1,
+      id: "1",
       title: "CAD-Optimierung für bessere Performance",
       excerpt: "Lernen Sie, wie Sie Ihre CAD-Modelle für maximale Leistung optimieren können...",
       category: "Optimierung",
@@ -21,7 +21,7 @@ const mockPosts: BlogPost[] = [
       content: ''
   },
   {
-      id: 2,
+      id: "2",
       title: "Effiziente Datenkonvertierung im CAD-Workflow",
       excerpt: "Entdecken Sie die besten Praktiken für die Konvertierung von CAD-Daten...",
       category: "Konvertierung",
@@ -32,7 +32,7 @@ const mockPosts: BlogPost[] = [
       content: ''
   },
   {
-      id: 3,
+      id: "3",
       title: "Best Practices für CAD-Modellierung",
       excerpt: "Die wichtigsten Grundsätze für effiziente und wartbare CAD-Modelle...",
       category: "Best Practices",
@@ -43,7 +43,7 @@ const mockPosts: BlogPost[] = [
       content: ''
   },
   {
-      id: 4,
+      id: "4",
       title: "Tutorial: Fortgeschrittene CAD-Techniken",
       excerpt: "Schritt-für-Schritt-Anleitung zu fortgeschrittenen Modellierungstechniken...",
       category: "Tutorials",
@@ -54,7 +54,7 @@ const mockPosts: BlogPost[] = [
       content: ''
   },
   {
-      id: 5,
+      id: "5",
       title: "Neue Features in CAD-Software 2024",
       excerpt: "Ein Überblick über die wichtigsten Neuerungen in führenden CAD-Programmen...",
       category: "News",
@@ -65,7 +65,7 @@ const mockPosts: BlogPost[] = [
       content: ''
   },
   {
-      id: 6,
+      id: "6",
       title: "Automatisierung im CAD-Workflow",
       excerpt: "Wie Sie repetitive Aufgaben in Ihrem CAD-Workflow automatisieren können...",
       category: "Optimierung",
@@ -76,7 +76,7 @@ const mockPosts: BlogPost[] = [
       content: ''
   },
   {
-      id: 7,
+      id: "7",
       title: "CAD-Daten sicher archivieren",
       excerpt: "Best Practices für die langfristige Archivierung von CAD-Daten...",
       category: "Best Practices",
@@ -87,7 +87,7 @@ const mockPosts: BlogPost[] = [
       content: ''
   },
   {
-      id: 8,
+      id: "8",
       title: "Einführung in parametrisches Design",
       excerpt: "Grundlagen des parametrischen Designs in modernen CAD-Systemen...",
       category: "Tutorials",

@@ -2,7 +2,7 @@ import type { BlogPost } from '@/types/blog';
 
 export const mockPosts: BlogPost[] = [
     {
-        id: 1,
+        id: "1",
         title: "CAD-Optimierung für bessere Performance",
         excerpt: "Lernen Sie, wie Sie Ihre CAD-Modelle für maximale Leistung optimieren können...",
         category: "Optimierung",
@@ -51,7 +51,7 @@ export const mockPosts: BlogPost[] = [
         `
       },
       {
-        id: 2,
+        id: "2",
         title: "Effiziente Datenkonvertierung im CAD-Workflow",
         excerpt: "Entdecken Sie die besten Praktiken für die Konvertierung von CAD-Daten...",
         category: "Konvertierung",
@@ -100,7 +100,7 @@ export const mockPosts: BlogPost[] = [
         `
       },
   {
-      id: 3,
+      id: "3",
       title: "Best Practices für CAD-Modellierung",
       excerpt: "Die wichtigsten Grundsätze für effiziente und wartbare CAD-Modelle...",
       category: "Best Practices",
@@ -166,7 +166,7 @@ export const mockPosts: BlogPost[] = [
     },
     
   {
-      id: 4,
+      id: "4",
       title: "Tutorial: Fortgeschrittene CAD-Techniken",
       excerpt: "Schritt-für-Schritt-Anleitung zu fortgeschrittenen Modellierungstechniken...",
       category: "Tutorials",
@@ -269,7 +269,7 @@ export const mockPosts: BlogPost[] = [
     }
     ,
         {
-          id: 5,
+          id: "5",
           title: "Neue Features in CAD-Software 2024",
           excerpt: "Ein Überblick über die wichtigsten Neuerungen in führenden CAD-Programmen...",
           category: "News",
@@ -297,7 +297,7 @@ export const mockPosts: BlogPost[] = [
           `
         },
         {
-          id: 7,
+          id: "7",
           title: "CAD-Daten sicher archivieren",
           excerpt: "Best Practices für die langfristige Archivierung von CAD-Daten...",
           category: "Best Practices",
@@ -311,7 +311,7 @@ export const mockPosts: BlogPost[] = [
           `
         },
         {
-          id: 8,
+          id: "8",
           title: "Einführung in parametrisches Design",
           excerpt: "Grundlagen des parametrischen Designs in modernen CAD-Systemen...",
           category: "Tutorials",

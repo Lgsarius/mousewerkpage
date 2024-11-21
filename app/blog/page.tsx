@@ -8,7 +8,7 @@ import CategoryTag from '@/components/blog/CategoryTag';
 
 // Mock data - replace with your actual data
 const featuredPost: BlogPost = {
-    id: 1,
+    id: "1",
     title: "Die Zukunft der CAD-Optimierung: KI-gestützte Modellierung",
     excerpt: "Entdecken Sie, wie künstliche Intelligenz die CAD-Modellierung revolutioniert und welche Möglichkeiten sich dadurch für Konstrukteure eröffnen...",
     category: "Innovation",
