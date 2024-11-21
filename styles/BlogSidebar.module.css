@@ -1,0 +1,113 @@
+.sidebar {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.searchContainer {
+  position: relative;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.8rem 2.5rem;
+  background: rgba(150, 171, 194, 0.05);
+  border: 1px solid rgba(150, 171, 194, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  background: rgba(150, 171, 194, 0.08);
+  border-color: rgba(150, 171, 194, 0.2);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #96ABC2;
+  font-size: 0.9rem;
+}
+
+.clearButton {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #96ABC2;
+  cursor: pointer;
+  padding: 0.2rem;
+  transition: all 0.2s ease;
+}
+
+.clearButton:hover {
+  color: #ffffff;
+}
+
+.categoriesContainer {
+  background: rgba(150, 171, 194, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.categoriesContainer h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.categoryButton {
+  background: none;
+  border: 1px solid rgba(150, 171, 194, 0.1);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  color: #96ABC2;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.categoryButton:hover {
+  background: rgba(150, 171, 194, 0.08);
+  border-color: rgba(150, 171, 194, 0.2);
+}
+
+.categoryButton.active {
+  background: rgba(150, 171, 194, 0.1);
+  border-color: rgba(150, 171, 194, 0.3);
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    top: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .categoriesContainer {
+    padding: 1rem;
+  }
+  
+  .categoryList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.5rem;
+  }
+} 

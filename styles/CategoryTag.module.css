@@ -1,0 +1,30 @@
+.category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(26, 26, 26, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  color: #96ABC2;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+  width: fit-content;
+  border: 1px solid rgba(150, 171, 194, 0.1);
+  transition: all 0.3s ease;
+}
+
+.category:hover {
+  border-color: rgba(150, 171, 194, 0.2);
+  background: rgba(26, 26, 26, 0.95);
+}
+
+.icon {
+  font-size: 0.8rem;
+}
+
+.featured {
+  background: rgba(26, 26, 26, 0.95);
+  border-color: rgba(150, 171, 194, 0.2);
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+} 

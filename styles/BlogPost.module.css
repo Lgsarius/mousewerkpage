@@ -1,0 +1,195 @@
+.blogPost {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.heroSection {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0.8),
+    rgba(26, 26, 26, 0.95)
+  );
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.heroImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 26, 26, 0.8),
+    rgba(26, 26, 26, 0.95)
+  );
+}
+
+.image {
+  object-fit: cover;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #96ABC2;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.backLink:hover {
+  color: #ffffff;
+  gap: 0.8rem;
+}
+
+.category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(150, 171, 194, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  color: #96ABC2;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.meta {
+  display: flex;
+  gap: 2rem;
+  color: #96ABC2;
+  font-size: 0.9rem;
+}
+
+.readTime {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.shareButton {
+  position: sticky;
+  top: 2rem;
+  float: right;
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(150, 171, 194, 0.1);
+  padding: 0.8rem 1.2rem;
+  border-radius: 25px;
+  color: #96ABC2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.shareButton:hover {
+  background: rgba(150, 171, 194, 0.2);
+  color: #ffffff;
+}
+
+.postContent {
+  color: #cccccc;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.postContent h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin: 2.5rem 0 1.5rem;
+}
+
+.postContent h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
+}
+
+.postContent p {
+  margin-bottom: 1.5rem;
+}
+
+.postContent ul {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.postContent li {
+  margin-bottom: 0.5rem;
+}
+
+.notFound {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.notFound h1 {
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 50vh;
+    padding: 3rem 1.5rem;
+  }
+
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+
+  .content {
+    padding: 2rem 1.5rem;
+  }
+
+  .shareButton {
+    position: static;
+    float: none;
+    margin: 0 0 2rem 0;
+    justify-content: center;
+  }
+
+  .postContent {
+    font-size: 1rem;
+  }
+
+  .postContent h2 {
+    font-size: 1.5rem;
+  }
+
+  .postContent h3 {
+    font-size: 1.2rem;
+  }
+} 

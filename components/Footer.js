@@ -29,6 +29,7 @@ export default function Footer() {
                             <ul>
                                 <li><Link href="/projects">Projekte</Link></li>
                                 <li><Link href="/about">Über uns</Link></li>
+                                <li><Link href="/blog">Blog</Link></li>
                                 <li><Link href="/contact">Kontakt</Link></li>
                             </ul>
                         </div>
@@ -48,6 +49,7 @@ export default function Footer() {
                                 <li><Link href="/privacy-policy">Datenschutz</Link></li>
                                 <li><Link href="/imprint">Impressum</Link></li>
                                 <li><Link href="/terms-of-service">AGB</Link></li>
+                               
                             </ul>
                         </div>
                     </div>

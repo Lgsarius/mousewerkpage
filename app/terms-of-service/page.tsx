@@ -76,7 +76,7 @@ export default function TermsOfService() {
               <p>MouseWerk haftet unbeschränkt für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit, sowie für vorsätzlich oder grob fahrlässig verursachte Schäden.</p>
               
               <p><strong>4.2 Gewährleistung</strong></p>
-              <p>Die Software wird "wie besehen" zur Verfügung gestellt. Wir übernehmen keine Gewähr für die Richtigkeit, Verfügbarkeit oder Eignung für einen bestimmten Zweck.</p>
+              <p>Die Software wird &quot;wie besehen&quot; zur Verfügung gestellt. Wir übernehmen keine Gewähr für die Richtigkeit, Verfügbarkeit oder Eignung für einen bestimmten Zweck.</p>
             </div>
           </div>
 

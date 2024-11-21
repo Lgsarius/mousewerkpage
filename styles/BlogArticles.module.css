@@ -1,0 +1,145 @@
+.articlesContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.articlesHeader {
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.backLink {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #96ABC2;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.backLink:hover {
+  color: #ffffff;
+  gap: 0.8rem;
+}
+
+.articlesHeader h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.articlesHeader p {
+  color: #96ABC2;
+  font-size: 1.1rem;
+}
+
+.articlesContent {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+}
+
+.articlesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.resultsInfo {
+  color: #96ABC2;
+  font-size: 0.9rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(150, 171, 194, 0.1);
+}
+
+.postsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.noResults {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(150, 171, 194, 0.05);
+  border-radius: 12px;
+  color: #96ABC2;
+}
+
+.noResults h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.noResults p {
+  margin-bottom: 2rem;
+}
+
+.resetButton {
+  background: rgba(150, 171, 194, 0.1);
+  border: 1px solid rgba(150, 171, 194, 0.2);
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resetButton:hover {
+  background: rgba(150, 171, 194, 0.2);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .articlesContent {
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .articlesContainer {
+    padding: 1rem;
+  }
+
+  .articlesContent {
+    grid-template-columns: 1fr;
+  }
+
+  .articlesHeader {
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .backLink {
+    position: relative;
+    top: 0;
+    transform: none;
+    margin-bottom: 1rem;
+  }
+
+  .articlesHeader h1 {
+    font-size: 2rem;
+  }
+
+  .postsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .articlesHeader h1 {
+    font-size: 1.8rem;
+  }
+
+  .noResults {
+    padding: 2rem 1rem;
+  }
+} 
