@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     template: '%s | Mousewerk Kassel',
     default: 'Mousewerk Kassel | CAD-Optimierung & Datenaufbereitung'
   },
-  description: 'Professionelle CAD-Optimierung, Datenkonvertierung und Spezialanfertigungen für die Industrie in Kassel und Umgebung. Ihr lokaler Spezialist für technische Datenverarbeitung in Nordhessen.',
-  keywords: 'CAD-Optimierung Kassel, Datenkonvertierung Kassel, CAD-Daten, Reverse Engineering, Legacy-Daten, Technische Zeichnungen, 3D-Modelle, CAD-Dienstleistungen Nordhessen, Datenaufbereitung, CAD-Reparatur',
+  description: 'Professionelle CAD Optimierung, Datenkonvertierung und Spezialanfertigungen für die Industrie in Kassel und Umgebung. Ihr lokaler Spezialist für technische Datenverarbeitung in Nordhessen.',
+  keywords: 'CAD Optimierung Kassel, Datenkonvertierung Kassel, CAD Daten, Reverse Engineering, Legacy-Daten, Technische Zeichnungen, 3D-Modelle, CAD-Dienstleistungen Nordhessen, Datenaufbereitung, CAD Kassel, CAD, CAD-Reparatur',
   openGraph: {
     title: 'Mousewerk Kassel | CAD-Optimierung & Datenaufbereitung',
     description: 'Professionelle CAD-Optimierung und Datenkonvertierung in Kassel. Ihr lokaler Partner für technische Datenverarbeitung in Nordhessen.',
