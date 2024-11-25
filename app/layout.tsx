@@ -23,7 +23,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL('https://mousewerk.de'),
   title: {
-    template: '%s | Mousewerk Kassel',
+    template: '%s | Mousewerk CAD Spezialist',
     default: 'Mousewerk Kassel | CAD-Optimierung & Datenaufbereitung'
   },
   description: 'Professionelle CAD Optimierung, Datenkonvertierung und Spezialanfertigungen für die Industrie in Kassel und Umgebung. Ihr lokaler Spezialist für technische Datenverarbeitung in Nordhessen.',
