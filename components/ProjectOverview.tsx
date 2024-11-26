@@ -88,7 +88,7 @@ const services: Service[] = [
     title: 'Spezialfälle',
     subtitle: 'Maßgeschneiderte Lösungen',
     description: 'Individuelle Lösungen für komplexe CAD-Herausforderungen. Von Reverse Engineering bis zur Aufbereitung von Legacy-Daten finden wir die optimale Lösung für Ihre speziellen Anforderungen.',
-    modelPath: '/static/models/stirnradgetriebe.gltf',
+    modelPath: '/static/models/untitled.gltf',
     link: '/services/special-cases',
     titleColor: '#FF7B00',
     features: [
