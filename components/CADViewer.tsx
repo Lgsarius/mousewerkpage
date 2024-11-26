@@ -41,8 +41,8 @@ const CADViewer: React.FC<CADViewerProps> = ({
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.screenSpacePanning = true;
-    controls.minDistance = 2;
-    controls.maxDistance = 10;
+    controls.minDistance = 1;
+    controls.maxDistance = 20;
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
